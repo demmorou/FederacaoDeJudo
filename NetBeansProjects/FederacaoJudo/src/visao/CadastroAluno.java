@@ -94,7 +94,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                                     .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 691, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
