@@ -52,8 +52,6 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         jLabel9.setText("Foto 3x4:");
 
-        jTextField8.setText("jTextField8");
-
         jButton2.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
