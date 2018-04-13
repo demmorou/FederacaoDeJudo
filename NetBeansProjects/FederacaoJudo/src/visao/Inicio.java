@@ -106,6 +106,7 @@ public class Inicio extends javax.swing.JFrame {
                 i.setTitle("Federação de Judô");
                 i.setVisible(true);
                 i.setLocationRelativeTo(null);
+                i.setSize(1059, 608);
             }
         });
     }

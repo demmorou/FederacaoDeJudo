@@ -65,7 +65,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 p.setTitle("Cadastro de Professor");
                 p.setVisible(true);
                 p.setLocationRelativeTo(null);
-                p.setExtendedState(MAXIMIZED_BOTH);
+                p.setSize(1059, 608);
             }
         });
     }
