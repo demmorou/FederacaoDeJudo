@@ -1,6 +1,14 @@
 package visao;
 
+import controle.ConnectionFactory;
 import controle.DAO;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.User;
 
@@ -16,13 +24,14 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         user = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        login = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cad = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 21, 21));
 
         jLabel1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 70, 88));
@@ -34,10 +43,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginActionPerformed(evt);
             }
         });
 
@@ -45,6 +54,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
+        cad.setBackground(new java.awt.Color(253, 234, 231));
         cad.setText("CRIAR USUARIO");
         cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +73,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cad)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(435, 435, 435))
@@ -82,10 +92,10 @@ public class Inicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(login)
                 .addGap(29, 29, 29)
                 .addComponent(cad)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,10 +105,27 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        User u = new User();
+        int cont = 0;
+        String pesquisa = "SELECT usuario, senha FROM user WHERE usuario='"+user.getText()+"'";
+        try {
+            stmt = con.prepareStatement(pesquisa);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                cont++;
+            }
+            if(cont >= 1){
+                JOptionPane.showMessageDialog(null, "Já existe um administrador com esse USUÁRIO ", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na busca!"+ex, "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
     private void cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadActionPerformed
 
@@ -148,10 +175,10 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cad;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton login;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
