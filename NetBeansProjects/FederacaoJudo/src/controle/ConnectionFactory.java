@@ -28,7 +28,7 @@ public class ConnectionFactory {
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, "root", "12345");
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Erro na conexão!", ex);
         }
     }
