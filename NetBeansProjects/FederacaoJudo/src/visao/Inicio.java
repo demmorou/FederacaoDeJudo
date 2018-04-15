@@ -96,27 +96,25 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (password.getText() == "judo123" && user.getText() == "judo"){
-            TelaInicial ti = new TelaInicial();
-            ti.setTitle("Cadastro de Professor");
-            ti.setVisible(true);
-            ti.setLocationRelativeTo(null);
-            ti.setSize(1059, 608);
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou Senha inválido!");
-            password.setText("");
-            user.setText("");
-        }
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadActionPerformed
-        User u = new User();
-        DAO dao = new DAO();
-        u.setSenha(password.getText());
-        u.setUsuario(user.getText());
-        password.setText("");
-        user.setText("");
-        dao.createUser(u);
+
+        NovoUser ti = new NovoUser();
+        ti.setTitle("Cadastro de Professor");
+        ti.setVisible(true);
+        ti.setLocationRelativeTo(null);
+        ti.setSize(1059, 608);
+
+//        User u = new User();
+//        DAO dao = new DAO();
+//        u.setSenha(password.getText());
+//        u.setUsuario(user.getText());
+//        password.setText("");
+//        user.setText("");
+//        dao.createUser(u);
     }//GEN-LAST:event_cadActionPerformed
 
     public static void main(String args[]) {
