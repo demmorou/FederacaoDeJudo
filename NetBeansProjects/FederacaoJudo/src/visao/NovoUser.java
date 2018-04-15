@@ -140,6 +140,8 @@ public class NovoUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os dados Corretamente", "Aviso", JOptionPane.WARNING_MESSAGE);
         }else if(senha.getText().length() > 10){
             JOptionPane.showMessageDialog(null, "Por favor, Sua senha deve conter, no máximo, 10 caracteres!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }else if(usuario.getText().length() > 10){
+            JOptionPane.showMessageDialog(null, "Por favor, Seu usuário deve conter, no máximo, 10 caracteres!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }else{
             
             ResultSet rs = null;
@@ -163,6 +165,9 @@ public class NovoUser extends javax.swing.JFrame {
                     u.setUsuario(usuario.getText());
                     u.setSenha(senha.getText());
                     d.createUser(u);
+                    nome.setText("");
+                    usuario.setText("");
+                    senha.setText("");
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Erro na busca!"+ex, "Aviso", JOptionPane.WARNING_MESSAGE);

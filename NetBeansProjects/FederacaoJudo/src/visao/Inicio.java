@@ -54,7 +54,8 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
-        cad.setBackground(new java.awt.Color(253, 234, 231));
+        cad.setBackground(new java.awt.Color(254, 254, 254));
+        cad.setFont(new java.awt.Font("Cantarell", 0, 15)); // NOI18N
         cad.setText("CRIAR USUARIO");
         cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,9 +82,9 @@ public class Inicio extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1)
-                .addGap(167, 167, 167)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -95,7 +96,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(login)
                 .addGap(29, 29, 29)
                 .addComponent(cad)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,22 +107,42 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-
+        
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         User u = new User();
         int cont = 0;
         String pesquisa = "SELECT usuario, senha FROM user WHERE usuario='"+user.getText()+"'";
+        String pass = null, us = null;
+        
         try {
             stmt = con.prepareStatement(pesquisa);
             rs = stmt.executeQuery();
+            
             while(rs.next()){
+                us = rs.getString("usuario");
+                pass = rs.getString("senha");
                 cont++;
             }
-            if(cont >= 1){
-                JOptionPane.showMessageDialog(null, "Já existe um administrador com esse USUÁRIO ", "Aviso", JOptionPane.WARNING_MESSAGE);
-            }
+            if(cont == 1){
+                System.out.println(us);
+                if(user.getText().equals(us) && password.getText().equals(pass)){
+                    TelaInicial i = new TelaInicial();
+                    i.setTitle("Tela Inicial");
+                    i.setVisible(true);
+                    i.setLocationRelativeTo(null);
+                    i.setSize(1059, 608);
+                }else if(user.getText().equals(us) == false || password.getText().equals(pass) == false){
+                    JOptionPane.showMessageDialog(null, "Dados não conferem!", "Aviso", JOptionPane.WARNING_MESSAGE);   
+                    password.setText("");
+                    user.setText("");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "O Usuário informado não existe!", "Aviso", JOptionPane.WARNING_MESSAGE);
+                password.setText("");
+                user.setText("");
+            }      
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro na busca!"+ex, "Aviso", JOptionPane.WARNING_MESSAGE);
         }

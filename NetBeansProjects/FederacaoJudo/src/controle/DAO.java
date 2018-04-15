@@ -33,10 +33,11 @@ public class DAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO user (Id_user,usuario,senha)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO user (Id_user,usuario,senha,nome)VALUES(?,?,?,?)");
             stmt.setInt(1, 0);
             stmt.setString(2, a.getUsuario());
             stmt.setString(3, a.getSenha());
+            stmt.setString(4, a.getNome());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");
