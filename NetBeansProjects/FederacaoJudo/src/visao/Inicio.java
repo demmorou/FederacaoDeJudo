@@ -124,10 +124,12 @@ public class Inicio extends javax.swing.JFrame {
                 us = rs.getString("usuario");
                 pass = rs.getString("senha");
                 cont++;
+                System.out.println(us+pass);
             }
+            
             if(cont == 1){
                 System.out.println(us);
-                if(user.getText().equals(us) && password.getText().equals(pass)){
+                if((user.getText().equals(us)) && (password.getText().equals(pass))){
                     TelaInicial i = new TelaInicial();
                     i.setTitle("Tela Inicial");
                     i.setVisible(true);
