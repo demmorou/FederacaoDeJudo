@@ -33,7 +33,6 @@ public class Inicio extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cad = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,28 +61,6 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
-        cad.setBackground(new java.awt.Color(254, 254, 254));
-        cad.setFont(new java.awt.Font("Cantarell", 0, 15)); // NOI18N
-        cad.setText("CRIAR USUARIO");
-        cad.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                cadMouseMoved(evt);
-            }
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                cadMouseDragged(evt);
-            }
-        });
-        cad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                cadMouseReleased(evt);
-            }
-        });
-        cad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,8 +72,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cad))
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(106, 106, 106))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,11 +86,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
                 .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
-                .addComponent(cad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,11 +137,9 @@ public class Inicio extends javax.swing.JFrame {
                 us = rs.getString("usuario");
                 pass = rs.getString("senha");
                 cont++;
-                System.out.println(us+pass);
             }
             
             if(cont == 1){
-                System.out.println(us);
                 if((user.getText().equals(us)) && (password.getText().equals(pass))){
                     TelaInicial i = new TelaInicial();
                     i.setTitle("Tela Inicial");
@@ -188,28 +160,6 @@ public class Inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro na busca!"+ex, "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_loginActionPerformed
-
-    private void cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadActionPerformed
-
-        NovoUser ti = new NovoUser();
-        ti.setTitle("Cadastro de Professor");
-        ti.setVisible(true);
-        ti.setLocationRelativeTo(null);
-        ti.setSize(1059, 608);
-
-    }//GEN-LAST:event_cadActionPerformed
-
-    private void cadMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseReleased
-
-    }//GEN-LAST:event_cadMouseReleased
-
-    private void cadMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseMoved
-        
-    }//GEN-LAST:event_cadMouseMoved
-
-    private void cadMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseDragged
-        
-    }//GEN-LAST:event_cadMouseDragged
 
     public static void main(String args[]) {
         try {
@@ -252,7 +202,6 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

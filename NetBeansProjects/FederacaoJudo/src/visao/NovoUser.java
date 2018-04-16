@@ -274,11 +274,6 @@ public class NovoUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Confirmação de senha não confere!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }else{
             
-//            ConfirmacaoUsuario c = new ConfirmacaoUsuario();
-//            c.setVisible(true);
-//            c.setLocationRelativeTo(null);
-            
-            
             ResultSet rs = null;
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement stmt = null;
@@ -294,17 +289,17 @@ public class NovoUser extends javax.swing.JFrame {
                 if(cont >= 1){
                     JOptionPane.showMessageDialog(null, "Já existe um administrador com esse USUÁRIO ", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }else{
-                    DAO d = new DAO();
-
-                    u.setNome(nome.getText());
-                    u.setUsuario(usuario.getText());
-                    u.setSenha(senha.getText());
-                    d.createUser(u);
-                    nome.setText("");
-                    usuario.setText("");
-                    senha.setText("");
-                    conf_senha.setText("");
-                }
+                        DAO d = new DAO();
+                        u.setNome(nome.getText());
+                        u.setUsuario(usuario.getText());
+                        u.setSenha(senha.getText());
+                        d.createUser(u);
+                        nome.setText("");
+                        usuario.setText("");
+                        senha.setText("");
+                        conf_senha.setText("");
+                    }
+                
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Erro na busca!"+ex, "Aviso", JOptionPane.WARNING_MESSAGE);
             }
