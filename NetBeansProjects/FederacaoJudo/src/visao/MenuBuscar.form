@@ -37,11 +37,11 @@
                       <EmptySpace min="-2" pref="505" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1_alterar" min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="alterar_botao" min="-2" pref="72" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1_excluir" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="excluir_botao" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1_voltar" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="voltar_botao" min="-2" pref="78" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="397" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -69,9 +69,9 @@
               <Component id="jScrollPane1" min="-2" pref="136" max="-2" attributes="0"/>
               <EmptySpace pref="84" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1_alterar" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jButton1_excluir" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jButton1_voltar" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="alterar_botao" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="excluir_botao" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="voltar_botao" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
           </Group>
@@ -107,7 +107,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextField1Nome" min="-2" pref="267" max="-2" attributes="0"/>
+                                  <Component id="nome" min="-2" pref="267" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="buscar_nome" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -116,13 +116,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextField1Nome_mae" min="-2" pref="267" max="-2" attributes="0"/>
+                                  <Component id="nome_mae" min="-2" pref="267" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   <Component id="buscar_nome_mae" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                                  <Component id="jButton1_academia" min="-2" max="-2" attributes="0"/>
+                                  <Component id="academia_botao" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -134,11 +134,11 @@
                           <EmptySpace min="-2" pref="330" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextFieldcpf" min="-2" pref="267" max="-2" attributes="0"/>
+                          <Component id="cpf" min="-2" pref="267" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jButton1_cpf" min="-2" max="-2" attributes="0"/>
+                          <Component id="cpf_botao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="194" max="32767" attributes="0"/>
-                          <Component id="jTextField1_academia" min="-2" pref="269" max="-2" attributes="0"/>
+                          <Component id="academia" min="-2" pref="269" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -155,9 +155,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1Nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nome" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buscar_nome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1Nome_mae" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nome_mae" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buscar_nome_mae" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -167,10 +167,10 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldcpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1_academia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1_academia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpf_botao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="academia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="academia_botao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
@@ -188,16 +188,16 @@
             <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1Nome_mae">
+        <Component class="javax.swing.JTextField" name="nome_mae">
         </Component>
         <Component class="javax.swing.JButton" name="buscar_nome_mae">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldcpf">
+        <Component class="javax.swing.JTextField" name="cpf">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldcpfActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -205,14 +205,14 @@
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1_cpf">
+        <Component class="javax.swing.JButton" name="cpf_botao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1Nome">
+        <Component class="javax.swing.JTextField" name="nome">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1NomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -225,9 +225,9 @@
             <Property name="text" type="java.lang.String" value="Academia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1_academia">
+        <Component class="javax.swing.JTextField" name="academia">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1_academia">
+        <Component class="javax.swing.JButton" name="academia_botao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
@@ -250,17 +250,17 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1_alterar">
+    <Component class="javax.swing.JButton" name="alterar_botao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1_excluir">
+    <Component class="javax.swing.JButton" name="excluir_botao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1_voltar">
+    <Component class="javax.swing.JButton" name="voltar_botao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Voltar"/>
       </Properties>

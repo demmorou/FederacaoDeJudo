@@ -69,7 +69,7 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="cadastrar_menu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
@@ -94,17 +94,17 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="buscar_menu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="campeonato_menu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Campeonatos"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="sair_menu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>

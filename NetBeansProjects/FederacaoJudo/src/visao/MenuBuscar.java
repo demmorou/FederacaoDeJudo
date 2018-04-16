@@ -30,22 +30,22 @@ public class MenuBuscar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         buscar_nome = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1Nome_mae = new javax.swing.JTextField();
+        nome_mae = new javax.swing.JTextField();
         buscar_nome_mae = new javax.swing.JButton();
-        jTextFieldcpf = new javax.swing.JTextField();
+        cpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1_cpf = new javax.swing.JButton();
-        jTextField1Nome = new javax.swing.JTextField();
+        cpf_botao = new javax.swing.JButton();
+        nome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1_academia = new javax.swing.JTextField();
-        jButton1_academia = new javax.swing.JButton();
+        academia = new javax.swing.JTextField();
+        academia_botao = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultado_dapesquisa = new javax.swing.JTextPane();
-        jButton1_alterar = new javax.swing.JButton();
-        jButton1_excluir = new javax.swing.JButton();
-        jButton1_voltar = new javax.swing.JButton();
+        alterar_botao = new javax.swing.JButton();
+        excluir_botao = new javax.swing.JButton();
+        voltar_botao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
@@ -62,19 +62,19 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         buscar_nome_mae.setText("Buscar");
 
-        jTextFieldcpf.addActionListener(new java.awt.event.ActionListener() {
+        cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldcpfActionPerformed(evt);
+                cpfActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Nome");
 
-        jButton1_cpf.setText("Buscar");
+        cpf_botao.setText("Buscar");
 
-        jTextField1Nome.addActionListener(new java.awt.event.ActionListener() {
+        nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1NomeActionPerformed(evt);
+                nomeActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jLabel6.setText("Academia");
 
-        jButton1_academia.setText("Buscar");
+        academia_botao.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,19 +95,19 @@ public class MenuBuscar extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(buscar_nome)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField1Nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)
                                 .addComponent(buscar_nome_mae))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(306, 306, 306)
-                                .addComponent(jButton1_academia)))
+                                .addComponent(academia_botao)))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -115,11 +115,11 @@ public class MenuBuscar extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(330, 330, 330))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1_cpf)
+                        .addComponent(cpf_botao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
-                        .addComponent(jTextField1_academia, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(academia, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(121, 121, 121))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,9 +131,9 @@ public class MenuBuscar extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar_nome)
-                    .addComponent(jTextField1Nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar_nome_mae))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -141,10 +141,10 @@ public class MenuBuscar extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldcpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_cpf)
-                    .addComponent(jTextField1_academia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_academia))
+                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf_botao)
+                    .addComponent(academia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(academia_botao))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -152,11 +152,11 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(resultado_dapesquisa);
 
-        jButton1_alterar.setText("Alterar");
+        alterar_botao.setText("Alterar");
 
-        jButton1_excluir.setText("Excluir");
+        excluir_botao.setText("Excluir");
 
-        jButton1_voltar.setText("Voltar");
+        voltar_botao.setText("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,11 +171,11 @@ public class MenuBuscar extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(505, 505, 505))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1_alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(alterar_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(excluir_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(voltar_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(397, 397, 397))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
@@ -197,22 +197,22 @@ public class MenuBuscar extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1_alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alterar_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excluir_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(voltar_botao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NomeActionPerformed
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1NomeActionPerformed
+    }//GEN-LAST:event_nomeActionPerformed
 
-    private void jTextFieldcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldcpfActionPerformed
+    private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldcpfActionPerformed
+    }//GEN-LAST:event_cpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,13 +255,14 @@ public class MenuBuscar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField academia;
+    private javax.swing.JButton academia_botao;
+    private javax.swing.JButton alterar_botao;
     private javax.swing.JButton buscar_nome;
     private javax.swing.JButton buscar_nome_mae;
-    private javax.swing.JButton jButton1_academia;
-    private javax.swing.JButton jButton1_alterar;
-    private javax.swing.JButton jButton1_cpf;
-    private javax.swing.JButton jButton1_excluir;
-    private javax.swing.JButton jButton1_voltar;
+    private javax.swing.JTextField cpf;
+    private javax.swing.JButton cpf_botao;
+    private javax.swing.JButton excluir_botao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,11 +271,10 @@ public class MenuBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1Nome;
-    private javax.swing.JTextField jTextField1Nome_mae;
-    private javax.swing.JTextField jTextField1_academia;
-    private javax.swing.JTextField jTextFieldcpf;
+    private javax.swing.JTextField nome;
+    private javax.swing.JTextField nome_mae;
     private javax.swing.JTextPane resultado_dapesquisa;
+    private javax.swing.JButton voltar_botao;
     // End of variables declaration//GEN-END:variables
 
 }

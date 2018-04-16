@@ -45,13 +45,13 @@ public class TelaInicial extends javax.swing.JFrame {
         campeonatos = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        cadastrar_menu = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        buscar_menu = new javax.swing.JMenu();
+        campeonato_menu = new javax.swing.JMenu();
+        sair_menu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -127,10 +127,10 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setText("Cadastrar");
+        cadastrar_menu.setText("Cadastrar");
 
         jMenuItem4.setText("Aluno");
-        jMenu1.add(jMenuItem4);
+        cadastrar_menu.add(jMenuItem4);
 
         jMenuItem6.setText("Professor");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -138,21 +138,21 @@ public class TelaInicial extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        cadastrar_menu.add(jMenuItem6);
 
         jMenuItem7.setText("Academia");
-        jMenu1.add(jMenuItem7);
+        cadastrar_menu.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(cadastrar_menu);
 
-        jMenu2.setText("Buscar");
-        jMenuBar1.add(jMenu2);
+        buscar_menu.setText("Buscar");
+        jMenuBar1.add(buscar_menu);
 
-        jMenu3.setText("Campeonatos");
-        jMenuBar1.add(jMenu3);
+        campeonato_menu.setText("Campeonatos");
+        jMenuBar1.add(campeonato_menu);
 
-        jMenu4.setText("Sair");
-        jMenuBar1.add(jMenu4);
+        sair_menu.setText("Sair");
+        jMenuBar1.add(sair_menu);
 
         setJMenuBar(jMenuBar1);
 
@@ -231,13 +231,12 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
+    private javax.swing.JMenu buscar_menu;
     private javax.swing.JButton cadastrar;
+    private javax.swing.JMenu cadastrar_menu;
+    private javax.swing.JMenu campeonato_menu;
     private javax.swing.JButton campeonatos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -255,5 +254,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sair;
+    private javax.swing.JMenu sair_menu;
     // End of variables declaration//GEN-END:variables
 }
