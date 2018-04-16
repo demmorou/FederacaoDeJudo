@@ -2,6 +2,10 @@ package visao;
 
 import controle.ConnectionFactory;
 import controle.DAO;
+import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.User;
 
@@ -60,6 +65,19 @@ public class Inicio extends javax.swing.JFrame {
         cad.setBackground(new java.awt.Color(254, 254, 254));
         cad.setFont(new java.awt.Font("Cantarell", 0, 15)); // NOI18N
         cad.setText("CRIAR USUARIO");
+        cad.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                cadMouseMoved(evt);
+            }
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                cadMouseDragged(evt);
+            }
+        });
+        cad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                cadMouseReleased(evt);
+            }
+        });
         cad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadActionPerformed(evt);
@@ -179,14 +197,19 @@ public class Inicio extends javax.swing.JFrame {
         ti.setLocationRelativeTo(null);
         ti.setSize(1059, 608);
 
-//        User u = new User();
-//        DAO dao = new DAO();
-//        u.setSenha(password.getText());
-//        u.setUsuario(user.getText());
-//        password.setText("");
-//        user.setText("");
-//        dao.createUser(u);
     }//GEN-LAST:event_cadActionPerformed
+
+    private void cadMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseReleased
+
+    }//GEN-LAST:event_cadMouseReleased
+
+    private void cadMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseMoved
+        
+    }//GEN-LAST:event_cadMouseMoved
+
+    private void cadMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadMouseDragged
+        
+    }//GEN-LAST:event_cadMouseDragged
 
     public static void main(String args[]) {
         try {
@@ -213,6 +236,17 @@ public class Inicio extends javax.swing.JFrame {
                 i.setVisible(true);
                 i.setLocationRelativeTo(null);
                 i.setSize(1059, 608);
+                i.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                i.addWindowListener(new WindowAdapter() {
+        @Override
+	public void windowClosing(WindowEvent evt) {
+		if (JOptionPane.showConfirmDialog(null,"Deseja realmente SAIR?")==JOptionPane.OK_OPTION){
+                       
+                    System.exit(0);
+                    
+                }
+        }
+            });
             }
         });
     }
