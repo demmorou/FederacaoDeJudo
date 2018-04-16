@@ -273,6 +273,12 @@ public class NovoUser extends javax.swing.JFrame {
         }else if(senha.getText() == null ? conf_senha.getText() != null : !senha.getText().equals(conf_senha.getText())){
             JOptionPane.showMessageDialog(null, "Confirmação de senha não confere!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }else{
+            
+//            ConfirmacaoUsuario c = new ConfirmacaoUsuario();
+//            c.setVisible(true);
+//            c.setLocationRelativeTo(null);
+            
+            
             ResultSet rs = null;
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement stmt = null;
