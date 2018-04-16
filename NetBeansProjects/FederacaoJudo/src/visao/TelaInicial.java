@@ -46,9 +46,9 @@ public class TelaInicial extends javax.swing.JFrame {
         buscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         cadastrar_menu = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        aluno = new javax.swing.JMenuItem();
+        professor = new javax.swing.JMenuItem();
+        academia = new javax.swing.JMenuItem();
         buscar_menu = new javax.swing.JMenu();
         campeonato_menu = new javax.swing.JMenu();
         sair_menu = new javax.swing.JMenu();
@@ -129,19 +129,19 @@ public class TelaInicial extends javax.swing.JFrame {
 
         cadastrar_menu.setText("Cadastrar");
 
-        jMenuItem4.setText("Aluno");
-        cadastrar_menu.add(jMenuItem4);
+        aluno.setText("Aluno");
+        cadastrar_menu.add(aluno);
 
-        jMenuItem6.setText("Professor");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        professor.setText("Professor");
+        professor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                professorActionPerformed(evt);
             }
         });
-        cadastrar_menu.add(jMenuItem6);
+        cadastrar_menu.add(professor);
 
-        jMenuItem7.setText("Academia");
-        cadastrar_menu.add(jMenuItem7);
+        academia.setText("Academia");
+        cadastrar_menu.add(academia);
 
         jMenuBar1.add(cadastrar_menu);
 
@@ -186,9 +186,9 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void professorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_professorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,11 +225,14 @@ public class TelaInicial extends javax.swing.JFrame {
                 i.setVisible(true);
                 i.setLocationRelativeTo(null);
                 i.setSize(1059, 608);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem academia;
+    private javax.swing.JMenuItem aluno;
     private javax.swing.JButton buscar;
     private javax.swing.JMenu buscar_menu;
     private javax.swing.JButton cadastrar;
@@ -248,11 +251,9 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem professor;
     private javax.swing.JButton sair;
     private javax.swing.JMenu sair_menu;
     // End of variables declaration//GEN-END:variables
