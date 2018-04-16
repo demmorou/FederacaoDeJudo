@@ -34,6 +34,10 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         cadastrar = new javax.swing.JButton();
         sair = new javax.swing.JButton();
         campeonatos = new javax.swing.JButton();
@@ -59,6 +63,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jMenu7.setText("Edit");
         jMenuBar2.add(jMenu7);
+
+        jMenu8.setText("File");
+        jMenuBar3.add(jMenu8);
+
+        jMenu9.setText("Edit");
+        jMenuBar3.add(jMenu9);
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
@@ -195,12 +207,16 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JButton sair;
     // End of variables declaration//GEN-END:variables
 }
