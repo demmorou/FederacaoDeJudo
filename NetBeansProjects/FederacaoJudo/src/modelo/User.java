@@ -19,17 +19,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author deusimar
+ * @author pavic
  */
 @Entity
 @Table(name = "user")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findByIduser", query = "SELECT u FROM User u WHERE u.iduser = :iduser"),
-    @NamedQuery(name = "User.findByUsuario", query = "SELECT u FROM User u WHERE u.usuario = :usuario"),
-    @NamedQuery(name = "User.findBySenha", query = "SELECT u FROM User u WHERE u.senha = :senha"),
-    @NamedQuery(name = "User.findByNome", query = "SELECT u FROM User u WHERE u.nome = :nome")})
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+    , @NamedQuery(name = "User.findByIduser", query = "SELECT u FROM User u WHERE u.iduser = :iduser")
+    , @NamedQuery(name = "User.findByUsuario", query = "SELECT u FROM User u WHERE u.usuario = :usuario")
+    , @NamedQuery(name = "User.findBySenha", query = "SELECT u FROM User u WHERE u.senha = :senha")
+    , @NamedQuery(name = "User.findByNome", query = "SELECT u FROM User u WHERE u.nome = :nome")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
