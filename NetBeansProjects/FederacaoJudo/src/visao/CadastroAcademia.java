@@ -120,6 +120,11 @@ public class CadastroAcademia extends javax.swing.JFrame {
         jLabel8.setText("Professor Responsável*");
 
         professor_responsavel.setText("Cadastrar professor");
+        professor_responsavel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                professor_responsavelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,24 +229,31 @@ public class CadastroAcademia extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
+        
         if (estado.getText().equals("") || cep.getText().equals("") ||
             cidade.getText().equals("") || bairro.getText().equals("") ||
             rua.getText().equals("") || numero.getText().equals("")){
             
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
+        
         }else {
+           
             ResultSet rs = null;
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement stmt = null;
             Academia a = new Academia();
+            
             DAO d = new DAO();
+            
             a.setEstado(estado.getText());
             a.setCep(Integer.parseInt(cep.getText()));
             a.setCidade(cidade.getText());
             a.setBairro(bairro.getText());
             a.setRua(rua.getText());
             a.setNumero(Integer.parseInt(numero.getText()));
+            
             d.createAcademia(a);
+            
             estado.setText("");
             cep.setText("");
             cidade.setText("");
@@ -249,9 +261,16 @@ public class CadastroAcademia extends javax.swing.JFrame {
             rua.setText("");
             numero.setText("");
                       
-            
         }
     }//GEN-LAST:event_salvarActionPerformed
+
+    private void professor_responsavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professor_responsavelActionPerformed
+        CadastroProfessor p = new CadastroProfessor();
+        p.setTitle("Cadastro de Professor");
+        p.setVisible(true);
+        p.setLocationRelativeTo(null);
+        p.setSize(1059, 608);
+    }//GEN-LAST:event_professor_responsavelActionPerformed
 
     /**
      * @param args the command line arguments
