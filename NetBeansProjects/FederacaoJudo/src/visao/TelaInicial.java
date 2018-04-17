@@ -5,6 +5,8 @@
  */
 package visao;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author pavic
@@ -179,7 +181,11 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        // TODO add your handling code here:
+        CadastroOpitions co = new CadastroOpitions();
+        co.setVisible(true);
+        co.setLocationRelativeTo(null);
+        co.setSize(1059, 608);
+        
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
