@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.Academia;
 import modelo.User;
 
 /**
@@ -49,4 +50,29 @@ public class DAO {
         }
     
     }
+    
+    public void createAcademia (Academia a){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cep,cidade,bairro,rua,numero)VALUES(?,?,?,?,?,?,?)");
+            stmt.setInt(1, 0);
+            stmt.setString(2, a.getEstado());
+            stmt.setInt(3, a.getCep());
+            stmt.setString(4, a.getCidade());
+            stmt.setString(5, a.getBairro());
+            stmt.setString(6, a.getRua());
+            stmt.setInt(7, a.getNumero());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+        }finally{
+            ConnectionFactory.closeConection(con, stmt);
+        }
+    }
+    
 }
