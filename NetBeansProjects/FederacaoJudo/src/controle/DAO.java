@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Academia;
 import modelo.Aluno;
+import modelo.Pessoa;
 import modelo.User;
 
 /**
@@ -79,11 +80,11 @@ public class DAO {
     public void createAluno(Aluno a){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        
+        Pessoa p = new Pessoa();
         try {
-            stmt = con.prepareStatement("INSERT INTO academia (Id_aluno,Id_pessoaFK,Id_academiaFK)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO aluno (Id_aluno,Id_pessoaFK,Id_academiaFK)VALUES(?,?,?)");
             stmt.setInt(1, 0);
-            stmt.setString(2, a.getEstado());
+            stmt.setString(2, );
             stmt.setInt(3, a.getCep());
             stmt.setString(4, a.getCidade());
             stmt.setString(5, a.getBairro());
