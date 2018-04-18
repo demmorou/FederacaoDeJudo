@@ -123,7 +123,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(152, 26, 31));
         jLabel10.setText("*Campos obrigatórios");
 
-        jLabel8.setText("Nome");
+        jLabel8.setText("Nome*");
 
         nome_academia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
