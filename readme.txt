@@ -1,1 +1,0 @@
-Este trabalho é um desenvolvimento feito para obtenção de nota na disciplina de Engenharia de Software II.
