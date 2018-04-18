@@ -52,8 +52,6 @@ public class CadastroAcademia extends javax.swing.JFrame {
         salvar = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        professor_responsavel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
@@ -117,15 +115,6 @@ public class CadastroAcademia extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(152, 26, 31));
         jLabel10.setText("*Campos obrigatórios");
 
-        jLabel8.setText("Professor Responsável*");
-
-        professor_responsavel.setText("Cadastrar professor");
-        professor_responsavel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                professor_responsavelActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,15 +136,11 @@ public class CadastroAcademia extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel10))
-                        .addGap(170, 170, 170)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(professor_responsavel)
-                            .addComponent(jLabel8)))
+                            .addComponent(jLabel10)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(353, 353, 353)
                         .addComponent(jLabel1)))
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(voltar)
@@ -168,14 +153,10 @@ public class CadastroAcademia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel8))
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(professor_responsavel)
-                    .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,14 +245,6 @@ public class CadastroAcademia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salvarActionPerformed
 
-    private void professor_responsavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professor_responsavelActionPerformed
-        CadastroProfessor p = new CadastroProfessor();
-        p.setTitle("Cadastro de Professor");
-        p.setVisible(true);
-        p.setLocationRelativeTo(null);
-        p.setSize(1059, 608);
-    }//GEN-LAST:event_professor_responsavelActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -327,9 +300,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField numero;
-    private javax.swing.JButton professor_responsavel;
     private javax.swing.JTextField rua;
     private javax.swing.JButton salvar;
     private javax.swing.JButton voltar;
