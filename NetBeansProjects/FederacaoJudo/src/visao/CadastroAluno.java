@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.Academia;
 import modelo.Aluno;
 import modelo.Pessoa;
 
@@ -335,9 +336,18 @@ public class CadastroAluno extends javax.swing.JFrame {
             if(box_aluno.isSelected()){
                 Aluno a = new Aluno();
                 Pessoa p = new Pessoa();
+                Academia ac = new Academia();
+                DAO dao = new DAO();
                 p.setIdpessoa(getIDPEssoa());
                 a.setIdpessoaFK(p);
                 
+                int ida = getIDAcademia();
+                if(ida == -1){
+                    JOptionPane.showMessageDialog(null, "Por Favor, Informe um nome de academia ja cadastrada!", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }else{
+                    a.setIdpessoaFK(p);
+                    dao.createAluno(a);
+                }
                 
             }else if(box_prof.isSelected()){
                  System.out.println(getIDPEssoa());
