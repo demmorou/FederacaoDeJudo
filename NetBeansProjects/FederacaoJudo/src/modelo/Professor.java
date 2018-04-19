@@ -21,17 +21,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author pavic
+ * @author deusimar
  */
 @Entity
 @Table(name = "professor")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Professor.findAll", query = "SELECT p FROM Professor p"),
-    @NamedQuery(name = "Professor.findByIdprofessor", query = "SELECT p FROM Professor p WHERE p.idprofessor = :idprofessor"),
-    @NamedQuery(name = "Professor.findByLocaisDeTrabalho", query = "SELECT p FROM Professor p WHERE p.locaisDeTrabalho = :locaisDeTrabalho"),
-    @NamedQuery(name = "Professor.findByVinculoComAcademia", query = "SELECT p FROM Professor p WHERE p.vinculoComAcademia = :vinculoComAcademia"),
-    @NamedQuery(name = "Professor.findByCref", query = "SELECT p FROM Professor p WHERE p.cref = :cref")})
+    @NamedQuery(name = "Professor.findAll", query = "SELECT p FROM Professor p")
+    , @NamedQuery(name = "Professor.findByIdprofessor", query = "SELECT p FROM Professor p WHERE p.idprofessor = :idprofessor")
+    , @NamedQuery(name = "Professor.findByLocaisDeTrabalho", query = "SELECT p FROM Professor p WHERE p.locaisDeTrabalho = :locaisDeTrabalho")
+    , @NamedQuery(name = "Professor.findByVinculoComAcademia", query = "SELECT p FROM Professor p WHERE p.vinculoComAcademia = :vinculoComAcademia")
+    , @NamedQuery(name = "Professor.findByCref", query = "SELECT p FROM Professor p WHERE p.cref = :cref")})
 public class Professor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +47,7 @@ public class Professor implements Serializable {
     @Column(name = "vinculo_com_academia")
     private String vinculoComAcademia;
     @Basic(optional = false)
-    @Column(name = "cref")
+    @Column(name = "CREF")
     private int cref;
     @JoinColumn(name = "Id_pessoaFK", referencedColumnName = "Id_pessoa")
     @ManyToOne(optional = false)

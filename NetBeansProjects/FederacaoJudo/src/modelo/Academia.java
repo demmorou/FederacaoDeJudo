@@ -23,21 +23,21 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author pavic
+ * @author deusimar
  */
 @Entity
 @Table(name = "academia")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Academia.findAll", query = "SELECT a FROM Academia a"),
-    @NamedQuery(name = "Academia.findByIdacademia", query = "SELECT a FROM Academia a WHERE a.idacademia = :idacademia"),
-    @NamedQuery(name = "Academia.findByProfessorResponsavel", query = "SELECT a FROM Academia a WHERE a.professorResponsavel = :professorResponsavel"),
-    @NamedQuery(name = "Academia.findByEstado", query = "SELECT a FROM Academia a WHERE a.estado = :estado"),
-    @NamedQuery(name = "Academia.findByCep", query = "SELECT a FROM Academia a WHERE a.cep = :cep"),
-    @NamedQuery(name = "Academia.findByCidade", query = "SELECT a FROM Academia a WHERE a.cidade = :cidade"),
-    @NamedQuery(name = "Academia.findByBairro", query = "SELECT a FROM Academia a WHERE a.bairro = :bairro"),
-    @NamedQuery(name = "Academia.findByRua", query = "SELECT a FROM Academia a WHERE a.rua = :rua"),
-    @NamedQuery(name = "Academia.findByNumero", query = "SELECT a FROM Academia a WHERE a.numero = :numero")})
+    @NamedQuery(name = "Academia.findAll", query = "SELECT a FROM Academia a")
+    , @NamedQuery(name = "Academia.findByIdacademia", query = "SELECT a FROM Academia a WHERE a.idacademia = :idacademia")
+    , @NamedQuery(name = "Academia.findByProfessorResponsavel", query = "SELECT a FROM Academia a WHERE a.professorResponsavel = :professorResponsavel")
+    , @NamedQuery(name = "Academia.findByEstado", query = "SELECT a FROM Academia a WHERE a.estado = :estado")
+    , @NamedQuery(name = "Academia.findByCep", query = "SELECT a FROM Academia a WHERE a.cep = :cep")
+    , @NamedQuery(name = "Academia.findByCidade", query = "SELECT a FROM Academia a WHERE a.cidade = :cidade")
+    , @NamedQuery(name = "Academia.findByBairro", query = "SELECT a FROM Academia a WHERE a.bairro = :bairro")
+    , @NamedQuery(name = "Academia.findByRua", query = "SELECT a FROM Academia a WHERE a.rua = :rua")
+    , @NamedQuery(name = "Academia.findByNumero", query = "SELECT a FROM Academia a WHERE a.numero = :numero")})
 public class Academia implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -26,23 +26,23 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author pavic
+ * @author deusimar
  */
 @Entity
 @Table(name = "pessoa")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p"),
-    @NamedQuery(name = "Pessoa.findByIdpessoa", query = "SELECT p FROM Pessoa p WHERE p.idpessoa = :idpessoa"),
-    @NamedQuery(name = "Pessoa.findByNomeCompleto", query = "SELECT p FROM Pessoa p WHERE p.nomeCompleto = :nomeCompleto"),
-    @NamedQuery(name = "Pessoa.findByNomeMae", query = "SELECT p FROM Pessoa p WHERE p.nomeMae = :nomeMae"),
-    @NamedQuery(name = "Pessoa.findByNomePai", query = "SELECT p FROM Pessoa p WHERE p.nomePai = :nomePai"),
-    @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone"),
-    @NamedQuery(name = "Pessoa.findByGraduacaoAtual", query = "SELECT p FROM Pessoa p WHERE p.graduacaoAtual = :graduacaoAtual"),
-    @NamedQuery(name = "Pessoa.findByDataDeOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataDeOutorga = :dataDeOutorga"),
-    @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf"),
-    @NamedQuery(name = "Pessoa.findByFoto3X4", query = "SELECT p FROM Pessoa p WHERE p.foto3X4 = :foto3X4"),
-    @NamedQuery(name = "Pessoa.findByCurriculo", query = "SELECT p FROM Pessoa p WHERE p.curriculo = :curriculo")})
+    @NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p")
+    , @NamedQuery(name = "Pessoa.findByIdpessoa", query = "SELECT p FROM Pessoa p WHERE p.idpessoa = :idpessoa")
+    , @NamedQuery(name = "Pessoa.findByNomeCompleto", query = "SELECT p FROM Pessoa p WHERE p.nomeCompleto = :nomeCompleto")
+    , @NamedQuery(name = "Pessoa.findByNomeMae", query = "SELECT p FROM Pessoa p WHERE p.nomeMae = :nomeMae")
+    , @NamedQuery(name = "Pessoa.findByNomePai", query = "SELECT p FROM Pessoa p WHERE p.nomePai = :nomePai")
+    , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")
+    , @NamedQuery(name = "Pessoa.findByGraduacaoAtual", query = "SELECT p FROM Pessoa p WHERE p.graduacaoAtual = :graduacaoAtual")
+    , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")
+    , @NamedQuery(name = "Pessoa.findByCurriculun", query = "SELECT p FROM Pessoa p WHERE p.curriculun = :curriculun")
+    , @NamedQuery(name = "Pessoa.findByFoto3x4", query = "SELECT p FROM Pessoa p WHERE p.foto3x4 = :foto3x4")
+    , @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")})
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,17 +66,17 @@ public class Pessoa implements Serializable {
     @Column(name = "graduacao_atual")
     private String graduacaoAtual;
     @Basic(optional = false)
-    @Column(name = "data_de_outorga")
+    @Column(name = "data_outorga")
     @Temporal(TemporalType.DATE)
-    private Date dataDeOutorga;
+    private Date dataOutorga;
+    @Column(name = "curriculun")
+    private String curriculun;
+    @Basic(optional = false)
+    @Column(name = "foto3x4")
+    private String foto3x4;
     @Basic(optional = false)
     @Column(name = "cpf")
     private int cpf;
-    @Basic(optional = false)
-    @Column(name = "foto3X4")
-    private String foto3X4;
-    @Column(name = "curriculo")
-    private String curriculo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpessoaFK")
     private Collection<Aluno> alunoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpessoaFK")
@@ -89,15 +89,15 @@ public class Pessoa implements Serializable {
         this.idpessoa = idpessoa;
     }
 
-    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, int telefone, String graduacaoAtual, Date dataDeOutorga, int cpf, String foto3X4) {
+    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, int telefone, String graduacaoAtual, Date dataOutorga, String foto3x4, int cpf) {
         this.idpessoa = idpessoa;
         this.nomeCompleto = nomeCompleto;
         this.nomeMae = nomeMae;
         this.telefone = telefone;
         this.graduacaoAtual = graduacaoAtual;
-        this.dataDeOutorga = dataDeOutorga;
+        this.dataOutorga = dataOutorga;
+        this.foto3x4 = foto3x4;
         this.cpf = cpf;
-        this.foto3X4 = foto3X4;
     }
 
     public Integer getIdpessoa() {
@@ -148,12 +148,28 @@ public class Pessoa implements Serializable {
         this.graduacaoAtual = graduacaoAtual;
     }
 
-    public Date getDataDeOutorga() {
-        return dataDeOutorga;
+    public Date getDataOutorga() {
+        return dataOutorga;
     }
 
-    public void setDataDeOutorga(Date dataDeOutorga) {
-        this.dataDeOutorga = dataDeOutorga;
+    public void setDataOutorga(Date dataOutorga) {
+        this.dataOutorga = dataOutorga;
+    }
+
+    public String getCurriculun() {
+        return curriculun;
+    }
+
+    public void setCurriculun(String curriculun) {
+        this.curriculun = curriculun;
+    }
+
+    public String getFoto3x4() {
+        return foto3x4;
+    }
+
+    public void setFoto3x4(String foto3x4) {
+        this.foto3x4 = foto3x4;
     }
 
     public int getCpf() {
@@ -162,22 +178,6 @@ public class Pessoa implements Serializable {
 
     public void setCpf(int cpf) {
         this.cpf = cpf;
-    }
-
-    public String getFoto3X4() {
-        return foto3X4;
-    }
-
-    public void setFoto3X4(String foto3X4) {
-        this.foto3X4 = foto3X4;
-    }
-
-    public String getCurriculo() {
-        return curriculo;
-    }
-
-    public void setCurriculo(String curriculo) {
-        this.curriculo = curriculo;
     }
 
     @XmlTransient
