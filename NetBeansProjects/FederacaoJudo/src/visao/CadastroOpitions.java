@@ -41,6 +41,7 @@ public class CadastroOpitions extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(17, 70, 88));
         jLabel1.setText("Menu Cadastrar");
 
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         voltar.setText("Voltar");
         voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +111,7 @@ public class CadastroOpitions extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(122, 122, 122)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(voltar)
                 .addGap(44, 44, 44))
         );

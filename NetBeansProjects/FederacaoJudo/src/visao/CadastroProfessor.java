@@ -49,6 +49,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
 
+        Salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/floppy-icon.png"))); // NOI18N
         Salvar.setText("Salvar");
         Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +89,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(17, 70, 88));
         jLabel13.setText("Cadastro de Professor");
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +125,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 185, Short.MAX_VALUE)
+                        .addGap(0, 157, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel1)
@@ -235,7 +237,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(Salvar))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();

@@ -94,6 +94,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add-1.png"))); // NOI18N
         cadastrar.setText("Cadastrar");
         cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +110,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search_1.png"))); // NOI18N
         buscar.setText("Buscar");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +145,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/users.png"))); // NOI18N
         usuarios.setText("Usuários");
         usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

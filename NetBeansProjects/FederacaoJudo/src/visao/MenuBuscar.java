@@ -54,10 +54,12 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
+        buscar_nome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         buscar_nome.setText("Buscar");
 
         jLabel3.setText("Nome da Mãe");
 
+        buscar_nome_mae.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         buscar_nome_mae.setText("Buscar");
 
         cpf.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +70,7 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jLabel1.setText("Nome");
 
+        cpf_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         cpf_botao.setText("Buscar");
 
         nome.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +83,7 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jLabel6.setText("Academia");
 
+        academia_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         academia_botao.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,6 +153,7 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         jLabel4.setText("Resultado da Pesquisa");
 
+        voltar_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         voltar_botao.setText("Voltar");
         voltar_botao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +183,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 973, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +209,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(voltar_botao)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();

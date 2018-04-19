@@ -54,6 +54,7 @@ public class GerenciamentoCampeonato extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit-2.png"))); // NOI18N
         jButton5.setText("Voltar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -76,6 +76,7 @@ public class InformacoesProfessor extends javax.swing.JFrame {
 
         jLabel9.setText("CREF");
 
+        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         sair.setText("Voltar");
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,8 +84,10 @@ public class InformacoesProfessor extends javax.swing.JFrame {
             }
         });
 
+        alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/edit.png"))); // NOI18N
         alterar.setText("Alterar");
 
+        salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/floppy-icon.png"))); // NOI18N
         salvar.setText("Salvar");
 
         jLabel10.setText("Academia");
@@ -126,19 +129,18 @@ public class InformacoesProfessor extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(buscaFoto))
                         .addGap(80, 80, 80))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(campoAcademia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(salvar)
-                                .addGap(18, 18, 18)
-                                .addComponent(alterar)))
-                        .addGap(18, 18, 18)
-                        .addComponent(sair)
-                        .addContainerGap())))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(campoAcademia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 82, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(sair)
+                            .addGap(18, 18, 18)
+                            .addComponent(salvar)
+                            .addGap(18, 18, 18)
+                            .addComponent(alterar)
+                            .addGap(6, 6, 6)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,10 +191,10 @@ public class InformacoesProfessor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoCREF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salvar)
                     .addComponent(sair)
-                    .addComponent(alterar)
-                    .addComponent(salvar))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(alterar))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
