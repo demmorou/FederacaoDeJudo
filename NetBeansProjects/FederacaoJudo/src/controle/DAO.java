@@ -7,6 +7,7 @@ package controle;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -90,6 +91,36 @@ public class DAO {
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+        }finally{
+            ConnectionFactory.closeConection(con, stmt);
+        }
+        
+    }
+    
+    public void createPessoa(Pessoa p){
+    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,telefone,graduacao_atual,data_outorga,curriculun,foto3x4,cpf)VALUES(?,?,?,?,?,?,?,?,?,?)");
+            
+            stmt.setInt(1, 0);
+            stmt.setString(2, p.getNomeCompleto());
+            stmt.setString(3, p.getNomeMae());
+            stmt.setString(4, p.getNomePai());
+            stmt.setInt(5, p.getTelefone());
+            stmt.setString(6, p.getGraduacaoAtual());
+            stmt.setDate(7, (Date) p.getDataOutorga());
+            stmt.setString(8, p.getCurriculun());
+            stmt.setString(9, p.getFoto3x4());
+            stmt.setInt(10, p.getCpf());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Salvar "+ ex);
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
