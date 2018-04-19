@@ -59,7 +59,7 @@ public class DAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cep,cidade,bairro,rua,numero)VALUES(?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cep,cidade,bairro,rua,numero,nome_academia)VALUES(?,?,?,?,?,?,?,?)");
             stmt.setInt(1, 0);
             stmt.setString(2, a.getEstado());
             stmt.setInt(3, a.getCep());
@@ -67,6 +67,7 @@ public class DAO {
             stmt.setString(5, a.getBairro());
             stmt.setString(6, a.getRua());
             stmt.setInt(7, a.getNumero());
+            stmt.setString(8, a.getNomeAcademia());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");

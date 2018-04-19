@@ -338,6 +338,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                 Pessoa p = new Pessoa();
                 Academia ac = new Academia();
                 DAO dao = new DAO();
+                
                 p.setIdpessoa(getIDPEssoa());
                 a.setIdpessoaFK(p);
                 
