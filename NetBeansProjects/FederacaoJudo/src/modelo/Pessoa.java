@@ -6,10 +6,7 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -39,10 +32,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Pessoa.findByNomePai", query = "SELECT p FROM Pessoa p WHERE p.nomePai = :nomePai")
     , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")
     , @NamedQuery(name = "Pessoa.findByGraduacaoAtual", query = "SELECT p FROM Pessoa p WHERE p.graduacaoAtual = :graduacaoAtual")
-    , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")
     , @NamedQuery(name = "Pessoa.findByCurriculun", query = "SELECT p FROM Pessoa p WHERE p.curriculun = :curriculun")
     , @NamedQuery(name = "Pessoa.findByFoto3x4", query = "SELECT p FROM Pessoa p WHERE p.foto3x4 = :foto3x4")
-    , @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")})
+    , @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")
+    , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")})
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -65,10 +58,6 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @Column(name = "graduacao_atual")
     private String graduacaoAtual;
-    @Basic(optional = false)
-    @Column(name = "data_outorga")
-    @Temporal(TemporalType.DATE)
-    private Date dataOutorga;
     @Column(name = "curriculun")
     private String curriculun;
     @Basic(optional = false)
@@ -76,11 +65,10 @@ public class Pessoa implements Serializable {
     private String foto3x4;
     @Basic(optional = false)
     @Column(name = "cpf")
-    private int cpf;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpessoaFK")
-    private Collection<Aluno> alunoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idpessoaFK")
-    private Collection<Professor> professorCollection;
+    private String cpf;
+    @Basic(optional = false)
+    @Column(name = "data_outorga")
+    private String dataOutorga;
 
     public Pessoa() {
     }
@@ -89,15 +77,15 @@ public class Pessoa implements Serializable {
         this.idpessoa = idpessoa;
     }
 
-    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, int telefone, String graduacaoAtual, Date dataOutorga, String foto3x4, int cpf) {
+    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, int telefone, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga) {
         this.idpessoa = idpessoa;
         this.nomeCompleto = nomeCompleto;
         this.nomeMae = nomeMae;
         this.telefone = telefone;
         this.graduacaoAtual = graduacaoAtual;
-        this.dataOutorga = dataOutorga;
         this.foto3x4 = foto3x4;
         this.cpf = cpf;
+        this.dataOutorga = dataOutorga;
     }
 
     public Integer getIdpessoa() {
@@ -148,14 +136,6 @@ public class Pessoa implements Serializable {
         this.graduacaoAtual = graduacaoAtual;
     }
 
-    public Date getDataOutorga() {
-        return dataOutorga;
-    }
-
-    public void setDataOutorga(Date dataOutorga) {
-        this.dataOutorga = dataOutorga;
-    }
-
     public String getCurriculun() {
         return curriculun;
     }
@@ -172,30 +152,20 @@ public class Pessoa implements Serializable {
         this.foto3x4 = foto3x4;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    @XmlTransient
-    public Collection<Aluno> getAlunoCollection() {
-        return alunoCollection;
+    public String getDataOutorga() {
+        return dataOutorga;
     }
 
-    public void setAlunoCollection(Collection<Aluno> alunoCollection) {
-        this.alunoCollection = alunoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Professor> getProfessorCollection() {
-        return professorCollection;
-    }
-
-    public void setProfessorCollection(Collection<Professor> professorCollection) {
-        this.professorCollection = professorCollection;
+    public void setDataOutorga(String dataOutorga) {
+        this.dataOutorga = dataOutorga;
     }
 
     @Override

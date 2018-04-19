@@ -53,13 +53,10 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         academia_que_participa = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela_academias = new javax.swing.JTable();
         path_imagem = new javax.swing.JTextField();
         box_prof = new javax.swing.JCheckBox();
         box_aluno = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
 
@@ -136,19 +133,6 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         jLabel13.setText("Academia Que Participa*");
 
-        tabela_academias.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tabela_academias);
-
         box_prof.setText("Professor");
         box_prof.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,8 +148,6 @@ public class CadastroAluno extends javax.swing.JFrame {
         });
 
         jLabel14.setText("Escolha Uma Opção*");
-
-        jLabel15.setText("Escolha uma Academia:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,30 +178,29 @@ public class CadastroAluno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel14)
+                                .addComponent(box_aluno)
+                                .addComponent(box_prof))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(voltar)
                                         .addGap(18, 18, 18)
                                         .addComponent(salvar))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addComponent(academia_que_participa, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cpf, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
                                             .addComponent(jLabel13)
-                                            .addComponent(jLabel14)
-                                            .addComponent(box_aluno)
-                                            .addComponent(box_prof)
                                             .addComponent(jLabel11))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(74, 74, 74))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(171, 171, 171)
@@ -257,34 +238,8 @@ public class CadastroAluno extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(academia_que_participa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(buscar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(box_prof)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(box_aluno))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(nome_pai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(11, 11, 11)
                                 .addComponent(jLabel5)
@@ -301,8 +256,28 @@ public class CadastroAluno extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(competicoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(116, Short.MAX_VALUE))))
+                                .addComponent(competicoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(academia_que_participa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buscar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_prof)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(box_aluno)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -334,9 +309,12 @@ public class CadastroAluno extends javax.swing.JFrame {
             if(box_aluno.isSelected()){
                 Aluno a = new Aluno();
                 Pessoa p = new Pessoa();
+                p.setIdpessoa(getIDPEssoa());
+                a.setIdpessoaFK(p);
+                
                 
             }else if(box_prof.isSelected()){
-                 System.out.println(getID());
+                 System.out.println(getIDPEssoa());
             }
         }else{
             JOptionPane.showMessageDialog(null, "Por Favor, Selecione um CheckBox informando se esse cadastro se refere a aluno ou professor!", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -363,27 +341,22 @@ public class CadastroAluno extends javax.swing.JFrame {
             ResultSet rs = null;
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement stmt = null;
+            
             DAO dao = new DAO();
             
             p.setNomeCompleto(nome_completo.getText());
             p.setNomeMae(nome_mae.getText());
-            p.setCpf(Integer.parseInt(cpf.getText()));
+            p.setCpf(cpf.getText());
             p.setCurriculun(competicoes.getText());
             p.setGraduacaoAtual(graduacao.getText());
             p.setTelefone(Integer.parseInt(telefone_aluno.getText()));
-            try {
-                data = new SimpleDateFormat("dd/MM/yyyy").parse(data_ourtoga.getText());
-                dataBanco = new SimpleDateFormat("yyyy-MM-dd").format(data);
-                p.setDataOutorga(dataBanco);
-                
-            } catch (ParseException ex) {
-                JOptionPane.showMessageDialog(null, "Erro na Conversão da Data "+ ex);
-            }
-     
+            p.setDataOutorga(data_ourtoga.getText());
+            p.setFoto3x4(path_imagem.getText());
+            
             dao.createPessoa(p);
     }
     
-    public int getID(){
+    public int getIDPEssoa(){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -402,6 +375,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         
         return cod.get(cod.size()-1);
     }
+    
+    
     public static void main(String args[]) {
 
         try {
@@ -451,7 +426,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -460,13 +434,11 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nome_completo;
     private javax.swing.JTextField nome_mae;
     private javax.swing.JTextField nome_pai;
     private javax.swing.JTextField path_imagem;
     private javax.swing.JButton salvar;
-    private javax.swing.JTable tabela_academias;
     private javax.swing.JTextField telefone_aluno;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
