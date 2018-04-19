@@ -30,10 +30,10 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         user = new javax.swing.JTextField();
-        login = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
+        login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(254, 254, 254));
@@ -50,17 +50,18 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visao/imagens/floppy-icon.png"))); // NOI18N
+        jLabel2.setText("Usuário");
+
+        jLabel3.setText("Senha");
+
+        login.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 15)); // NOI18N
+        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/login.png"))); // NOI18N
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Usuário");
-
-        jLabel3.setText("Senha");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,9 +74,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(106, 106, 106))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,9 +88,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1040, 1040, 1040))
+                .addGap(27, 27, 27)
+                .addComponent(login)
+                .addGap(59, 59, 59))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,8 +110,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
                 .addGap(70, 70, 70)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(178, 178, 178))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1175, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,6 +149,17 @@ public class Inicio extends javax.swing.JFrame {
                     i.setVisible(true);
                     i.setLocationRelativeTo(null);
                     i.setSize(1059, 608);
+                    i.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                i.addWindowListener(new WindowAdapter() {
+        @Override
+	public void windowClosing(WindowEvent evt) {
+		if (JOptionPane.showConfirmDialog(null,"Deseja realmente SAIR?")==JOptionPane.OK_OPTION){
+                       
+                    System.exit(0);
+                    
+                }
+        }
+            });
                 }else if(user.getText().equals(us) == false || password.getText().equals(pass) == false){
                     JOptionPane.showMessageDialog(null, "Dados não conferem!", "Aviso", JOptionPane.WARNING_MESSAGE);   
                     password.setText("");
