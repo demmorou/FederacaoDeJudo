@@ -92,7 +92,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="salvar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="academia_que_participa" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="nome_academia" alignment="0" max="32767" attributes="0"/>
                                   <Component id="cpf" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -190,7 +190,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="academia_que_participa" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="nome_academia" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -350,7 +350,7 @@
         <Property name="text" type="java.lang.String" value="Academia Que Participa*"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="academia_que_participa">
+    <Component class="javax.swing.JTextField" name="nome_academia">
     </Component>
     <Component class="javax.swing.JTextField" name="path_imagem">
     </Component>

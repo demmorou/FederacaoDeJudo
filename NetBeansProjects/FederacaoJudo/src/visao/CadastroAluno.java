@@ -52,7 +52,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         cpf = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        academia_que_participa = new javax.swing.JTextField();
+        nome_academia = new javax.swing.JTextField();
         path_imagem = new javax.swing.JTextField();
         box_prof = new javax.swing.JCheckBox();
         box_aluno = new javax.swing.JCheckBox();
@@ -201,7 +201,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                                         .addComponent(voltar)
                                         .addGap(18, 18, 18)
                                         .addComponent(salvar))
-                                    .addComponent(academia_que_participa, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nome_academia, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cpf, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +280,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(academia_que_participa, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nome_academia, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -402,6 +402,27 @@ public class CadastroAluno extends javax.swing.JFrame {
         return cod.get(cod.size()-1);
     }
     
+    public int getIDAcademia(){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int ida = -1;
+        try {
+            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia = '"+nome_academia.getText()+"'");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                if(rs.getString("nome_academia") == nome_academia.getText()){
+                    ida = rs.getInt("Id_academia");
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
+        }
+        
+        return ida;
+    }
     
     public static void main(String args[]) {
 
@@ -437,7 +458,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField academia_que_participa;
     private javax.swing.JCheckBox box_aluno;
     private javax.swing.JCheckBox box_prof;
     private javax.swing.JButton buscar;
@@ -464,6 +484,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField locais_de_trabalho;
+    private javax.swing.JTextField nome_academia;
     private javax.swing.JTextField nome_completo;
     private javax.swing.JTextField nome_mae;
     private javax.swing.JTextField nome_pai;
