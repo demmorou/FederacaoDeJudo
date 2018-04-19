@@ -46,6 +46,7 @@ public class TelaInicial extends javax.swing.JFrame {
         cadastrar = new javax.swing.JButton();
         campeonatos = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
+        usuarios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         cadastrar_menu = new javax.swing.JMenu();
         aluno = new javax.swing.JMenuItem();
@@ -129,6 +130,13 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        usuarios.setText("Usuários");
+        usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariosActionPerformed(evt);
+            }
+        });
+
         cadastrar_menu.setText("Cadastrar");
 
         aluno.setText("Aluno");
@@ -165,7 +173,9 @@ public class TelaInicial extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,7 +184,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 351, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 230, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,6 +207,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private void professorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_professorActionPerformed
+
+    private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,5 +279,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem professor;
     private javax.swing.JButton sair;
     private javax.swing.JMenu sair_menu;
+    private javax.swing.JButton usuarios;
     // End of variables declaration//GEN-END:variables
 }
