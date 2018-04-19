@@ -86,6 +86,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Federação Piauiense de Judô");
 
+        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit-2.png"))); // NOI18N
         sair.setText("Sair");
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
