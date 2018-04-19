@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author deusimar
+ * @author oziel
  */
 @Entity
 @Table(name = "user")
@@ -38,13 +38,10 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "Id_user")
     private Integer iduser;
-    @Basic(optional = false)
     @Column(name = "usuario")
     private String usuario;
-    @Basic(optional = false)
     @Column(name = "senha")
     private String senha;
-    @Basic(optional = false)
     @Column(name = "nome")
     private String nome;
 
@@ -53,13 +50,6 @@ public class User implements Serializable {
 
     public User(Integer iduser) {
         this.iduser = iduser;
-    }
-
-    public User(Integer iduser, String usuario, String senha, String nome) {
-        this.iduser = iduser;
-        this.usuario = usuario;
-        this.senha = senha;
-        this.nome = nome;
     }
 
     public Integer getIduser() {
