@@ -330,24 +330,24 @@ public class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_box_profActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+        Aluno a = new Aluno();
+        Pessoa p = new Pessoa();
+        Academia ac = new Academia();
+        DAO dao = new DAO();
+        int ida = getIDAcademia();
         
         if(box_aluno.isSelected() || box_prof.isSelected()){
-            salvarCadastro();
+            if(ida != -1){
+                salvarCadastro();
             if(box_aluno.isSelected()){
-                Aluno a = new Aluno();
-                Pessoa p = new Pessoa();
-                Academia ac = new Academia();
-                DAO dao = new DAO();
                 
                 p.setIdpessoa(getIDPEssoa());
                 a.setIdpessoaFK(p);
+                a.setIdpessoaFK(p);
+                dao.createAluno(a);
                 
-                int ida = getIDAcademia();
-                if(ida == -1){
-                    JOptionPane.showMessageDialog(null, "Por Favor, Informe um nome de academia ja cadastrada!", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }else{
-                    a.setIdpessoaFK(p);
-                    dao.createAluno(a);
+                    JOptionPane.showMessageDialog(null, "Informe o nome de uma academia ja cadastrada!", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
                 
             }else if(box_prof.isSelected()){
