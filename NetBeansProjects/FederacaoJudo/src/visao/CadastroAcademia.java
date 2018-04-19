@@ -118,6 +118,11 @@ public class CadastroAcademia extends javax.swing.JFrame {
         });
 
         voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Cantarell", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(152, 26, 31));
@@ -274,6 +279,18 @@ public class CadastroAcademia extends javax.swing.JFrame {
     private void estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_estadoActionPerformed
+
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        // TODO add your handling code here:
+                dispose();
+                TelaInicial b = new TelaInicial();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+                
+        
+    }//GEN-LAST:event_voltarActionPerformed
 
     /**
      * @param args the command line arguments

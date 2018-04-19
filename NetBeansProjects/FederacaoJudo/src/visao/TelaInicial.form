@@ -228,11 +228,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Campeonatos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campeonatosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

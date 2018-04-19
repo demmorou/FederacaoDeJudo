@@ -101,8 +101,18 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         campeonatos.setText("Campeonatos");
+        campeonatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campeonatosActionPerformed(evt);
+            }
+        });
 
         buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,6 +203,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+        dispose();
         CadastroOpitions co = new CadastroOpitions();
         co.setVisible(true);
         co.setLocationRelativeTo(null);
@@ -211,6 +222,26 @@ public class TelaInicial extends javax.swing.JFrame {
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuariosActionPerformed
+
+    private void campeonatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campeonatosActionPerformed
+        // TODO add your handling code here:
+                dispose();
+                GerenciamentoCampeonato b = new GerenciamentoCampeonato();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_campeonatosActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+                dispose();
+                MenuBuscar b = new MenuBuscar();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments

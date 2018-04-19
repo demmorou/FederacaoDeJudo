@@ -9,12 +9,12 @@ package visao;
  *
  * @author pavic
  */
-public class CadastroCampeonato extends javax.swing.JFrame {
+public class GerenciamentoCampeonato extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroCampeonato
      */
-    public CadastroCampeonato() {
+    public GerenciamentoCampeonato() {
         initComponents();
     }
 
@@ -54,7 +54,12 @@ public class CadastroCampeonato extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Sair");
+        jButton5.setText("Voltar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,6 +104,16 @@ public class CadastroCampeonato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+                dispose();
+                TelaInicial b = new TelaInicial();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -116,21 +131,23 @@ public class CadastroCampeonato extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciamentoCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciamentoCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciamentoCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciamentoCampeonato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroCampeonato().setVisible(true);
+                new GerenciamentoCampeonato().setVisible(true);
             }
         });
     }

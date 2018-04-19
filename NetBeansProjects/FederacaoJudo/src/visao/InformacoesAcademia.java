@@ -64,7 +64,12 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
         jLabel7.setText("Número");
 
-        sair.setText("Sair");
+        sair.setText("Voltar");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
 
         alterar.setText("Alterar");
 
@@ -91,7 +96,7 @@ public class InformacoesAcademia extends javax.swing.JFrame {
                     .addComponent(campoBairro)
                     .addComponent(campoRua)
                     .addComponent(campoNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(salvar)
                 .addGap(18, 18, 18)
                 .addComponent(alterar)
@@ -153,6 +158,16 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+           TelaInicial b = new TelaInicial();
+            b.setTitle("Tela Inicial");
+            b.setVisible(true);
+            b.setLocationRelativeTo(null);
+            b.setSize(1059, 608);
+    }//GEN-LAST:event_sairActionPerformed
 
     /**
      * @param args the command line arguments

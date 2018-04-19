@@ -1,6 +1,7 @@
 package visao;
 
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import javax.swing.JOptionPane;
 
 public class CadastroProfessor extends javax.swing.JFrame {
 
@@ -12,7 +13,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        Salvar = new javax.swing.JButton();
         nome_pai = new javax.swing.JTextField();
         buscar_foto = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -48,7 +49,12 @@ public class CadastroProfessor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
 
-        jButton1.setText("Salvar");
+        Salvar.setText("Salvar");
+        Salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarActionPerformed(evt);
+            }
+        });
 
         buscar_foto.setText("Buscar");
 
@@ -156,7 +162,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(buscar_academia)))
                         .addGap(21, 21, 21)))
-                .addComponent(jButton1)
+                .addComponent(Salvar)
                 .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
@@ -228,7 +234,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(Salvar))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -237,7 +243,26 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+            dispose();
+            TelaInicial b = new TelaInicial();
+            b.setTitle("Tela Inicial");
+            b.setVisible(true);
+            b.setLocationRelativeTo(null);
+            b.setSize(1059, 608);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
+        // TODO add your handling code here:
+        if (nome_complto.getText().equals("") || nome_mae.getText().equals("") || 
+            telefone.getText().equals("") || gradacao_atual.getText().equals("")||
+            data_de_outorga.getText().equals("") || foto_3x4.getText().equals("") ||
+            cpf_professor.getText().equals("") || cref.getText().equals("") ||
+            buscar_academia.getText().equals("") || locais_trabalho.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+        }
+    }//GEN-LAST:event_SalvarActionPerformed
 
     public static void main(String args[]) {
 
@@ -273,6 +298,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Salvar;
     private javax.swing.JButton buscar_academia;
     private javax.swing.JButton buscar_foto;
     private javax.swing.JTextField competicoes_que_esteve;
@@ -281,7 +307,6 @@ public class CadastroProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField data_de_outorga;
     private javax.swing.JTextField foto_3x4;
     private javax.swing.JTextField gradacao_atual;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

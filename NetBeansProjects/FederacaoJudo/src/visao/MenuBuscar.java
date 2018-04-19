@@ -150,6 +150,11 @@ public class MenuBuscar extends javax.swing.JFrame {
         jLabel4.setText("Resultado da Pesquisa");
 
         voltar_botao.setText("Voltar");
+        voltar_botao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltar_botaoActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,7 +189,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                         .addGap(487, 487, 487))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(voltar_botao)
-                        .addGap(22, 22, 22))))
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +202,9 @@ public class MenuBuscar extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGap(27, 27, 27)
                 .addComponent(voltar_botao)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,6 +217,16 @@ public class MenuBuscar extends javax.swing.JFrame {
     private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfActionPerformed
+
+    private void voltar_botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_botaoActionPerformed
+        // TODO add your handling code here:
+                dispose();
+                TelaInicial b = new TelaInicial();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_voltar_botaoActionPerformed
 
     /**
      * @param args the command line arguments

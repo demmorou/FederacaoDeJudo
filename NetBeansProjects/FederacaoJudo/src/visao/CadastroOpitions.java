@@ -42,6 +42,11 @@ public class CadastroOpitions extends javax.swing.JFrame {
         jLabel1.setText("Menu Cadastrar");
 
         voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -115,7 +120,23 @@ public class CadastroOpitions extends javax.swing.JFrame {
 
     private void cadastro_academiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_academiaActionPerformed
         // TODO add your handling code here:
+                dispose();
+                CadastroAcademia b = new CadastroAcademia();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
     }//GEN-LAST:event_cadastro_academiaActionPerformed
+
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+                TelaInicial b = new TelaInicial();
+                b.setTitle("Tela Inicial");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_voltarActionPerformed
 
     /**
      * @param args the command line arguments
