@@ -6,9 +6,7 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Academia.findByCidade", query = "SELECT a FROM Academia a WHERE a.cidade = :cidade")
     , @NamedQuery(name = "Academia.findByBairro", query = "SELECT a FROM Academia a WHERE a.bairro = :bairro")
     , @NamedQuery(name = "Academia.findByRua", query = "SELECT a FROM Academia a WHERE a.rua = :rua")
-    , @NamedQuery(name = "Academia.findByNumero", query = "SELECT a FROM Academia a WHERE a.numero = :numero")})
+    , @NamedQuery(name = "Academia.findByNumero", query = "SELECT a FROM Academia a WHERE a.numero = :numero")
+    , @NamedQuery(name = "Academia.findByNomeAcademia", query = "SELECT a FROM Academia a WHERE a.nomeAcademia = :nomeAcademia")})
 public class Academia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,10 +64,9 @@ public class Academia implements Serializable {
     @Basic(optional = false)
     @Column(name = "numero")
     private int numero;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacademiaFK")
-    private Collection<Aluno> alunoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idacademiaFK")
-    private Collection<Professor> professorCollection;
+    @Basic(optional = false)
+    @Column(name = "nome_academia")
+    private String nomeAcademia;
 
     public Academia() {
     }
@@ -79,7 +75,7 @@ public class Academia implements Serializable {
         this.idacademia = idacademia;
     }
 
-    public Academia(Integer idacademia, String professorResponsavel, String estado, int cep, String cidade, String bairro, String rua, int numero) {
+    public Academia(Integer idacademia, String professorResponsavel, String estado, int cep, String cidade, String bairro, String rua, int numero, String nomeAcademia) {
         this.idacademia = idacademia;
         this.professorResponsavel = professorResponsavel;
         this.estado = estado;
@@ -88,6 +84,7 @@ public class Academia implements Serializable {
         this.bairro = bairro;
         this.rua = rua;
         this.numero = numero;
+        this.nomeAcademia = nomeAcademia;
     }
 
     public Integer getIdacademia() {
@@ -154,22 +151,12 @@ public class Academia implements Serializable {
         this.numero = numero;
     }
 
-    @XmlTransient
-    public Collection<Aluno> getAlunoCollection() {
-        return alunoCollection;
+    public String getNomeAcademia() {
+        return nomeAcademia;
     }
 
-    public void setAlunoCollection(Collection<Aluno> alunoCollection) {
-        this.alunoCollection = alunoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Professor> getProfessorCollection() {
-        return professorCollection;
-    }
-
-    public void setProfessorCollection(Collection<Professor> professorCollection) {
-        this.professorCollection = professorCollection;
+    public void setNomeAcademia(String nomeAcademia) {
+        this.nomeAcademia = nomeAcademia;
     }
 
     @Override

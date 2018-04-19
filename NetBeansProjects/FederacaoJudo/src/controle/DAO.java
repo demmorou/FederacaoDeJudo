@@ -84,7 +84,9 @@ public class DAO {
         Pessoa p = new Pessoa();
         try {
             stmt = con.prepareStatement("INSERT INTO aluno (Id_aluno,Id_pessoaFK,Id_academiaFK)VALUES(?,?,?)");
-            
+            stmt.setInt(1, 0);
+            stmt.setInt(2, a.getIdpessoaFK().getIdpessoa());
+            stmt.setInt(3, a.getIdacademiaFK().getIdacademia());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");
