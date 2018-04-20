@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import modelo.Academia;
 import modelo.Aluno;
 import modelo.Pessoa;
+import modelo.ValidaCPF;
 
 public class CadastroAluno extends javax.swing.JFrame {
 
@@ -389,6 +390,12 @@ public class CadastroAluno extends javax.swing.JFrame {
             
             p.setNomeCompleto(nome_completo.getText());
             p.setNomeMae(nome_mae.getText());
+            
+            if (ValidaCPF.isCPF(cpf.getText()) == true){
+            }else{
+                 JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
+                 cpf.setText("");
+            }
             p.setCpf(cpf.getText());
             p.setCurriculun(competicoes.getText());
             p.setGraduacaoAtual(graduacao.getText());
