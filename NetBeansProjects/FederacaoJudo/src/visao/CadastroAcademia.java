@@ -421,7 +421,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
             try {
-                stmt = con.prepareStatement("SELECT nome_completo, Id_pessoa FROM pessoa INNER JOIN professor WHERE pessoa.Id_pessoa = professor.Id_pessoaFK");
+                stmt = con.prepareStatement("SELECT nome_completo, Id_pessoa FROM pessoa INNER JOIN professor WHERE pessoa.Id_pessoa = professor.Id_pessoaFK AND professor.vinculo_com_academia = 'professor'");
                 rs = stmt.executeQuery();
                 
                 ArrayList dados = new ArrayList();
@@ -429,7 +429,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
         
                 try {
                     while(rs.next()){
-                        //dados.add(new Object[]{rs.getString("nome_completo")});
+                        dados.add(new Object[]{rs.getString("nome_completo")});
                         System.out.println(rs.getString("nome_completo"));
                     }
                     if(dados.size() < 1){
