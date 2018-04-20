@@ -17,11 +17,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Academia;
+import modelo.PreencherTabela;
 /**
  *
  * @author Daniel
  */
 public class CadastroAcademia extends javax.swing.JFrame {
+
+    /**
+     * @return the table
+     */
+    public javax.swing.JTable getTable() {
+        return table;
+    }
+
+    /**
+     * @param table the table to set
+     */
+    public void setTable(javax.swing.JTable table) {
+        this.table = table;
+    }
 
     /**
      * Creates new form CadastroAcademia
@@ -365,22 +380,21 @@ public class CadastroAcademia extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void box_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_comActionPerformed
-        if(box_sem.isSelected()){
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        if(box_sem.isSelected() || box_com.isSelected()){
             box_sem.setSelected(false);
-            
-            ResultSet rs = null;
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt = null;
             
             try {
                 stmt = con.prepareStatement("SELECT nome_completo, Id_pessoa FROM pessoa INNER JOIN professor WHERE pessoa.Id_pessoa = professor.Id_pessoaFK");
-                
-                
+                rs = stmt.executeQuery();
+                new PreencherTabela(rs, "do Professor");
                 
             } catch (SQLException ex) {
                 Logger.getLogger(CadastroAcademia.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
         }
     }//GEN-LAST:event_box_comActionPerformed
 
