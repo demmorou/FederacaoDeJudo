@@ -21,11 +21,14 @@ import javax.swing.ListSelectionModel;
 import modelo.Academia;
 import modelo.ModeloTabela;
 import modelo.PreencherTabela;
+
 /**
  *
  * @author Daniel
  */
 public class CadastroAcademia extends javax.swing.JFrame {
+
+    private boolean index = false;
 
     /**
      * @return the table
@@ -338,22 +341,22 @@ public class CadastroAcademia extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
-        
-        if (estado.getText().equals("") || cep.getText().equals("") ||
-            cidade.getText().equals("") || bairro.getText().equals("") ||
-            rua.getText().equals("") || numero.getText().equals("") || nome_academia.getText().equals("")){
-            
-            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
-        
-        }else {
-           
+
+        if (estado.getText().equals("") || cep.getText().equals("")
+                || cidade.getText().equals("") || bairro.getText().equals("")
+                || rua.getText().equals("") || numero.getText().equals("") || nome_academia.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!", "Aviso", JOptionPane.WARNING_MESSAGE);
+
+        } else {
+
             ResultSet rs = null;
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement stmt = null;
             Academia a = new Academia();
-            
+
             DAO d = new DAO();
-            
+
             a.setEstado(estado.getText());
             a.setCep(Integer.parseInt(cep.getText()));
             a.setCidade(cidade.getText());
@@ -361,9 +364,9 @@ public class CadastroAcademia extends javax.swing.JFrame {
             a.setRua(rua.getText());
             a.setNumero(Integer.parseInt(numero.getText()));
             a.setNomeAcademia(nome_academia.getText());
-            
+
             d.createAcademia(a);
-            
+
             estado.setText("");
             cep.setText("");
             cidade.setText("");
@@ -371,7 +374,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
             rua.setText("");
             numero.setText("");
             nome_academia.setText("");
-                      
+
         }
     }//GEN-LAST:event_salvarActionPerformed
 
@@ -384,76 +387,84 @@ public class CadastroAcademia extends javax.swing.JFrame {
     }//GEN-LAST:event_estadoActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        // TODO add your handling code here:
-                dispose();
-                TelaInicial b = new TelaInicial();
-                b.setTitle("Tela Inicial");
-                b.setVisible(true);
-                b.setLocationRelativeTo(null);
-                b.setSize(1059, 608);
-                
+        if(isIndex() == false){
+            dispose();
+            TelaInicial b = new TelaInicial();
+            b.setTitle("Tela Inicial");
+            b.setVisible(true);
+            b.setLocationRelativeTo(null);
+            b.setSize(1059, 608);
+        }else{
+            dispose();
+            CadastroAluno b = new CadastroAluno();
+            b.setTitle("Tela Inicial");
+            b.setLocationRelativeTo(null);
+            b.setSize(1059, 608);
+        }
+        
+
     }//GEN-LAST:event_voltarActionPerformed
 
     private void box_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_comActionPerformed
-        
-        if(box_sem.isSelected() || box_com.isSelected()){
+
+        if (box_sem.isSelected() || box_com.isSelected()) {
             box_sem.setSelected(false);
-            
+
             PreencherTabela();
         }
     }//GEN-LAST:event_box_comActionPerformed
 
     private void box_semActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_semActionPerformed
-        if(box_com.isSelected()){
+        if (box_com.isSelected()) {
             box_com.setSelected(false);
             name_re.setText("");
         }
     }//GEN-LAST:event_box_semActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        if(table.getSelectedRow() != -1){
+        if (table.getSelectedRow() != -1) {
             name_re.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
-            JOptionPane.showMessageDialog(null, "O Professor Selecionado Foi: "+table.getValueAt(table.getSelectedRow(), 0).toString());
+            JOptionPane.showMessageDialog(null, "O Professor Selecionado Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
     }//GEN-LAST:event_tableMouseClicked
 
     private void add_profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_profActionPerformed
-                dispose();
-                CadastroProfessor b = new CadastroProfessor();
-                b.setIndex(true);
-                b.setTitle("Cadastrar Professor");
-                b.setVisible(true);
-                b.setLocationRelativeTo(null);
-                b.setSize(1059, 608);
+        dispose();
+        CadastroProfessor b = new CadastroProfessor();
+        b.setIndex(true);
+        b.setTitle("Cadastrar Professor");
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        b.setSize(1059, 608);
     }//GEN-LAST:event_add_profActionPerformed
 
-    public void PreencherTabela(){
+    public void PreencherTabela() {
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("SELECT nome_completo, Id_pessoa FROM pessoa INNER JOIN professor WHERE pessoa.Id_pessoa = professor.Id_pessoaFK AND professor.vinculo_com_academia = 'professor'");
+            rs = stmt.executeQuery();
+
+            ArrayList dados = new ArrayList();
+            String[] Colunas = new String[]{"Nome"};
+
             try {
-                stmt = con.prepareStatement("SELECT nome_completo, Id_pessoa FROM pessoa INNER JOIN professor WHERE pessoa.Id_pessoa = professor.Id_pessoaFK AND professor.vinculo_com_academia = 'professor'");
-                rs = stmt.executeQuery();
-                
-                ArrayList dados = new ArrayList();
-                String [] Colunas = new String[]{"Nome"};
-        
-                try {
-                    while(rs.next()){
-                        dados.add(new Object[]{rs.getString("nome_completo")});
-                        System.out.println(rs.getString("nome_completo"));
+                while (rs.next()) {
+                    dados.add(new Object[]{rs.getString("nome_completo")});
+                    System.out.println(rs.getString("nome_completo"));
+                }
+                if (dados.size() < 1) {
+                    if (JOptionPane.showConfirmDialog(null, "Desculpe, Os professores Cadastrados Já São Responsáveis de Alguma Academia! \nDeseja Cadastrar Um Novo Professor?") == JOptionPane.OK_OPTION) {
+                        dispose();
+                        CadastroProfessor p = new CadastroProfessor();
+                        p.setIndex(true);
+                        p.setTitle("Cadastro de Professor");
+                        p.setVisible(true);
+                        p.setLocationRelativeTo(null);
+                        p.setSize(1072, 608);
                     }
-                    if(dados.size() < 1){
-                        if (JOptionPane.showConfirmDialog(null,"Desculpe, Os professores Cadastrados Já São Responsáveis de Alguma Academia! \nDeseja Cadastrar Um Novo Professor?")==JOptionPane.OK_OPTION){
-                            dispose();
-                            CadastroProfessor p = new CadastroProfessor();
-                            p.setIndex(true);
-                            p.setTitle("Cadastro de Professor");
-                            p.setVisible(true);
-                            p.setLocationRelativeTo(null);
-                            p.setSize(1072, 608);
-                        }
-                    }
+                } else {
                     ModeloTabela modelo = new ModeloTabela(dados, Colunas);
 
                     table.setModel(modelo);
@@ -465,15 +476,17 @@ public class CadastroAcademia extends javax.swing.JFrame {
                     table.setAutoResizeMode(table.AUTO_RESIZE_OFF);
 
                     table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao preencher o ArrayList! "+ex);
                 }
-
             } catch (SQLException ex) {
-                    Logger.getLogger(CadastroAcademia.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Erro ao preencher o ArrayList! " + ex);
             }
-    
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroAcademia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
+
     /**
      * @param args the command line arguments
      */
@@ -503,17 +516,17 @@ public class CadastroAcademia extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              
+
                 CadastroAcademia b = new CadastroAcademia();
                 b.setTitle("Cadastro de Academias");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);
                 b.setSize(1059, 608);
-                
+
             }
         });
     }
@@ -545,4 +558,18 @@ public class CadastroAcademia extends javax.swing.JFrame {
     public javax.swing.JTable table;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the index
+     */
+    public boolean isIndex() {
+        return index;
+    }
+
+    /**
+     * @param index the index to set
+     */
+    public void setIndex(boolean index) {
+        this.index = index;
+    }
 }
