@@ -202,6 +202,11 @@ public class CadastroAcademia extends javax.swing.JFrame {
 
         add_prof.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add-1_1.png"))); // NOI18N
         add_prof.setText("Novo Professor");
+        add_prof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_profActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,13 +215,18 @@ public class CadastroAcademia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(399, 399, 399)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(188, 188, 188)
                                 .addComponent(jLabel10)
-                                .addGap(275, 275, 275))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(voltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(salvar))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel6)
@@ -228,30 +238,23 @@ public class CadastroAcademia extends javax.swing.JFrame {
                                     .addComponent(nome_academia, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                                     .addComponent(jLabel4)
                                     .addComponent(cidade))
-                                .addGap(141, 141, 141)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(estado, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cep, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(box_sem, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(box_com, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(141, 141, 141)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(estado, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cep, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(box_sem, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(box_com, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(name_r)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(name_re, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(voltar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(salvar))
-                                    .addComponent(add_prof)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addComponent(jLabel1)))
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(name_r)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(name_re, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(add_prof))))))))
                 .addGap(211, 211, 211))
         );
         layout.setVerticalGroup(
@@ -284,7 +287,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(add_prof)
-                        .addGap(127, 127, 127))
+                        .addGap(35, 35, 35))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(jLabel6)
@@ -303,12 +306,11 @@ public class CadastroAcademia extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(voltar)
-                        .addComponent(salvar))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(82, 82, 82))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(voltar)
+                    .addComponent(salvar)
+                    .addComponent(jLabel10))
+                .addGap(174, 174, 174))
         );
 
         pack();
@@ -390,7 +392,6 @@ public class CadastroAcademia extends javax.swing.JFrame {
                 b.setLocationRelativeTo(null);
                 b.setSize(1059, 608);
                 
-        
     }//GEN-LAST:event_voltarActionPerformed
 
     private void box_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_comActionPerformed
@@ -416,6 +417,16 @@ public class CadastroAcademia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tableMouseClicked
 
+    private void add_profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_profActionPerformed
+                dispose();
+                CadastroProfessor b = new CadastroProfessor();
+                b.setIndex(true);
+                b.setTitle("Cadastrar Professor");
+                b.setVisible(true);
+                b.setLocationRelativeTo(null);
+                b.setSize(1059, 608);
+    }//GEN-LAST:event_add_profActionPerformed
+
     public void PreencherTabela(){
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
@@ -433,9 +444,15 @@ public class CadastroAcademia extends javax.swing.JFrame {
                         System.out.println(rs.getString("nome_completo"));
                     }
                     if(dados.size() < 1){
-                        if (JOptionPane.showConfirmDialog(null,"Deseja realmente SAIR")==JOptionPane.OK_OPTION){
-                            System.out.println("clicou sim");
-                    }
+                        if (JOptionPane.showConfirmDialog(null,"Desculpe, Os professores Cadastrados Já São Responsáveis de Alguma Academia! \nDeseja Cadastrar Um Novo Professor?")==JOptionPane.OK_OPTION){
+                            dispose();
+                            CadastroProfessor p = new CadastroProfessor();
+                            p.setIndex(true);
+                            p.setTitle("Cadastro de Professor");
+                            p.setVisible(true);
+                            p.setLocationRelativeTo(null);
+                            p.setSize(1072, 608);
+                        }
                     }
                     ModeloTabela modelo = new ModeloTabela(dados, Colunas);
 
