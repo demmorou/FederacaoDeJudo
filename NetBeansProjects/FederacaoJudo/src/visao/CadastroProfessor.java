@@ -132,7 +132,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(foto_3x4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buscar_foto, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+                        .addComponent(buscar_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel16)
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane3)

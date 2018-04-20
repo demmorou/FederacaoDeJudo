@@ -66,6 +66,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         competicoes = new javax.swing.JTextPane();
         jLabel17 = new javax.swing.JLabel();
         peso = new javax.swing.JTextField();
+        masculino = new javax.swing.JCheckBox();
+        feminino = new javax.swing.JCheckBox();
 
         jInternalFrame1.setVisible(true);
 
@@ -172,6 +174,20 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
+        masculino.setText("Masculino");
+        masculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masculinoActionPerformed(evt);
+            }
+        });
+
+        feminino.setText("Feminino");
+        feminino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femininoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,9 +211,6 @@ public class CadastroAluno extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(graduacao, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)
                                     .addComponent(data_ourtoga, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,20 +223,28 @@ public class CadastroAluno extends javax.swing.JFrame {
                                             .addComponent(nome_pai, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5)
                                             .addComponent(telefone_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3))
+                                            .addComponent(jLabel3)
+                                            .addComponent(graduacao, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
                                         .addGap(86, 86, 86)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                                             .addComponent(peso)
                                             .addComponent(nome_academia)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel17)
-                                            .addComponent(jLabel9)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(buscar)))))))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel11)
+                                                    .addComponent(jLabel13)
+                                                    .addComponent(jLabel17)
+                                                    .addComponent(jLabel9)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(buscar))
+                                                    .addComponent(masculino)
+                                                    .addComponent(feminino))
+                                                .addGap(0, 0, Short.MAX_VALUE)))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(box_prof)
@@ -254,16 +275,15 @@ public class CadastroAluno extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addGap(6, 6, 6)
                                         .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(6, 6, 6)
                                         .addComponent(jLabel17)
                                         .addGap(12, 12, 12)
-                                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addGap(6, 6, 6)
                                         .addComponent(box_prof)
@@ -285,8 +305,11 @@ public class CadastroAluno extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(buscar)
-                                            .addComponent(locais_de_trabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(322, Short.MAX_VALUE))))
+                                            .addComponent(locais_de_trabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(masculino)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(feminino))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(6, 6, 6)
@@ -314,8 +337,8 @@ public class CadastroAluno extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(159, Short.MAX_VALUE))))
         );
 
         pack();
@@ -379,6 +402,18 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pesoActionPerformed
+
+    private void masculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masculinoActionPerformed
+        if(feminino.isSelected()){
+            feminino.setSelected(false);
+        }
+    }//GEN-LAST:event_masculinoActionPerformed
+
+    private void femininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femininoActionPerformed
+        if(masculino.isSelected()){
+            masculino.setSelected(false);
+        }
+    }//GEN-LAST:event_femininoActionPerformed
     
 //    public void ass(){
 //        academia_que_participa.setEditable(false);
@@ -497,6 +532,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField cref;
     private javax.swing.JTextField data_ourtoga;
+    private javax.swing.JCheckBox feminino;
     private javax.swing.JTextField graduacao;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -518,6 +554,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField locais_de_trabalho;
+    private javax.swing.JCheckBox masculino;
     private javax.swing.JTextField nome_academia;
     private javax.swing.JTextField nome_completo;
     private javax.swing.JTextField nome_mae;

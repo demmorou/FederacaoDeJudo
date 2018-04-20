@@ -51,6 +51,8 @@ public class InformacoesAluno extends javax.swing.JFrame {
         campoAcademia = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         buscaFoto = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        sexo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +83,12 @@ public class InformacoesAluno extends javax.swing.JFrame {
         });
 
         alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/edit.png"))); // NOI18N
-        alterar.setText("Alterar");
+        alterar.setText("Editar");
+        alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarActionPerformed(evt);
+            }
+        });
 
         salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/floppy-icon.png"))); // NOI18N
         salvar.setText("Salvar");
@@ -91,6 +98,10 @@ public class InformacoesAluno extends javax.swing.JFrame {
         jLabel11.setText("Foto 3x4");
 
         buscaFoto.setText("Buscar");
+
+        jLabel9.setText("Sexo: ");
+
+        sexo.setText("jLabel12");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,20 +129,28 @@ public class InformacoesAluno extends javax.swing.JFrame {
                         .addComponent(campoCPF))
                     .addComponent(campoAcademia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(buscaFoto))
-                        .addGap(80, 232, Short.MAX_VALUE))
+                        .addComponent(buscaFoto)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(sair)
-                        .addGap(18, 18, 18)
-                        .addComponent(salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(alterar)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(sair)
+                                .addGap(18, 18, 18)
+                                .addComponent(salvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(alterar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(sexo)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,15 +159,18 @@ public class InformacoesAluno extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel9)
+                    .addComponent(sexo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscaFoto))
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscaFoto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,6 +237,10 @@ public class InformacoesAluno extends javax.swing.JFrame {
                 b.setSize(1059, 608);
     }//GEN-LAST:event_sairActionPerformed
 
+    private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alterarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -279,8 +305,10 @@ public class InformacoesAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sair;
     private javax.swing.JButton salvar;
+    private javax.swing.JLabel sexo;
     // End of variables declaration//GEN-END:variables
 }
