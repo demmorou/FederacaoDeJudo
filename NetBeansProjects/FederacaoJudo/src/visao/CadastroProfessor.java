@@ -87,7 +87,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(17, 70, 88));
-        jLabel13.setText("Cadastro de Professor");
+        jLabel13.setText("Cadastrar Professor");
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         jButton3.setText("Voltar");
