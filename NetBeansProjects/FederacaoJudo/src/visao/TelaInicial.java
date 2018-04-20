@@ -246,7 +246,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 b.setTitle("Tela Inicial");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);
-                b.setSize(1059, 608);
+                b.setSize(1072, 608);
     }//GEN-LAST:event_buscarActionPerformed
 
     /**
