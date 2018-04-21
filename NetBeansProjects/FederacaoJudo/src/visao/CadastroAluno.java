@@ -45,10 +45,22 @@ public class CadastroAluno extends javax.swing.JFrame {
         nome_pai = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         telefone_aluno = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#####-####");
+            telefone_aluno = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel6 = new javax.swing.JLabel();
         graduacao = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         data_ourtoga = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            data_ourtoga = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         buscar = new javax.swing.JButton();
@@ -56,6 +68,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         voltar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         cpf = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###########");
+            cpf = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         path_imagem = new javax.swing.JTextField();
@@ -70,6 +88,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         table = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         idade = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##");
+            idade = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel20 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         nome_ac = new javax.swing.JLabel();
@@ -118,6 +142,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel4.setText("Nome do Pai");
 
         jLabel5.setText("Telefone*");
+
+        telefone_aluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefone_alunoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Graduação Atual*");
 
@@ -468,6 +498,10 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PreencherTabela();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void telefone_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefone_alunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telefone_alunoActionPerformed
 
 //    public void ass(){
 //        academia_que_participa.setEditable(false);

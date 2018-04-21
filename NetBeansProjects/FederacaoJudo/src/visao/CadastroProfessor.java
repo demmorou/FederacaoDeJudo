@@ -46,9 +46,27 @@ public class CadastroProfessor extends javax.swing.JFrame {
         buscar_foto = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         telefone = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#####-####");
+            telefone = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel6 = new javax.swing.JLabel();
         cpf = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###########");
+            cpf = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         idade = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##");
+            idade = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         data_de_outorga = new javax.swing.JTextField();
