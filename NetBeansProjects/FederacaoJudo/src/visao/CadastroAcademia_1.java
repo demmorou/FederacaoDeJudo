@@ -26,7 +26,7 @@ import modelo.PreencherTabela;
  *
  * @author Daniel
  */
-public class CadastroAcademia extends javax.swing.JFrame {
+public class CadastroAcademia_1 extends javax.swing.JFrame {
 
     private String index = "";
 
@@ -47,7 +47,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
     /**
      * Creates new form CadastroAcademia
      */
-    public CadastroAcademia() {
+    public CadastroAcademia_1() {
         initComponents();
     }
 
@@ -490,7 +490,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroAcademia.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroAcademia_1.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -512,14 +512,18 @@ public class CadastroAcademia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroAcademia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroAcademia_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroAcademia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroAcademia_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroAcademia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroAcademia_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroAcademia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroAcademia_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -529,7 +533,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                CadastroAcademia b = new CadastroAcademia();
+                CadastroAcademia_1 b = new CadastroAcademia_1();
                 b.setTitle("Cadastro de Academias");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);

@@ -120,6 +120,7 @@ public class CadastroOpitions extends javax.swing.JFrame {
         // TODO add your handling code here:
                 dispose();
                 CadastroAcademia b = new CadastroAcademia();
+                b.setIndex("menu");
                 b.setTitle("Tela Inicial");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);
@@ -129,11 +130,11 @@ public class CadastroOpitions extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-                TelaInicial b = new TelaInicial();
-                b.setTitle("Tela Inicial");
-                b.setVisible(true);
-                b.setLocationRelativeTo(null);
-                b.setSize(1059, 608);
+        TelaInicial b = new TelaInicial();
+        b.setTitle("Tela Inicial");
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        b.setSize(1059, 608);
     }//GEN-LAST:event_voltarActionPerformed
 
     /**

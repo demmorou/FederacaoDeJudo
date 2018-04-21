@@ -14,15 +14,15 @@ import javax.swing.ListSelectionModel;
 import modelo.ModeloTabela;
 import modelo.PreencherTabela;
 
-public class CadastroProfessor extends javax.swing.JFrame {
+public class CadastroProfessor_1 extends javax.swing.JFrame {
     private boolean index = false;
     
     
-    public CadastroProfessor() {
+    public CadastroProfessor_1() {
         initComponents();
     }
     
-    public CadastroProfessor(boolean valor){
+    public CadastroProfessor_1(boolean valor){
         
     }
 
@@ -475,21 +475,23 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProfessor_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProfessor_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProfessor_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroProfessor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProfessor_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastroProfessor p = new CadastroProfessor();
+                CadastroProfessor_1 p = new CadastroProfessor_1();
                 p.setTitle("Cadastro de Professor");
                 p.setVisible(true);
                 p.setLocationRelativeTo(null);
