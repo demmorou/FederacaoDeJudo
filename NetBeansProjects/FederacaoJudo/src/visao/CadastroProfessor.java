@@ -70,6 +70,12 @@ public class CadastroProfessor extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         data_de_outorga = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            data_de_outorga = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         nome_mae = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         foto_3x4 = new javax.swing.JTextField();
