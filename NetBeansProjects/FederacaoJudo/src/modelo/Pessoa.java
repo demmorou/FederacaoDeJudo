@@ -35,7 +35,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Pessoa.findByFoto3x4", query = "SELECT p FROM Pessoa p WHERE p.foto3x4 = :foto3x4")
     , @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")
     , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")
-    , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")})
+    , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")
+    , @NamedQuery(name = "Pessoa.findByPeso", query = "SELECT p FROM Pessoa p WHERE p.peso = :peso")
+    , @NamedQuery(name = "Pessoa.findBySexo", query = "SELECT p FROM Pessoa p WHERE p.sexo = :sexo")
+    , @NamedQuery(name = "Pessoa.findByIdade", query = "SELECT p FROM Pessoa p WHERE p.idade = :idade")})
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,6 +72,15 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @Column(name = "telefone")
     private String telefone;
+    @Basic(optional = false)
+    @Column(name = "peso")
+    private float peso;
+    @Basic(optional = false)
+    @Column(name = "sexo")
+    private String sexo;
+    @Basic(optional = false)
+    @Column(name = "idade")
+    private int idade;
 
     public Pessoa() {
     }
@@ -77,7 +89,7 @@ public class Pessoa implements Serializable {
         this.idpessoa = idpessoa;
     }
 
-    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga, String telefone) {
+    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga, String telefone, float peso, String sexo, int idade) {
         this.idpessoa = idpessoa;
         this.nomeCompleto = nomeCompleto;
         this.nomeMae = nomeMae;
@@ -86,6 +98,9 @@ public class Pessoa implements Serializable {
         this.cpf = cpf;
         this.dataOutorga = dataOutorga;
         this.telefone = telefone;
+        this.peso = peso;
+        this.sexo = sexo;
+        this.idade = idade;
     }
 
     public Integer getIdpessoa() {
@@ -166,6 +181,30 @@ public class Pessoa implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
     @Override
