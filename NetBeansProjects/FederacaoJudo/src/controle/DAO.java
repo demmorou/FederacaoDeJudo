@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import modelo.Academia;
 import modelo.Aluno;
 import modelo.Pessoa;
+import modelo.Professor;
 import modelo.User;
 
 /**
@@ -59,21 +60,21 @@ public class DAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cep,cidade,bairro,rua,numero,nome_academia)VALUES(?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cidade,bairro,rua,numero,nome_academia,cep)VALUES(?,?,?,?,?,?,?,?)");
             stmt.setInt(1, 0);
             stmt.setString(2, a.getEstado());
-            stmt.setString(3, a.getCep());
-            stmt.setString(4, a.getCidade());
-            stmt.setString(5, a.getBairro());
-            stmt.setString(6, a.getRua());
-            stmt.setInt(7, a.getNumero());
-            stmt.setString(8, a.getNomeAcademia());
+            stmt.setString(3, a.getCidade());
+            stmt.setString(4, a.getBairro());
+            stmt.setString(5, a.getRua());
+            stmt.setInt(6, a.getNumero());
+            stmt.setString(7, a.getNomeAcademia());
+            stmt.setString(8, a.getCep());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            JOptionPane.showMessageDialog(null, "Dados da Academia Salvos Com Sucesso");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar Dados da Academia"+ ex);
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
@@ -82,7 +83,6 @@ public class DAO {
     public void createAluno(Aluno a){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        Pessoa p = new Pessoa();
         try {
             stmt = con.prepareStatement("INSERT INTO aluno (Id_aluno,Id_pessoaFK,Id_academiaFK)VALUES(?,?,?)");
             stmt.setInt(1, 0);
@@ -100,24 +100,51 @@ public class DAO {
         
     }
     
+    public void createProfessor(Professor p){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO professor (Id_professor,locais_de_trabalho,vinculo_com_academia,CREF,Id_pessoaFK,Id_academiaFK)VALUES(?,?,?,?,?,?)");
+            stmt.setInt(1, 0);
+            stmt.setString(2, p.getLocaisDeTrabalho());
+            stmt.setString(3, p.getVinculoComAcademia());
+            stmt.setInt(4, p.getCref());
+            stmt.setInt(5, p.getIdpessoaFK().getIdpessoa());
+            stmt.setInt(6, p.getIdacademiaFK().getIdacademia());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Dados do Professor Salvos Com Sucesso");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+        }finally{
+            ConnectionFactory.closeConection(con, stmt);
+        }
+        
+    }
+    
     public void createPessoa(Pessoa p){
     
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,telefone,graduacao_atual,curriculun,foto3x4,cpf,data_outorga)VALUES(?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,graduacao_atual,curriculun,foto3x4,cpf,data_outorga,telefone,peso,sexo,idade)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             stmt.setInt(1, 0);
             stmt.setString(2, p.getNomeCompleto());
             stmt.setString(3, p.getNomeMae());
             stmt.setString(4, p.getNomePai());
-            stmt.setString(5, p.getTelefone());
-            stmt.setString(6, p.getGraduacaoAtual());
-            stmt.setString(7, p.getCurriculun());
-            stmt.setString(8, p.getFoto3x4());
-            stmt.setString(9, p.getCpf());
-            stmt.setString(10, p.getDataOutorga());
+            stmt.setString(5, p.getGraduacaoAtual());
+            stmt.setString(6, p.getCurriculun());
+            stmt.setString(7, p.getFoto3x4());
+            stmt.setString(8, p.getCpf());
+            stmt.setString(9, p.getDataOutorga());
+            stmt.setString(10, p.getTelefone());
+            stmt.setFloat(11, p.getPeso());
+            stmt.setString(12, p.getSexo());
+            stmt.setInt(13, p.getIdade());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");

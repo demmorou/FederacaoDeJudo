@@ -2,7 +2,6 @@ package visao;
 
 import controle.ConnectionFactory;
 import controle.DAO;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,9 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -22,10 +19,11 @@ import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Professor;
 import modelo.ValidaCPF;
-public class CadastroProfessor extends javax.swing.JFrame {
+public final class CadastroProfessor extends javax.swing.JFrame {
     private boolean index = false;
     private int id_academia = 0;
     private String vinculo = null;
+    private String sexo = null;
     
     public CadastroProfessor() {
         initComponents();
@@ -76,7 +74,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         }
         catch (Exception e){
         }
-        nome_mae = new javax.swing.JLabel();
+        kkk = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         foto_3x4 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -108,7 +106,9 @@ public class CadastroProfessor extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         prof = new javax.swing.JCheckBox();
         prof_res = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        peso = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -139,11 +139,11 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
         jLabel1.setText("Nome Completo*");
 
-        nome_mae.setText("Nome da Mãe*");
+        kkk.setText("Nome da Mãe*");
 
         jLabel4.setText("Nome do Pai ");
 
-        jLabel10.setText("Graduação Ataul*");
+        jLabel10.setText("Graduação Atual*");
 
         jLabel13.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(17, 70, 88));
@@ -241,13 +241,15 @@ public class CadastroProfessor extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/reload (1).png"))); // NOI18N
-        jButton1.setToolTipText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/reload (1).png"))); // NOI18N
+        refresh.setToolTipText("Atualizar");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                refreshActionPerformed(evt);
             }
         });
+
+        jLabel9.setText("Peso (Kg)*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,7 +268,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addComponent(nome_mae)
+                    .addComponent(kkk)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,24 +301,27 @@ public class CadastroProfessor extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(voltar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Salvar))
-                    .addComponent(prof_res)
-                    .addComponent(prof)
-                    .addComponent(jLabel18)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(add_academia))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nome_ac, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(voltar)
+                            .addGap(18, 18, 18)
+                            .addComponent(Salvar))
+                        .addComponent(prof_res)
+                        .addComponent(prof)
+                        .addComponent(jLabel18)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(refresh)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(add_academia))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel19)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nome_ac, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9)
+                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92))
         );
         layout.setVerticalGroup(
@@ -333,7 +338,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(nome_completo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)
-                                .addComponent(nome_mae)
+                                .addComponent(kkk)
                                 .addGap(6, 6, 6)
                                 .addComponent(nome_maee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
@@ -361,31 +366,35 @@ public class CadastroProfessor extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel15))
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel19)
                                     .addComponent(nome_ac, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(add_academia))
-                                .addGap(52, 52, 52)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(prof)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(prof_res)
-                                .addGap(86, 86, 86)
+                                .addGap(24, 24, 24)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(voltar)
                                     .addComponent(Salvar)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel17))
+                            .addComponent(jLabel9))
                         .addGap(6, 6, 6)
-                        .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8)
                         .addGap(19, 19, 19)
@@ -434,13 +443,14 @@ public class CadastroProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
-        // TODO add your handling code here:
-        if (nome_completo.getText().equals("") || nome_mae.getText().equals("") 
+        
+        if (nome_completo.getText().equals("") || kkk.getText().equals("") 
                 || telefone.getText().equals("") ||data_de_outorga.getText().equals("")
                 || foto_3x4.getText().equals("") ||cpf.equals("") 
                 || cref.getText().equals("") || locais_trabalho.getText().equals("")
                 ||idade.getText().equals("")||competicoes.getText().equals("")
-                || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)){
+                || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)
+                || getId_academia() == 0){
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         }else if (ValidaCPF.isCPF(cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -460,6 +470,10 @@ public class CadastroProfessor extends javax.swing.JFrame {
             p.setIdpessoa(getIDPEssoa());
             pr.setIdpessoaFK(p);
             
+            ac.setIdacademia(getId_academia());
+            pr.setIdacademiaFK(ac);
+            
+            dao.createProfessor(pr);
             
         }
     }//GEN-LAST:event_SalvarActionPerformed
@@ -478,20 +492,23 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
+            setId_academia(getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString()));
+            System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
             nome_ac.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
+        
     }//GEN-LAST:event_tableMouseClicked
 
     private void mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mActionPerformed
-        
+        setSexo("Masculino");
         if(f.isSelected()){
             f.setSelected(false);
         }
     }//GEN-LAST:event_mActionPerformed
 
     private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
-        
+        setSexo("Feminino");
         if(m.isSelected()){
             m.setSelected(false);
         }
@@ -507,9 +524,9 @@ public class CadastroProfessor extends javax.swing.JFrame {
         b.setSize(1059, 608);
     }//GEN-LAST:event_add_academiaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         PreencherTabela();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_refreshActionPerformed
 
     private void profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profActionPerformed
         setVinculo("professor");
@@ -540,17 +557,8 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 while (rs.next()) {
                     dados.add(new Object[]{rs.getString("nome_academia")});
                 }
-                if (dados.size() < 1) {
-                    if (JOptionPane.showConfirmDialog(null, "Desculpe, Não Há Academia Cadastrada! \n\nDeseja Cadastrar Uma Nova Academia?") == JOptionPane.OK_OPTION) {
-                        dispose();
-                        CadastroAcademia p = new CadastroAcademia();
-                        p.setIndex("professor");
-                        p.setTitle("Cadastro de Academia");
-                        p.setVisible(true);
-                        p.setLocationRelativeTo(null);
-                        p.setSize(1072, 608);
-                    }
-                } else {
+                if (dados.size() >= 1) {
+                    
                     ModeloTabela modelo = new ModeloTabela(dados, Colunas);
 
                     table.setModel(modelo);
@@ -573,28 +581,28 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
     }
     
-    public int getIDAcademia() {
+    public int getIDAcademia(String nome_academiaa) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int ida = -1;
+        System.out.println(nome_academiaa);
         try {
-            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia = '"+nome_ac.getText()+"'");
+            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia WHERE nome_academia = '"+nome_academiaa+"'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                if(rs.getString("nome_academia").equals(nome_ac.getText())){
+                if(rs.getString("nome_academia").equals(nome_academiaa)){
                     ida = rs.getInt("Id_academia");
                 }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
         }
-
+        System.out.println(ida);
         return ida;
     }
-    
     public int getIDPEssoa() {
 
         Connection con = ConnectionFactory.getConnection();
@@ -627,12 +635,15 @@ public class CadastroProfessor extends javax.swing.JFrame {
         DAO dao = new DAO();
 
         p.setNomeCompleto(nome_completo.getText());
-        p.setNomeMae(nome_mae.getText());
+        p.setNomeMae(nome_maee.getText());
         
         if(nome_pai.getText().equals("")){
             p.setNomePai("---");
         }
         
+        p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
+        p.setIdade(Integer.parseInt(idade.getText()));
+        p.setSexo(getSexo());
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao_atual.getText());
@@ -687,7 +698,6 @@ public class CadastroProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField foto_3x4;
     private javax.swing.JTextField graduacao_atual;
     private javax.swing.JTextField idade;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -705,19 +715,22 @@ public class CadastroProfessor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel kkk;
     private javax.swing.JTextPane locais_trabalho;
     private javax.swing.JCheckBox m;
     private javax.swing.JLabel nome_ac;
     private javax.swing.JTextField nome_completo;
-    private javax.swing.JLabel nome_mae;
     private javax.swing.JTextField nome_maee;
     private javax.swing.JTextField nome_pai;
+    private javax.swing.JTextField peso;
     private javax.swing.JCheckBox prof;
     private javax.swing.JCheckBox prof_res;
+    private javax.swing.JButton refresh;
     private javax.swing.JTable table;
     private javax.swing.JTextField telefone;
     private javax.swing.JButton voltar;
@@ -763,5 +776,19 @@ public class CadastroProfessor extends javax.swing.JFrame {
      */
     public void setVinculo(String vinculo) {
         this.vinculo = vinculo;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public String getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

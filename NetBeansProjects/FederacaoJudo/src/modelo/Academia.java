@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Academia.findAll", query = "SELECT a FROM Academia a")
     , @NamedQuery(name = "Academia.findByIdacademia", query = "SELECT a FROM Academia a WHERE a.idacademia = :idacademia")
-    , @NamedQuery(name = "Academia.findByProfessorResponsavel", query = "SELECT a FROM Academia a WHERE a.professorResponsavel = :professorResponsavel")
     , @NamedQuery(name = "Academia.findByEstado", query = "SELECT a FROM Academia a WHERE a.estado = :estado")
     , @NamedQuery(name = "Academia.findByCidade", query = "SELECT a FROM Academia a WHERE a.cidade = :cidade")
     , @NamedQuery(name = "Academia.findByBairro", query = "SELECT a FROM Academia a WHERE a.bairro = :bairro")
@@ -43,9 +42,6 @@ public class Academia implements Serializable {
     @Basic(optional = false)
     @Column(name = "Id_academia")
     private Integer idacademia;
-    @Basic(optional = false)
-    @Column(name = "professor_responsavel")
-    private String professorResponsavel;
     @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
@@ -75,9 +71,8 @@ public class Academia implements Serializable {
         this.idacademia = idacademia;
     }
 
-    public Academia(Integer idacademia, String professorResponsavel, String estado, String cidade, String bairro, String rua, int numero, String nomeAcademia, String cep) {
+    public Academia(Integer idacademia, String estado, String cidade, String bairro, String rua, int numero, String nomeAcademia, String cep) {
         this.idacademia = idacademia;
-        this.professorResponsavel = professorResponsavel;
         this.estado = estado;
         this.cidade = cidade;
         this.bairro = bairro;
@@ -93,14 +88,6 @@ public class Academia implements Serializable {
 
     public void setIdacademia(Integer idacademia) {
         this.idacademia = idacademia;
-    }
-
-    public String getProfessorResponsavel() {
-        return professorResponsavel;
-    }
-
-    public void setProfessorResponsavel(String professorResponsavel) {
-        this.professorResponsavel = professorResponsavel;
     }
 
     public String getEstado() {
