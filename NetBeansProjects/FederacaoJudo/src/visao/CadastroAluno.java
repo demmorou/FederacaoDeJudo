@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.Academia;
 import modelo.Aluno;
 import modelo.ModeloTabela;
@@ -217,7 +219,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         nome_ac.setForeground(new java.awt.Color(8, 160, 26));
 
         add_ac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add-1_1.png"))); // NOI18N
-        add_ac.setText("Adicionar Academia");
+        add_ac.setText("Nova Academia");
         add_ac.setToolTipText("Adicionar Academia");
         add_ac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,9 +358,9 @@ public class CadastroAluno extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(add_ac)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(add_ac))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,7 +439,14 @@ public class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_femininoActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        
+        JFileChooser arquivo = new JFileChooser();
+        FileNameExtensionFilter filtroPDF = new FileNameExtensionFilter("Foto", "png", "jpg", "jpeg");
+        arquivo.addChoosableFileFilter(filtroPDF);
+        arquivo.setAcceptAllFileFilterUsed(false);
+
+        if (arquivo.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            path_imagem.setText(arquivo.getSelectedFile().getAbsolutePath());
+        }
     }//GEN-LAST:event_buscarActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
