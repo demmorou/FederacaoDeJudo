@@ -438,7 +438,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
 
     private void add_profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_profActionPerformed
         dispose();
-        CadastroProfessor b = new CadastroProfessor();
+        CadastroProfessor_1 b = new CadastroProfessor_1();
         b.setIndex(true);
         b.setTitle("Cadastrar Professor");
         b.setVisible(true);
