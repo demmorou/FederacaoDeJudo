@@ -554,7 +554,7 @@ public class CadastroProfessor extends javax.swing.JFrame {
         
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao_atual.getText());
-        p.setTelefone(Integer.parseInt(telefone.getText()));
+        p.setTelefone(telefone.getText());
         p.setDataOutorga(data_de_outorga.getText());
         p.setFoto3x4(foto_3x4.getText());
 

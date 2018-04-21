@@ -30,12 +30,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Pessoa.findByNomeCompleto", query = "SELECT p FROM Pessoa p WHERE p.nomeCompleto = :nomeCompleto")
     , @NamedQuery(name = "Pessoa.findByNomeMae", query = "SELECT p FROM Pessoa p WHERE p.nomeMae = :nomeMae")
     , @NamedQuery(name = "Pessoa.findByNomePai", query = "SELECT p FROM Pessoa p WHERE p.nomePai = :nomePai")
-    , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")
     , @NamedQuery(name = "Pessoa.findByGraduacaoAtual", query = "SELECT p FROM Pessoa p WHERE p.graduacaoAtual = :graduacaoAtual")
     , @NamedQuery(name = "Pessoa.findByCurriculun", query = "SELECT p FROM Pessoa p WHERE p.curriculun = :curriculun")
     , @NamedQuery(name = "Pessoa.findByFoto3x4", query = "SELECT p FROM Pessoa p WHERE p.foto3x4 = :foto3x4")
     , @NamedQuery(name = "Pessoa.findByCpf", query = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf")
-    , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")})
+    , @NamedQuery(name = "Pessoa.findByDataOutorga", query = "SELECT p FROM Pessoa p WHERE p.dataOutorga = :dataOutorga")
+    , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")})
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,9 +53,6 @@ public class Pessoa implements Serializable {
     @Column(name = "nome_pai")
     private String nomePai;
     @Basic(optional = false)
-    @Column(name = "telefone")
-    private int telefone;
-    @Basic(optional = false)
     @Column(name = "graduacao_atual")
     private String graduacaoAtual;
     @Column(name = "curriculun")
@@ -69,6 +66,9 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @Column(name = "data_outorga")
     private String dataOutorga;
+    @Basic(optional = false)
+    @Column(name = "telefone")
+    private String telefone;
 
     public Pessoa() {
     }
@@ -77,15 +77,15 @@ public class Pessoa implements Serializable {
         this.idpessoa = idpessoa;
     }
 
-    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, int telefone, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga) {
+    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga, String telefone) {
         this.idpessoa = idpessoa;
         this.nomeCompleto = nomeCompleto;
         this.nomeMae = nomeMae;
-        this.telefone = telefone;
         this.graduacaoAtual = graduacaoAtual;
         this.foto3x4 = foto3x4;
         this.cpf = cpf;
         this.dataOutorga = dataOutorga;
+        this.telefone = telefone;
     }
 
     public Integer getIdpessoa() {
@@ -118,14 +118,6 @@ public class Pessoa implements Serializable {
 
     public void setNomePai(String nomePai) {
         this.nomePai = nomePai;
-    }
-
-    public int getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
     }
 
     public String getGraduacaoAtual() {
@@ -166,6 +158,14 @@ public class Pessoa implements Serializable {
 
     public void setDataOutorga(String dataOutorga) {
         this.dataOutorga = dataOutorga;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     @Override

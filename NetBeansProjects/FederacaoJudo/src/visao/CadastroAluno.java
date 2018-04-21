@@ -495,7 +495,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao.getText());
-        p.setTelefone(Integer.parseInt(telefone_aluno.getText()));
+        p.setTelefone(telefone_aluno.getText());
         p.setDataOutorga(data_ourtoga.getText());
         p.setFoto3x4(path_imagem.getText());
 

@@ -282,7 +282,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
             DAO d = new DAO();
 
             a.setEstado(estado.getText());
-            a.setCep(Integer.parseInt(cep.getText()));
+            a.setCep(cep.getText());
             a.setCidade(cidade.getText());
             a.setBairro(bairro.getText());
             a.setRua(rua.getText());

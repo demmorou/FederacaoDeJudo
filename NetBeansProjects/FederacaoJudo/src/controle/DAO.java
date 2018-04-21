@@ -62,7 +62,7 @@ public class DAO {
             stmt = con.prepareStatement("INSERT INTO academia (Id_academia,estado,cep,cidade,bairro,rua,numero,nome_academia)VALUES(?,?,?,?,?,?,?,?)");
             stmt.setInt(1, 0);
             stmt.setString(2, a.getEstado());
-            stmt.setInt(3, a.getCep());
+            stmt.setString(3, a.getCep());
             stmt.setString(4, a.getCidade());
             stmt.setString(5, a.getBairro());
             stmt.setString(6, a.getRua());
@@ -112,7 +112,7 @@ public class DAO {
             stmt.setString(2, p.getNomeCompleto());
             stmt.setString(3, p.getNomeMae());
             stmt.setString(4, p.getNomePai());
-            stmt.setInt(5, p.getTelefone());
+            stmt.setString(5, p.getTelefone());
             stmt.setString(6, p.getGraduacaoAtual());
             stmt.setString(7, p.getCurriculun());
             stmt.setString(8, p.getFoto3x4());

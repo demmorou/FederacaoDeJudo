@@ -29,12 +29,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Academia.findByIdacademia", query = "SELECT a FROM Academia a WHERE a.idacademia = :idacademia")
     , @NamedQuery(name = "Academia.findByProfessorResponsavel", query = "SELECT a FROM Academia a WHERE a.professorResponsavel = :professorResponsavel")
     , @NamedQuery(name = "Academia.findByEstado", query = "SELECT a FROM Academia a WHERE a.estado = :estado")
-    , @NamedQuery(name = "Academia.findByCep", query = "SELECT a FROM Academia a WHERE a.cep = :cep")
     , @NamedQuery(name = "Academia.findByCidade", query = "SELECT a FROM Academia a WHERE a.cidade = :cidade")
     , @NamedQuery(name = "Academia.findByBairro", query = "SELECT a FROM Academia a WHERE a.bairro = :bairro")
     , @NamedQuery(name = "Academia.findByRua", query = "SELECT a FROM Academia a WHERE a.rua = :rua")
     , @NamedQuery(name = "Academia.findByNumero", query = "SELECT a FROM Academia a WHERE a.numero = :numero")
-    , @NamedQuery(name = "Academia.findByNomeAcademia", query = "SELECT a FROM Academia a WHERE a.nomeAcademia = :nomeAcademia")})
+    , @NamedQuery(name = "Academia.findByNomeAcademia", query = "SELECT a FROM Academia a WHERE a.nomeAcademia = :nomeAcademia")
+    , @NamedQuery(name = "Academia.findByCep", query = "SELECT a FROM Academia a WHERE a.cep = :cep")})
 public class Academia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,9 +50,6 @@ public class Academia implements Serializable {
     @Column(name = "estado")
     private String estado;
     @Basic(optional = false)
-    @Column(name = "cep")
-    private int cep;
-    @Basic(optional = false)
     @Column(name = "cidade")
     private String cidade;
     @Basic(optional = false)
@@ -67,6 +64,9 @@ public class Academia implements Serializable {
     @Basic(optional = false)
     @Column(name = "nome_academia")
     private String nomeAcademia;
+    @Basic(optional = false)
+    @Column(name = "cep")
+    private String cep;
 
     public Academia() {
     }
@@ -75,16 +75,16 @@ public class Academia implements Serializable {
         this.idacademia = idacademia;
     }
 
-    public Academia(Integer idacademia, String professorResponsavel, String estado, int cep, String cidade, String bairro, String rua, int numero, String nomeAcademia) {
+    public Academia(Integer idacademia, String professorResponsavel, String estado, String cidade, String bairro, String rua, int numero, String nomeAcademia, String cep) {
         this.idacademia = idacademia;
         this.professorResponsavel = professorResponsavel;
         this.estado = estado;
-        this.cep = cep;
         this.cidade = cidade;
         this.bairro = bairro;
         this.rua = rua;
         this.numero = numero;
         this.nomeAcademia = nomeAcademia;
+        this.cep = cep;
     }
 
     public Integer getIdacademia() {
@@ -109,14 +109,6 @@ public class Academia implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
     }
 
     public String getCidade() {
@@ -157,6 +149,14 @@ public class Academia implements Serializable {
 
     public void setNomeAcademia(String nomeAcademia) {
         this.nomeAcademia = nomeAcademia;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     @Override
