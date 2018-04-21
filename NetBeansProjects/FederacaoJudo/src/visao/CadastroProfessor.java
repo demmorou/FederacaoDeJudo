@@ -17,12 +17,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modelo.Academia;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
+import modelo.Professor;
 import modelo.ValidaCPF;
 public class CadastroProfessor extends javax.swing.JFrame {
     private boolean index = false;
-    
+    private int id_academia = 0;
+    private String vinculo = null;
     
     public CadastroProfessor() {
         initComponents();
@@ -413,13 +416,27 @@ public class CadastroProfessor extends javax.swing.JFrame {
                 || foto_3x4.getText().equals("") ||cpf.equals("") 
                 || cref.getText().equals("") || locais_trabalho.getText().equals("")
                 ||idade.getText().equals("")||competicoes.getText().equals("")
-                || nome_ac.getText().equals("") || prof.isSelected() == false
-                || prof.isSelected() == false){
+                || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)){
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         }else if (ValidaCPF.isCPF(cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }else{
-            //cadastrar
+            
+            Pessoa p = new Pessoa();
+            Academia ac = new Academia();
+            DAO dao = new DAO();
+            Professor pr = new Professor();
+            
+            salvarCadastro();
+            
+            pr.setCref(Integer.parseInt(cref.getText()));
+            pr.setLocaisDeTrabalho(locais_trabalho.getText());
+            pr.setVinculoComAcademia(getVinculo());
+            
+            p.setIdpessoa(getIDPEssoa());
+            pr.setIdpessoaFK(p);
+            
+            
         }
     }//GEN-LAST:event_SalvarActionPerformed
 
@@ -471,12 +488,14 @@ public class CadastroProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profActionPerformed
+        setVinculo("professor");
         if(prof_res.isSelected()){
             prof_res.setSelected(false);
         }
     }//GEN-LAST:event_profActionPerformed
 
     private void prof_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prof_resActionPerformed
+        setVinculo("professor responsavel");
         if(prof.isSelected()){
             prof.setSelected(false);
         }
@@ -530,6 +549,48 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
     }
     
+    public int getIDAcademia() {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int ida = -1;
+        try {
+            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia = '"+nome_ac.getText()+"'");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                if(rs.getString("nome_academia").equals(nome_ac.getText())){
+                    ida = rs.getInt("Id_academia");
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
+        }
+
+        return ida;
+    }
+    
+    public int getIDPEssoa() {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Integer> cod = new ArrayList();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM pessoa");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                cod.add(rs.getInt("Id_pessoa"));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: " + ex);
+        }
+
+        return cod.get(cod.size() - 1);
+    }
+    
     public void salvarCadastro() {
 
         Pessoa p = new Pessoa();
@@ -543,15 +604,12 @@ public class CadastroProfessor extends javax.swing.JFrame {
 
         p.setNomeCompleto(nome_completo.getText());
         p.setNomeMae(nome_mae.getText());
-
-        if (ValidaCPF.isCPF(cpf.getText()) == true) {
-            p.setCpf(cpf.getText());
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
-            cpf.setText("");
+        
+        if(nome_pai.getText().equals("")){
+            p.setNomePai("---");
         }
         
-        
+        p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao_atual.getText());
         p.setTelefone(telefone.getText());
@@ -653,5 +711,33 @@ public class CadastroProfessor extends javax.swing.JFrame {
      */
     public void setIndex(boolean index) {
         this.index = index;
+    }
+
+    /**
+     * @return the id_academia
+     */
+    public int getId_academia() {
+        return id_academia;
+    }
+
+    /**
+     * @param id_academia the id_academia to set
+     */
+    public void setId_academia(int id_academia) {
+        this.id_academia = id_academia;
+    }
+
+    /**
+     * @return the vinculo
+     */
+    public String getVinculo() {
+        return vinculo;
+    }
+
+    /**
+     * @param vinculo the vinculo to set
+     */
+    public void setVinculo(String vinculo) {
+        this.vinculo = vinculo;
     }
 }
