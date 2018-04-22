@@ -454,6 +454,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         }else if (ValidaCPF.isCPF(cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cpf.setText("");
         }else{
             
             Pessoa p = new Pessoa();
@@ -639,8 +640,9 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         
         if(nome_pai.getText().equals("")){
             p.setNomePai("---");
+        }else{
+            p.setNomePai(nome_pai.getText());
         }
-        
         p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
         p.setIdade(Integer.parseInt(idade.getText()));
         p.setSexo(getSexo());

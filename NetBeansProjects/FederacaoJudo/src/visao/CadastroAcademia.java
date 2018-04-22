@@ -298,6 +298,8 @@ public class CadastroAcademia extends javax.swing.JFrame {
             
             if(getIndex().equals("professor")){
                 dispose();
+            }else if(getIndex().equals("aluno")){
+                dispose();
             }
 
         }

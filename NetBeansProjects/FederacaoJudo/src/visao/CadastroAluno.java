@@ -23,8 +23,9 @@ import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.ValidaCPF;
 
-public class CadastroAluno extends javax.swing.JFrame {
-            
+public final class CadastroAluno extends javax.swing.JFrame {
+    private int id = 0;
+    private String sexo = null;
     public CadastroAluno() {
         initComponents();
         PreencherTabela();
@@ -98,7 +99,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         nome_ac = new javax.swing.JLabel();
         add_ac = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -257,11 +258,11 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/reload (1).png"))); // NOI18N
-        jButton1.setToolTipText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/reload (1).png"))); // NOI18N
+        refresh.setToolTipText("Atualizar");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                refreshActionPerformed(evt);
             }
         });
 
@@ -294,7 +295,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(refresh)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(add_ac))
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,11 +373,11 @@ public class CadastroAluno extends javax.swing.JFrame {
                                 .addComponent(masculino)
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(70, 70, 70)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(data_ourtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46))
+                                        .addComponent(data_ourtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(feminino)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -389,7 +390,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(add_ac))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -436,17 +437,37 @@ public class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_nome_maeActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        Aluno a = new Aluno();
-        Pessoa p = new Pessoa();
-        Academia ac = new Academia();
-        DAO dao = new DAO();
 
-        salvarCadastro();
+        if (nome_completo.getText().equals("") || nome_mae.getText().equals("")
+                || telefone_aluno.getText().equals("") || data_ourtoga.getText().equals("")
+                || path_imagem.getText().equals("") || cpf.equals("")
+                || idade.getText().equals("") || competicoes.getText().equals("")
+                || nome_ac.getText().equals("")
+                || (feminino.isSelected() == false && masculino.isSelected() == false)
+                || getId() == 0 || idade.getText().equals("")
+                || peso.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else if (ValidaCPF.isCPF(cpf.getText()) == false) {
+            JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cpf.setText("");
+        } else {
 
-        p.setIdpessoa(getIDPEssoa());
-        a.setIdpessoaFK(p);
-        a.setIdpessoaFK(p);
-        dao.createAluno(a);
+            Aluno a = new Aluno();
+            Pessoa p = new Pessoa();
+            Academia ac = new Academia();
+            DAO dao = new DAO();
+
+            salvarCadastro();
+
+            p.setIdpessoa(getIDPEssoa());
+            a.setIdpessoaFK(p);
+
+            ac.setIdacademia(getId());
+            a.setIdacademiaFK(ac);
+
+            dao.createAluno(a);
+
+        }
 
     }//GEN-LAST:event_salvarActionPerformed
 
@@ -455,14 +476,14 @@ public class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_pesoActionPerformed
 
     private void masculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masculinoActionPerformed
-        
+        setSexo("Masculino");
         if (feminino.isSelected()) {
             feminino.setSelected(false);
         }
     }//GEN-LAST:event_masculinoActionPerformed
 
     private void femininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femininoActionPerformed
-
+        setSexo("Feminino");
         if (masculino.isSelected()) {
             masculino.setSelected(false);
         }
@@ -482,6 +503,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
             nome_ac.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+            setId(getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString()));
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
     }//GEN-LAST:event_tableMouseClicked
@@ -495,36 +517,27 @@ public class CadastroAluno extends javax.swing.JFrame {
         ca.setSize(1072, 608);
     }//GEN-LAST:event_add_acActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         PreencherTabela();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_refreshActionPerformed
 
     private void telefone_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefone_alunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telefone_alunoActionPerformed
 
-//    public void ass(){
-//        academia_que_participa.setEditable(false);
-//        path_imagem.setEditable(false);
-//    }
+
     public void salvarCadastro() {
 
         Pessoa p = new Pessoa();
-        Date data = null;
-        Date dataBanco;
-        ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
 
         DAO dao = new DAO();
 
         p.setNomeCompleto(nome_completo.getText());
         p.setNomeMae(nome_mae.getText());
-
-        if (ValidaCPF.isCPF(cpf.getText()) == true) {
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
-            cpf.setText("");
+        if(nome_pai.getText().equals("")){
+            p.setNomePai("---");
+        }else{
+            p.setNomePai(nome_pai.getText());
         }
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
@@ -532,7 +545,10 @@ public class CadastroAluno extends javax.swing.JFrame {
         p.setTelefone(telefone_aluno.getText());
         p.setDataOutorga(data_ourtoga.getText());
         p.setFoto3x4(path_imagem.getText());
-
+        p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
+        p.setIdade(Integer.parseInt(idade.getText()));
+        p.setSexo(getSexo());
+        
         dao.createPessoa(p);
     }
 
@@ -556,24 +572,24 @@ public class CadastroAluno extends javax.swing.JFrame {
         return cod.get(cod.size() - 1);
     }
 
-    public int getIDAcademia() {
+    public int getIDAcademia(String name_academia) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int ida = -1;
-//        try {
-//            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia = '"+nome_academia.getText()+"'");
-//            rs = stmt.executeQuery();
-//            
-//            while(rs.next()){
-//                if(rs.getString("nome_academia") == nome_academia.getText()){
-//                    ida = rs.getInt("Id_academia");
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
-//        }
+        try {
+            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia = '"+name_academia+"'");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                if(rs.getString("nome_academia").equals(name_academia)){
+                    ida = rs.getInt("Id_academia");
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
+        }
 
         return ida;
     }
@@ -667,7 +683,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JCheckBox feminino;
     private javax.swing.JTextField graduacao;
     private javax.swing.JTextField idade;
-    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -696,9 +711,38 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JTextField nome_pai;
     private javax.swing.JTextField path_imagem;
     private javax.swing.JTextField peso;
+    private javax.swing.JButton refresh;
     private javax.swing.JButton salvar;
     private javax.swing.JTable table;
     private javax.swing.JTextField telefone_aluno;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public String getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 }
