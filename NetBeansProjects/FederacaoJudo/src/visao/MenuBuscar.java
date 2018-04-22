@@ -189,6 +189,11 @@ public class MenuBuscar extends javax.swing.JFrame {
 
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,6 +265,12 @@ public class MenuBuscar extends javax.swing.JFrame {
     private void busca_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busca_cpfActionPerformed
         BuscarNomePessoa("cpf", cpf_.getText());
     }//GEN-LAST:event_busca_cpfActionPerformed
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        if (table.getSelectedRow() != -1) {
+            JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
+        }
+    }//GEN-LAST:event_tableMouseClicked
     
     public void BuscarNomePessoa(String busca, String valor){
         
@@ -281,7 +292,7 @@ public class MenuBuscar extends javax.swing.JFrame {
             }
                 
             if(cont == 0){
-                JOptionPane.showMessageDialog(null, "Não Foram Encontrados Registros Com o Nome:  "+ nome_completo.getText());
+                JOptionPane.showMessageDialog(null, "Não Foram Encontrados Registros Para:  "+ valor);
             }else{
             
                 ModeloTabela modelo = new ModeloTabela(dados, Colunas);
