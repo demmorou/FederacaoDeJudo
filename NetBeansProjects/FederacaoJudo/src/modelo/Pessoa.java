@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Pessoa.findByTelefone", query = "SELECT p FROM Pessoa p WHERE p.telefone = :telefone")
     , @NamedQuery(name = "Pessoa.findByPeso", query = "SELECT p FROM Pessoa p WHERE p.peso = :peso")
     , @NamedQuery(name = "Pessoa.findBySexo", query = "SELECT p FROM Pessoa p WHERE p.sexo = :sexo")
-    , @NamedQuery(name = "Pessoa.findByIdade", query = "SELECT p FROM Pessoa p WHERE p.idade = :idade")})
+    , @NamedQuery(name = "Pessoa.findByIdade", query = "SELECT p FROM Pessoa p WHERE p.idade = :idade")
+    , @NamedQuery(name = "Pessoa.findByStatusPag", query = "SELECT p FROM Pessoa p WHERE p.statusPag = :statusPag")})
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -81,6 +82,9 @@ public class Pessoa implements Serializable {
     @Basic(optional = false)
     @Column(name = "idade")
     private int idade;
+    @Basic(optional = false)
+    @Column(name = "status_pag")
+    private int statusPag;
 
     public Pessoa() {
     }
@@ -89,7 +93,7 @@ public class Pessoa implements Serializable {
         this.idpessoa = idpessoa;
     }
 
-    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga, String telefone, float peso, String sexo, int idade) {
+    public Pessoa(Integer idpessoa, String nomeCompleto, String nomeMae, String graduacaoAtual, String foto3x4, String cpf, String dataOutorga, String telefone, float peso, String sexo, int idade, int statusPag) {
         this.idpessoa = idpessoa;
         this.nomeCompleto = nomeCompleto;
         this.nomeMae = nomeMae;
@@ -101,6 +105,7 @@ public class Pessoa implements Serializable {
         this.peso = peso;
         this.sexo = sexo;
         this.idade = idade;
+        this.statusPag = statusPag;
     }
 
     public Integer getIdpessoa() {
@@ -205,6 +210,14 @@ public class Pessoa implements Serializable {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public int getStatusPag() {
+        return statusPag;
+    }
+
+    public void setStatusPag(int statusPag) {
+        this.statusPag = statusPag;
     }
 
     @Override

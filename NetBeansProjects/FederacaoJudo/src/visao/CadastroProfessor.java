@@ -214,6 +214,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(table);
 
+        nome_ac.setFont(new java.awt.Font("Bitstream Vera Serif", 0, 15)); // NOI18N
         nome_ac.setForeground(new java.awt.Color(8, 160, 26));
 
         add_academia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add-1_1.png"))); // NOI18N
@@ -494,7 +495,6 @@ public final class CadastroProfessor extends javax.swing.JFrame {
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
             setId_academia(getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString()));
-            System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
             nome_ac.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
@@ -547,7 +547,9 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
+        
         try {
+            
             stmt = con.prepareStatement("SELECT nome_academia FROM academia");
             rs = stmt.executeQuery();
 

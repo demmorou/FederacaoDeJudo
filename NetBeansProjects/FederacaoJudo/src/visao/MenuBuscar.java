@@ -6,12 +6,24 @@
 
 package visao;
 
+import controle.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import modelo.ModeloTabela;
+
 /**
  *
  * @author Daniel
  */
 public class MenuBuscar extends javax.swing.JFrame {
-
+    
     /** Creates new form MenuBuscar */
     public MenuBuscar() {
         initComponents();
@@ -35,7 +47,7 @@ public class MenuBuscar extends javax.swing.JFrame {
         cpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cpf_botao = new javax.swing.JButton();
-        nome = new javax.swing.JTextField();
+        nome_completo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         academia = new javax.swing.JTextField();
@@ -43,7 +55,7 @@ public class MenuBuscar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         voltar_botao = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1072, 658));
@@ -56,6 +68,11 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         buscar_nome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         buscar_nome.setText("Buscar");
+        buscar_nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscar_nomeActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nome da Mãe");
 
@@ -73,9 +90,9 @@ public class MenuBuscar extends javax.swing.JFrame {
         cpf_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         cpf_botao.setText("Buscar");
 
-        nome.addActionListener(new java.awt.event.ActionListener() {
+        nome_completo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
+                nome_completoActionPerformed(evt);
             }
         });
 
@@ -99,7 +116,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                         .addComponent(cpf_botao))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nome_completo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buscar_nome))
                     .addComponent(jLabel5))
@@ -124,7 +141,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome_completo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar_nome)
                     .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar_nome_mae))
@@ -151,7 +168,7 @@ public class MenuBuscar extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -162,7 +179,7 @@ public class MenuBuscar extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,9 +221,9 @@ public class MenuBuscar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+    private void nome_completoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_completoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
+    }//GEN-LAST:event_nome_completoActionPerformed
 
     private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
         // TODO add your handling code here:
@@ -222,6 +239,65 @@ public class MenuBuscar extends javax.swing.JFrame {
                 b.setSize(1059, 608);
     }//GEN-LAST:event_voltar_botaoActionPerformed
 
+    private void buscar_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_nomeActionPerformed
+        BuscarNome();
+    }//GEN-LAST:event_buscar_nomeActionPerformed
+    
+    public void BuscarNome(){
+        
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList dados = new ArrayList();
+        String[] Colunas = new String[]{"Nome", "Nome da Mãe", "Telefone", "Idade", "Sexo"};
+        
+        int cont = 0;
+        try {
+            
+            stmt = con.prepareStatement("SELECT * FROM pessoa WHERE nome_completo LIKE '%"+nome_completo.getText()+"%'");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                dados.add(new Object[]{rs.getString("nome_completo"), rs.getString("nome_mae"), rs.getString("telefone"), rs.getInt("idade"), rs.getString("sexo")});
+                cont++;
+            }
+                
+            if(cont == 0){
+                JOptionPane.showMessageDialog(null, "Não Foram Encontrados Registros Com o Nome:  "+ nome_completo.getText());
+            }else{
+            
+                ModeloTabela modelo = new ModeloTabela(dados, Colunas);
+
+                table.setModel(modelo);
+
+                table.getColumnModel().getColumn(0).setPreferredWidth(216);
+                table.getColumnModel().getColumn(0).setResizable(false);
+
+                table.getColumnModel().getColumn(1).setPreferredWidth(216);
+                table.getColumnModel().getColumn(1).setResizable(false);
+
+                table.getColumnModel().getColumn(2).setPreferredWidth(155);
+                table.getColumnModel().getColumn(2).setResizable(false);
+
+                table.getColumnModel().getColumn(3).setPreferredWidth(150);
+                table.getColumnModel().getColumn(3).setResizable(false);
+
+                table.getColumnModel().getColumn(4).setPreferredWidth(150);
+                table.getColumnModel().getColumn(4).setResizable(false);
+
+                table.getTableHeader().setReorderingAllowed(false);
+                table.setAutoResizeMode(table.AUTO_RESIZE_OFF);
+
+                table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -279,9 +355,9 @@ public class MenuBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField nome;
+    private javax.swing.JTextField nome_completo;
     private javax.swing.JTextField nome_mae;
+    private javax.swing.JTable table;
     private javax.swing.JButton voltar_botao;
     // End of variables declaration//GEN-END:variables
 
