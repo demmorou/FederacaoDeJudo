@@ -43,10 +43,10 @@ public class MenuBuscar extends javax.swing.JFrame {
         buscar_nome = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         nome_mae = new javax.swing.JTextField();
-        buscar_nome_mae = new javax.swing.JButton();
-        cpf = new javax.swing.JTextField();
+        buscar_mae = new javax.swing.JButton();
+        cpf_ = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cpf_botao = new javax.swing.JButton();
+        busca_cpf = new javax.swing.JButton();
         nome_completo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -74,21 +74,31 @@ public class MenuBuscar extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Nome da Mãe");
+        jLabel3.setText("Buscar Pelo Nome da Mãe");
 
-        buscar_nome_mae.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
-        buscar_nome_mae.setText("Buscar");
-
-        cpf.addActionListener(new java.awt.event.ActionListener() {
+        buscar_mae.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
+        buscar_mae.setText("Buscar");
+        buscar_mae.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfActionPerformed(evt);
+                buscar_maeActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Nome");
+        cpf_.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpf_ActionPerformed(evt);
+            }
+        });
 
-        cpf_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
-        cpf_botao.setText("Buscar");
+        jLabel1.setText("Buscar Pelo Nome");
+
+        busca_cpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
+        busca_cpf.setText("Buscar");
+        busca_cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busca_cpfActionPerformed(evt);
+            }
+        });
 
         nome_completo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,9 +106,9 @@ public class MenuBuscar extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("CPF");
+        jLabel5.setText("Buscar Pelo CPF");
 
-        jLabel6.setText("Academia");
+        jLabel6.setText("Buscar Pelo Nome da Academia");
 
         academia_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         academia_botao.setText("Buscar");
@@ -111,15 +121,15 @@ public class MenuBuscar extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cpf_, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cpf_botao))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(busca_cpf))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(nome_completo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buscar_nome))
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6)
@@ -128,7 +138,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                     .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buscar_nome_mae)
+                    .addComponent(buscar_mae)
                     .addComponent(academia_botao))
                 .addGap(28, 28, 28))
         );
@@ -144,15 +154,15 @@ public class MenuBuscar extends javax.swing.JFrame {
                     .addComponent(nome_completo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar_nome)
                     .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscar_nome_mae))
+                    .addComponent(buscar_mae))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpf_botao)
+                    .addComponent(cpf_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(busca_cpf)
                     .addComponent(academia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(academia_botao))
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -225,9 +235,9 @@ public class MenuBuscar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nome_completoActionPerformed
 
-    private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
+    private void cpf_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpf_ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cpfActionPerformed
+    }//GEN-LAST:event_cpf_ActionPerformed
 
     private void voltar_botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_botaoActionPerformed
         // TODO add your handling code here:
@@ -240,10 +250,18 @@ public class MenuBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_botaoActionPerformed
 
     private void buscar_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_nomeActionPerformed
-        BuscarNome();
+        BuscarNomePessoa("nome_completo", nome_completo.getText());
     }//GEN-LAST:event_buscar_nomeActionPerformed
+
+    private void buscar_maeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_maeActionPerformed
+        BuscarNomePessoa("nome_mae", nome_mae.getText());
+    }//GEN-LAST:event_buscar_maeActionPerformed
+
+    private void busca_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busca_cpfActionPerformed
+        BuscarNomePessoa("cpf", cpf_.getText());
+    }//GEN-LAST:event_busca_cpfActionPerformed
     
-    public void BuscarNome(){
+    public void BuscarNomePessoa(String busca, String valor){
         
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
@@ -254,7 +272,7 @@ public class MenuBuscar extends javax.swing.JFrame {
         int cont = 0;
         try {
             
-            stmt = con.prepareStatement("SELECT * FROM pessoa WHERE nome_completo LIKE '%"+nome_completo.getText()+"%'");
+            stmt = con.prepareStatement("SELECT * FROM pessoa WHERE "+busca+" LIKE '%"+valor+"%'");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -343,10 +361,10 @@ public class MenuBuscar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField academia;
     private javax.swing.JButton academia_botao;
+    private javax.swing.JButton busca_cpf;
+    private javax.swing.JButton buscar_mae;
     private javax.swing.JButton buscar_nome;
-    private javax.swing.JButton buscar_nome_mae;
-    private javax.swing.JTextField cpf;
-    private javax.swing.JButton cpf_botao;
+    private javax.swing.JTextField cpf_;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
