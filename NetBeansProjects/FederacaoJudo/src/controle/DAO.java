@@ -130,7 +130,7 @@ public class DAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,graduacao_atual,curriculun,foto3x4,cpf,data_outorga,telefone,peso,sexo,idade)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,graduacao_atual,curriculun,foto3x4,cpf,data_outorga,telefone,peso,sexo,idade,status_pag)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             stmt.setInt(1, 0);
             stmt.setString(2, p.getNomeCompleto());
@@ -145,6 +145,7 @@ public class DAO {
             stmt.setFloat(11, p.getPeso());
             stmt.setString(12, p.getSexo());
             stmt.setInt(13, p.getIdade());
+            stmt.setInt(14, 0);
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");

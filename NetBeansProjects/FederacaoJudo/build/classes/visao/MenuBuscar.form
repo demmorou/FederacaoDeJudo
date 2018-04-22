@@ -95,17 +95,17 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="cpf" min="-2" pref="267" max="-2" attributes="0"/>
+                          <Component id="cpf_" min="-2" pref="267" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="cpf_botao" min="-2" max="-2" attributes="0"/>
+                          <Component id="busca_cpf" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel1" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="nome_completo" min="-2" pref="267" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="buscar_nome" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -116,7 +116,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="buscar_nome_mae" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscar_mae" min="-2" max="-2" attributes="0"/>
                       <Component id="academia_botao" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
                       <Component id="nome_completo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buscar_nome" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="nome_mae" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buscar_nome_mae" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscar_mae" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -145,8 +145,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cpf_botao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpf_" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="busca_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="academia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="academia_botao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -169,36 +169,42 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e"/>
+            <Property name="text" type="java.lang.String" value="Buscar Pelo Nome da M&#xe3;e"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nome_mae">
         </Component>
-        <Component class="javax.swing.JButton" name="buscar_nome_mae">
+        <Component class="javax.swing.JButton" name="buscar_mae">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/search.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="cpf">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscar_maeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="cpf_">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpf_ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome"/>
+            <Property name="text" type="java.lang.String" value="Buscar Pelo Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="cpf_botao">
+        <Component class="javax.swing.JButton" name="busca_cpf">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/search.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="busca_cpfActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="nome_completo">
           <Events>
@@ -207,12 +213,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CPF"/>
+            <Property name="text" type="java.lang.String" value="Buscar Pelo CPF"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Academia"/>
+            <Property name="text" type="java.lang.String" value="Buscar Pelo Nome da Academia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="academia">

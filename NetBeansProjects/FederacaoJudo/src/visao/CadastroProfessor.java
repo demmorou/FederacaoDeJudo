@@ -451,7 +451,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                 || cref.getText().equals("") || locais_trabalho.getText().equals("")
                 ||idade.getText().equals("")||competicoes.getText().equals("")
                 || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)
-                || getId_academia() == 0){
+                || getId_academia() == 0 || (f.isSelected() == false && m.isSelected() == false)){
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         }else if (ValidaCPF.isCPF(cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
