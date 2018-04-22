@@ -1,18 +1,12 @@
 package visao;
 
 import controle.ConnectionFactory;
-import controle.DAO;
-import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.User;
@@ -126,7 +120,7 @@ public class Inicio extends javax.swing.JFrame {
         ResultSet rs = null;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        User u = new User();
+        
         int cont = 0;
         String pesquisa = "SELECT usuario, senha FROM user WHERE usuario='"+user.getText()+"'";
         String pass = null, us = null;

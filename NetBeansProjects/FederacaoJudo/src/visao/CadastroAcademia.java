@@ -7,19 +7,11 @@ package visao;
 
 import controle.ConnectionFactory;
 import controle.DAO;
-import java.awt.Color;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
 import modelo.Academia;
-import modelo.ModeloTabela;
 
 /**
  *
