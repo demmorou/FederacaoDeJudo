@@ -281,7 +281,7 @@ public class MenuBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_tableMouseClicked
 
     private void academia_botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_academia_botaoActionPerformed
-        //BuscarNomePelaAcademia(academia.getText());
+        BuscarNomePelaAcademia(academia.getText());
     }//GEN-LAST:event_academia_botaoActionPerformed
     
     public void BuscarNomePessoa(String busca, String valor){
@@ -349,18 +349,18 @@ public class MenuBuscar extends javax.swing.JFrame {
         int cont = 0;
         try {
             
-            stmt = con.prepareStatement("select pessoa.nome_completo from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia='Academia Sol') as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id");
+            stmt = con.prepareStatement("select pessoa.* from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia LIKE '%"+busca+"%') as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                dados.add(new Object[]{rs.getString("nome_completo"), rs.getString("nome_mae"), rs.getString("telefone"), rs.getInt("idade"), rs.getString("sexo")});
+                dados.add(new Object[]{rs.getString("nome_completo"), rs.getString("nome_mae"), rs.getString("telefone"), rs.getString("idade"), rs.getString("sexo")});
                 cont++;
             }
                 
             if(cont == 0){
                 JOptionPane.showMessageDialog(null, "Não Foram Encontrados Registros Para:  "+ busca);
             }else{
-            
+                
                 ModeloTabela modelo = new ModeloTabela(dados, Colunas);
 
                 table.setModel(modelo);
