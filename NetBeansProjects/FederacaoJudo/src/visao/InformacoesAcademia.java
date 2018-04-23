@@ -34,6 +34,12 @@ public class InformacoesAcademia extends javax.swing.JFrame {
         campoEstado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         campoCEP = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("#####-###");
+            campoCEP = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel4 = new javax.swing.JLabel();
         campoCidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();

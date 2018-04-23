@@ -146,6 +146,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoCEP">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{  &#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;#####-###&quot;);  &#xa;   campoCEP = new javax.swing.JFormattedTextField(data);  &#xa;}  &#xa;   catch (Exception e){  &#xa;}"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>

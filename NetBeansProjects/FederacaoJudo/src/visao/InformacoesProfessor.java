@@ -36,14 +36,32 @@ public class InformacoesProfessor extends javax.swing.JFrame {
         campoPai = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         campoTelefone = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#####-####");
+            campoTelefone = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel5 = new javax.swing.JLabel();
         campoGraduacao = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         campoOurtoga = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            campoOurtoga = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel7 = new javax.swing.JLabel();
         campoCompeticoes = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         campoCPF = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###########");
+            campoCPF = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel9 = new javax.swing.JLabel();
         campoCREF = new javax.swing.JTextField();
         sair = new javax.swing.JButton();
