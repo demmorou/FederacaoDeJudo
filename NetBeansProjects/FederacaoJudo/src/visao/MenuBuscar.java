@@ -112,6 +112,11 @@ public class MenuBuscar extends javax.swing.JFrame {
 
         academia_botao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/search.png"))); // NOI18N
         academia_botao.setText("Buscar");
+        academia_botao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                academia_botaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -268,9 +273,16 @@ public class MenuBuscar extends javax.swing.JFrame {
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
+            
+            
+            
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
     }//GEN-LAST:event_tableMouseClicked
+
+    private void academia_botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_academia_botaoActionPerformed
+        //BuscarNomePelaAcademia(academia.getText());
+    }//GEN-LAST:event_academia_botaoActionPerformed
     
     public void BuscarNomePessoa(String busca, String valor){
         
@@ -282,7 +294,7 @@ public class MenuBuscar extends javax.swing.JFrame {
         
         int cont = 0;
         try {
-            
+            //select pessoa.nome_completo from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia="Academia Sol") as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id;
             stmt = con.prepareStatement("SELECT * FROM pessoa WHERE "+busca+" LIKE '%"+valor+"%'");
             rs = stmt.executeQuery();
             
@@ -326,7 +338,59 @@ public class MenuBuscar extends javax.swing.JFrame {
         }
     }
     
-    
+    public void BuscarNomePelaAcademia(String busca){
+        
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ArrayList dados = new ArrayList();
+        String[] Colunas = new String[]{"Nome", "Nome da Mãe", "Telefone", "Idade", "Sexo"};
+        
+        int cont = 0;
+        try {
+            
+            stmt = con.prepareStatement("select pessoa.nome_completo from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia='Academia Sol') as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                dados.add(new Object[]{rs.getString("nome_completo"), rs.getString("nome_mae"), rs.getString("telefone"), rs.getInt("idade"), rs.getString("sexo")});
+                cont++;
+            }
+                
+            if(cont == 0){
+                JOptionPane.showMessageDialog(null, "Não Foram Encontrados Registros Para:  "+ busca);
+            }else{
+            
+                ModeloTabela modelo = new ModeloTabela(dados, Colunas);
+
+                table.setModel(modelo);
+
+                table.getColumnModel().getColumn(0).setPreferredWidth(216);
+                table.getColumnModel().getColumn(0).setResizable(false);
+
+                table.getColumnModel().getColumn(1).setPreferredWidth(216);
+                table.getColumnModel().getColumn(1).setResizable(false);
+
+                table.getColumnModel().getColumn(2).setPreferredWidth(155);
+                table.getColumnModel().getColumn(2).setResizable(false);
+
+                table.getColumnModel().getColumn(3).setPreferredWidth(150);
+                table.getColumnModel().getColumn(3).setResizable(false);
+
+                table.getColumnModel().getColumn(4).setPreferredWidth(150);
+                table.getColumnModel().getColumn(4).setResizable(false);
+
+                table.getTableHeader().setReorderingAllowed(false);
+                table.setAutoResizeMode(table.AUTO_RESIZE_OFF);
+
+                table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
