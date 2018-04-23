@@ -40,6 +40,12 @@ public class CadastroAcademia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cep = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("#####-###");
+            cep = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cidade = new javax.swing.JTextField();
