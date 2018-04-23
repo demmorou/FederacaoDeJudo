@@ -18,7 +18,7 @@ import modelo.Academia;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Professor;
-import modelo.ValidaCPF;
+import modelo.Validar;
 public final class CadastroProfessor extends javax.swing.JFrame {
     private boolean index = false;
     private int id_academia = 0;
@@ -453,7 +453,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                 || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)
                 || getId_academia() == 0 || (f.isSelected() == false && m.isSelected() == false)){
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
-        }else if (ValidaCPF.isCPF(cpf.getText()) == false){
+        }else if (Validar.isCPF(cpf.getText()) == false){
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
             cpf.setText("");
         }else{

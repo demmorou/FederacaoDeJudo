@@ -1,6 +1,6 @@
 package modelo;
 import java.util.InputMismatchException;
-public class ValidaCPF {
+public class Validar {
     public static boolean isCPF(String CPF) {
         if (CPF.equals("00000000000") || CPF.equals("11111111111") ||
             CPF.equals("22222222222") || CPF.equals("33333333333") ||
@@ -46,27 +46,39 @@ public class ValidaCPF {
         return(false);
     }
   }
-    public void categoria_masculina(float peso, int idade){
+    public static String categoria_masculina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){
+            return "S. Ligeiro/Sub 15";
             // Categoria S.Ligeiro...Sub 15... peso até 36 kg, idades entre 13-14 anos
         }else if (((peso > 36) && (peso <=40)) && ((idade >= 13) && (idade <15))){
+            return "Ligeiro/Sub 15";
             // Categoria Ligeiro...Sub 15... peso + de 36 ate 40 kg, idades entre 13-14 anos
         }else if (((peso > 40) && (peso <=44)) && ((idade >= 13) && (idade <15))){
+            return "M. Leve/Sub 15";
             // Categoria M. Leve...Sub 15... peso + de 40 ate 44 kg, idades entre 13-14 anos
         }else if (((peso > 44) && (peso <=48)) && ((idade >= 13) && (idade <15))){
+            return "Leve/Sub 15";
             // Categoria Leve...Sub 15... peso + de 44 ate 48 kg, idades entre 13-14 anos
         }else if (((peso > 48) && (peso <=53)) && ((idade >= 13) && (idade <15))){
+            return "M. Medio/Sub 15";
             // Categoria M. Medio...Sub 15... peso + de 48 ate 53 kg, idades entre 13-14 anos
         }else if (((peso > 53) && (peso <=58)) && ((idade >= 13) && (idade <15))){
+            return "Medio/Sub 15";
             // Categoria Medio...Sub 15... peso + de 53 ate 58 kg, idades entre 13-14 anos
         }else if (((peso > 58) && (peso <=64)) && ((idade >= 13) && (idade <15))){
+            return "M. Pesado/Sub 15";
             // Categoria M. Pesado...Sub 15... peso + de 58 ate 64 kg, idades entre 13-14 anos
         }else if ((peso > 64) && ((idade >= 13) && (idade <15))){
+            return "Pesado/Sub 15";
             // Categoria Pesado...Sub 15... peso + de 64 KG, idades entre 13-14 anos
             
+            /*
+            
+            */
             //condições do sub 18 <3
         }else if ((peso < 50) && ((idade >= 15) && (idade <18))){
+            return "S. Ligeiro/Sub 18";
             // Categoria S.Ligeiro...Sub 18... peso até 50 kg, idades entre 15-17 anos
         } else if (((peso > 50) && (peso <=55)) && ((idade >= 15) && (idade <18))){
             // Categoria Ligeiro...Sub 18... peso + de 50 ate 55 kg, idades entre 15-17 anos
@@ -119,9 +131,11 @@ public class ValidaCPF {
         }else if ((peso > 100) && (idade > 21)){
             // Categoria Pesado...Senior... peso + de 100 kg, idades acima de 21 anos
         }
+        
+        return "";
     }
     
-    public void categoria_feminina(float peso, int idade){
+    public static void categoria_feminina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){
             // Categoria S.Ligeiro...Sub 15... peso até 36 kg, idades entre 13-14 anos

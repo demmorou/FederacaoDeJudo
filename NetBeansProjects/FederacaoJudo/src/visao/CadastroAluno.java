@@ -17,7 +17,7 @@ import modelo.Academia;
 import modelo.Aluno;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
-import modelo.ValidaCPF;
+import modelo.Validar;
 
 public final class CadastroAluno extends javax.swing.JFrame {
     private int id = 0;
@@ -443,7 +443,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
                 || getId() == 0 || idade.getText().equals("")
                 || peso.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!", "Aviso", JOptionPane.WARNING_MESSAGE);
-        } else if (ValidaCPF.isCPF(cpf.getText()) == false) {
+        } else if (Validar.isCPF(cpf.getText()) == false) {
             JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
             cpf.setText("");
         } else {
@@ -527,7 +527,8 @@ public final class CadastroAluno extends javax.swing.JFrame {
         Pessoa p = new Pessoa();
 
         DAO dao = new DAO();
-
+        Validar v = new Validar();
+        
         p.setNomeCompleto(nome_completo.getText());
         p.setNomeMae(nome_mae.getText());
         if(nome_pai.getText().equals("")){
@@ -535,6 +536,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
         }else{
             p.setNomePai(nome_pai.getText());
         }
+        
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao.getText());
@@ -543,6 +545,8 @@ public final class CadastroAluno extends javax.swing.JFrame {
         p.setFoto3x4(path_imagem.getText());
         p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
         p.setIdade(Integer.parseInt(idade.getText()));
+        p.setCatDiv(Validar.categoria_masculina(Float.valueOf(peso.getText().replace(",", ".")), Integer.parseInt(idade.getText())));
+        
         p.setSexo(getSexo());
         
         dao.createPessoa(p);
