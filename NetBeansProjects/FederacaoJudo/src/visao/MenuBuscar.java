@@ -7,6 +7,8 @@
 package visao;
 
 import controle.ConnectionFactory;
+import controle.DAO;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -273,10 +275,53 @@ public class MenuBuscar extends javax.swing.JFrame {
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
+
+            InformacoesAluno ia = new InformacoesAluno();
+            DAO dao = new DAO();
             
+            ResultSet rs = dao.BuscarNomePessoaAluno(table.getValueAt(table.getSelectedRow(), 0).toString());
+            int cont = 0;
             
-            
-            JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
+            try {
+                
+                while (rs.next()) {
+                    ia.campoNome.setText(rs.getString("nome_completo"));
+                    ia.campoCPF.setText(rs.getString("cpf"));
+                    ia.campoCompeticoes.setText(rs.getString("curriculun"));
+                    ia.campoGraduacao.setText(rs.getString("graduacao_atual"));
+                    ia.campoMae.setText(rs.getString("nome_mae"));
+                    ia.campoPai.setText(rs.getString("nome_pai"));
+                    ia.campoOurtoga.setText(rs.getString("data_outorga"));
+                    ia.campoTelefone.setText(rs.getString("telefone"));
+                    ia.idade.setText(String.valueOf(rs.getInt("idade")));
+                    ia.peso.setText(String.valueOf(rs.getFloat("peso")));
+                    ia.sexo.setText(rs.getString("sexo"));
+                    ia.cat.setText(rs.getString("cat_div"));
+                    ia.setId(rs.getInt("Id_pessoa"));
+                    int cat = rs.getInt("status_pag");
+                    
+                    if(cat == 0){
+                        ia.status.setText("PENDENTE");
+                        ia.status.setForeground(Color.red);
+                        ia.confirmar.setVisible(true);
+                        ia.confirmar.setBackground(Color.green);
+                    }else{
+                        ia.status.setText("CONFIRMADO");
+                        ia.status.setForeground(Color.green);
+                        ia.confirmar.setVisible(false);
+                    }
+                    
+                    cont++;
+                }
+                if (cont != 0) {
+                    ia.setTitle("Aluno");
+                    ia.setVisible(true);
+                    ia.setLocationRelativeTo(null);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }//GEN-LAST:event_tableMouseClicked
 

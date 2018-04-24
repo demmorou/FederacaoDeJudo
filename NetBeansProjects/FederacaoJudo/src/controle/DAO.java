@@ -9,16 +9,21 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import modelo.Academia;
 import modelo.Aluno;
+import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Professor;
 import modelo.User;
+import visao.MenuBuscar;
 
 /**
  *
@@ -156,6 +161,44 @@ public class DAO {
             ConnectionFactory.closeConection(con, stmt);
         }
         
+    }
+    
+    public ResultSet BuscarNomePessoaAluno(String busca){
+        
+        ResultSet rs = null;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        int cont = 0;
+        
+        try {
+            //select pessoa.nome_completo from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia="Academia Sol") as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id;
+            stmt = con.prepareStatement("select pessoa.* from pessoa inner join aluno where pessoa.nome_completo = '"+busca+"' and pessoa.Id_pessoa = aluno.Id_pessoaFK");
+            rs = stmt.executeQuery();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public void AlterarStatus(int id){
+    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("update pessoa set status_pag = "+1+" where Id_pessoa = "+id+"");
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Feito Com Sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
     }
     
 }
