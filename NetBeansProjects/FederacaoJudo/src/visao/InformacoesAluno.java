@@ -391,7 +391,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
         
         VerificacoesInsercao vi = new VerificacoesInsercao();
         
-        if(vi.AltercaoAluno(campoAcademia.getText(),  campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), idade.getText(), peso.getText())){
+        if(vi.AltercaoAluno(campoAcademia.getText(),  campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), Integer.parseInt(idade.getText()))){
             
         }
     }//GEN-LAST:event_salvarActionPerformed
