@@ -12,7 +12,8 @@ package modelo;
 public class VerificacoesInsercao {
     
     public boolean AltercaoAluno(String academia, String cpf, String comp, String graduacao, String mae, String nome, String ourtoga, String fone, int idade){
-    
+        
+        
     
         return true;
     }
