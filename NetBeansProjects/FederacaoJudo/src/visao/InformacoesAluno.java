@@ -6,6 +6,7 @@
 package visao;
 
 import controle.DAO;
+import modelo.VerificacoesInsercao;
 
 /**
  *
@@ -20,6 +21,17 @@ public class InformacoesAluno extends javax.swing.JFrame {
      */
     public InformacoesAluno(){
         initComponents();
+        campoAcademia.setEditable(false);
+        campoCPF.setEditable(false);
+        campoCompeticoes.setEditable(false);
+        campoGraduacao.setEditable(false);
+        campoMae.setEditable(false);
+        campoNome.setEditable(false);
+        campoOurtoga.setEditable(false);
+        campoPai.setEditable(false);
+        campoTelefone.setEditable(false);
+        idade.setEditable(false);
+        peso.setEditable(false);
     }
     
     /**
@@ -40,12 +52,6 @@ public class InformacoesAluno extends javax.swing.JFrame {
         campoPai = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         campoTelefone = new javax.swing.JTextField();
-        try{
-            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#####-####");
-            campoTelefone = new javax.swing.JFormattedTextField(data);
-        }
-        catch (Exception e){
-        }
         jLabel5 = new javax.swing.JLabel();
         campoGraduacao = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -60,12 +66,6 @@ public class InformacoesAluno extends javax.swing.JFrame {
         campoCompeticoes = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         campoCPF = new javax.swing.JTextField();
-        try{
-            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###########");
-            campoCPF = new javax.swing.JFormattedTextField(data);
-        }
-        catch (Exception e){
-        }
         sair = new javax.swing.JButton();
         alterar = new javax.swing.JButton();
         salvar = new javax.swing.JButton();
@@ -139,6 +139,11 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/floppy-icon.png"))); // NOI18N
         salvar.setText("Salvar");
+        salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 15)); // NOI18N
         jLabel10.setText("Academia que participa");
@@ -348,7 +353,20 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
+        
+        campoAcademia.setEditable(true);
+        campoCPF.setEditable(false);
+        campoCompeticoes.setEditable(true);
+        campoGraduacao.setEditable(true);
+        campoMae.setEditable(true);
         campoNome.setEditable(true);
+        campoOurtoga.setEditable(true);
+        campoPai.setEditable(true);
+        campoTelefone.setEditable(true);
+        idade.setEditable(true);
+        peso.setEditable(true);
+        
+        
     }//GEN-LAST:event_alterarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
@@ -368,6 +386,15 @@ public class InformacoesAluno extends javax.swing.JFrame {
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         new DAO().AlterarStatus(getId());
     }//GEN-LAST:event_confirmarActionPerformed
+
+    private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+        
+        VerificacoesInsercao vi = new VerificacoesInsercao();
+        
+        if(vi.AltercaoAluno(campoAcademia.getText(),  campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), Integer.parseInt(idade.getText()))){
+            
+        }
+    }//GEN-LAST:event_salvarActionPerformed
 
     /**
      * @param args the command line arguments

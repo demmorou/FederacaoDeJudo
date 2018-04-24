@@ -198,7 +198,14 @@ public class DAO {
             Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
     
+    public void AlterarDadosAluno(int id){
+    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        
     }
     
 }
