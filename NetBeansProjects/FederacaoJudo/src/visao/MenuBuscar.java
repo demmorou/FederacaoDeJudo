@@ -300,14 +300,17 @@ public class MenuBuscar extends javax.swing.JFrame {
                     ia.setId(rs.getInt("Id_pessoa"));
                     int cat = rs.getInt("status_pag");
                     
+                    ia.academia.setText(dao.BuscaNomeAcademia(rs.getInt("Id_pessoa")));
+                    
                     if(cat == 0){
                         ia.status.setText("PENDENTE");
-                        ia.status.setForeground(Color.red);
+                        Color cor = Color.decode ( "#1a572d");
+                        ia.status.setForeground(cor);
                         ia.confirmar.setVisible(true);
-                        ia.confirmar.setBackground(Color.green);
                     }else{
                         ia.status.setText("CONFIRMADO");
-                        ia.status.setForeground(Color.green);
+                        Color cor = Color.decode ( "#72222e");
+                        ia.status.setForeground(cor);
                         ia.confirmar.setVisible(false);
                     }
                     
@@ -390,12 +393,13 @@ public class MenuBuscar extends javax.swing.JFrame {
         PreparedStatement stmt = null;
         ArrayList dados = new ArrayList();
         String[] Colunas = new String[]{"Nome", "Nome da Mãe", "Telefone", "Idade", "Sexo"};
-        
+        String nomeac = null;
         int cont = 0;
         try {
             
             stmt = con.prepareStatement("select pessoa.* from (select aluno.Id_pessoaFK as id from (select * from academia where academia.nome_academia LIKE '%"+busca+"%') as acad inner join aluno on aluno.Id_academiaFK = acad.Id_academia) as alu inner join pessoa on pessoa.Id_pessoa = alu.id");
             rs = stmt.executeQuery();
+            
             
             while(rs.next()){
                 dados.add(new Object[]{rs.getString("nome_completo"), rs.getString("nome_mae"), rs.getString("telefone"), rs.getString("idade"), rs.getString("sexo")});

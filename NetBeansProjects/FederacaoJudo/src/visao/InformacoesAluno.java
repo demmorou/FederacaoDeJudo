@@ -21,7 +21,6 @@ public class InformacoesAluno extends javax.swing.JFrame {
      */
     public InformacoesAluno(){
         initComponents();
-        campoAcademia.setEditable(false);
         campoCPF.setEditable(false);
         campoCompeticoes.setEditable(false);
         campoGraduacao.setEditable(false);
@@ -70,7 +69,6 @@ public class InformacoesAluno extends javax.swing.JFrame {
         alterar = new javax.swing.JButton();
         salvar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        campoAcademia = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         idade = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -86,10 +84,9 @@ public class InformacoesAluno extends javax.swing.JFrame {
         confirmar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        academia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(216, 231, 217));
 
         jLabel1.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 15)); // NOI18N
         jLabel1.setText("Nome Completo");
@@ -165,7 +162,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         sexo.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 0, 15)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 15)); // NOI18N
         jLabel15.setText("Categoria/Sub Divisão");
 
         status.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
@@ -183,6 +180,9 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
         jLabel16.setText("Numero Do Registro:");
+
+        academia.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
+        academia.setForeground(new java.awt.Color(29, 95, 133));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,10 +206,10 @@ public class InformacoesAluno extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel7)
-                                        .addComponent(jLabel10)
+                                        .addComponent(campoCompeticoes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(campoCompeticoes, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoAcademia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(academia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGap(129, 129, 129)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(campoGraduacao, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,8 +322,8 @@ public class InformacoesAluno extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campoAcademia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoOurtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoOurtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(academia, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(78, 78, 78)
                         .addComponent(confirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -354,7 +354,6 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
         
-        campoAcademia.setEditable(true);
         campoCPF.setEditable(false);
         campoCompeticoes.setEditable(true);
         campoGraduacao.setEditable(true);
@@ -388,11 +387,13 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        
+
         VerificacoesInsercao vi = new VerificacoesInsercao();
-        
-        if(vi.AltercaoAluno(campoAcademia.getText(),  campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), idade.getText(), peso.getText())){
-            
+
+        if (vi.AltercaoAluno(campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), idade.getText(), peso.getText())) {
+            System.out.println("oi");
+        } else {
+
         }
     }//GEN-LAST:event_salvarActionPerformed
 
@@ -440,8 +441,8 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel academia;
     private javax.swing.JButton alterar;
-    public javax.swing.JTextField campoAcademia;
     public javax.swing.JTextField campoCPF;
     public javax.swing.JTextField campoCompeticoes;
     public javax.swing.JTextField campoGraduacao;

@@ -11,14 +11,10 @@ import javax.swing.JOptionPane;
  *
  * @author deusimar
  */
+
 public class VerificacoesInsercao {
     
-    public boolean AltercaoAluno(String academia, String cpf, String comp, String graduacao, String mae, String nome, String ourtoga, String fone, String idade, String peso){
-        
-        if(academia.equals("")){
-            JOptionPane.showMessageDialog(null,"Informe um Nome");
-            return false;
-        }
+    public boolean AltercaoAluno(String cpf, String comp, String graduacao, String mae, String nome, String ourtoga, String fone, String idade, String peso){
         
         if(cpf.equals("") && new Validar().isCPF(cpf) == false){
             JOptionPane.showMessageDialog(null,"Informe um CPF Válido");
@@ -55,10 +51,13 @@ public class VerificacoesInsercao {
             return false;
         }
         
-        if(Float.parseFloat(peso) < 0.0 &&  Float.parseFloat(peso) > 500){
+        if(peso.contains("^[a-Z]") == false){
             JOptionPane.showMessageDialog(null,"Informe um peso Válido");
             return false;
-        }
+        }else if((Float.parseFloat(peso) < 0.0 &&  Float.parseFloat(peso) > 500)){
+                JOptionPane.showMessageDialog(null,"Informe um peso Válido");
+                return false;
+            }
         
         return true;
     }

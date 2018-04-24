@@ -205,7 +205,25 @@ public class DAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
-        
+    }
+    
+    public String BuscaNomeAcademia(int id) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String nome = null;
+        try {
+            stmt = con.prepareStatement("select nome_academia from academia inner join pessoa where pessoa.Id_pessoa = "+id+"");
+            rs = stmt.executeQuery();
+            
+            while(rs.next())
+                nome = rs.getString("nome_academia");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nome;
     }
     
 }
