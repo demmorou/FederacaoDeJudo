@@ -20,8 +20,23 @@ import modelo.Pessoa;
 import modelo.Validar;
 
 public final class CadastroAluno extends javax.swing.JFrame {
+
+    /**
+     * @return the tela
+     */
+    public String getTela() {
+        return tela;
+    }
+
+    /**
+     * @param tela the tela to set
+     */
+    public void setTela(String tela) {
+        this.tela = tela;
+    }
     private int id = 0;
     private String sexo = null;
+    private String tela = null;
     public CadastroAluno() {
         initComponents();
         PreencherTabela();
@@ -168,6 +183,11 @@ public final class CadastroAluno extends javax.swing.JFrame {
 
         voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/left-arrow.png"))); // NOI18N
         voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("CPF*");
 
@@ -520,6 +540,13 @@ public final class CadastroAluno extends javax.swing.JFrame {
     private void telefone_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefone_alunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telefone_alunoActionPerformed
+
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        // TODO add your handling code here:
+        if (getTela().equals("cadastro")){
+            dispose();
+        }
+    }//GEN-LAST:event_voltarActionPerformed
 
 
     public void salvarCadastro() {

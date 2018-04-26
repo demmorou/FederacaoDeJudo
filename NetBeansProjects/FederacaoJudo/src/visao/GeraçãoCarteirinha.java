@@ -5,6 +5,9 @@
  */
 package visao;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author pavic
@@ -15,7 +18,12 @@ public class GeraçãoCarteirinha extends javax.swing.JFrame {
      * Creates new form GeraçãoCarteirinha
      */
     public GeraçãoCarteirinha() {
+        
         initComponents();
+        
+              
+        Image img = this.getToolkit().createImage("/home/pavic/Downloads/Gatão.jpeg");
+        jLabel3.setIcon(new ImageIcon(img));
     }
 
     /**
@@ -237,7 +245,7 @@ public class GeraçãoCarteirinha extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;

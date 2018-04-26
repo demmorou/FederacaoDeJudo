@@ -52,6 +52,11 @@ public class CadastroOpitions extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
         cadastro_professor.setText("Cadastrar Professor");
+        cadastro_professor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastro_professorActionPerformed(evt);
+            }
+        });
 
         cadastro_academia.setText("Cadastrar Academia");
         cadastro_academia.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +66,11 @@ public class CadastroOpitions extends javax.swing.JFrame {
         });
 
         Cadastro_aluno.setText("Cadastrar Aluno");
+        Cadastro_aluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cadastro_alunoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +131,7 @@ public class CadastroOpitions extends javax.swing.JFrame {
                 dispose();
                 CadastroAcademia b = new CadastroAcademia();
                 b.setIndex("menu");
-                b.setTitle("Tela Inicial");
+                b.setTitle("Cadastro Academia");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);
                 b.setSize(1059, 608);
@@ -136,6 +146,27 @@ public class CadastroOpitions extends javax.swing.JFrame {
         b.setLocationRelativeTo(null);
         b.setSize(1059, 608);
     }//GEN-LAST:event_voltarActionPerformed
+
+    private void Cadastro_alunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastro_alunoActionPerformed
+        // TODO add your handling code here:
+        
+        CadastroAluno b = new CadastroAluno();
+        b.setTela("cadastro");
+        b.setTitle("Cadastrar Aluno");
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        b.setSize(1059, 608);
+    }//GEN-LAST:event_Cadastro_alunoActionPerformed
+
+    private void cadastro_professorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastro_professorActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        CadastroProfessor b = new CadastroProfessor();
+        b.setTitle("Cadastro Professor");
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        b.setSize(1059, 608);
+    }//GEN-LAST:event_cadastro_professorActionPerformed
 
     /**
      * @param args the command line arguments
