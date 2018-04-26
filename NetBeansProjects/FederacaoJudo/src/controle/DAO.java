@@ -105,6 +105,25 @@ public class DAO {
         
     }
     
+    public void ExcluirAluno(int id){
+    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null, st = null;
+        
+        try {
+            stmt = con.prepareStatement("delete from aluno where Id_pessoaFK = "+id+"");
+            stmt.executeUpdate();
+            
+            st = con.prepareStatement("delete from pessoa where Id_pessoa = "+id+"");
+            st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Operação Realizada Com Sucesso!");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro Na Exclusão! Tente Novamente!\nERROR "+ex);
+        }
+    }
+    
     public void createProfessor(Professor p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -135,7 +154,7 @@ public class DAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,graduacao_atual,curriculun,foto3x4,cpf,data_outorga,telefone,peso,sexo,idade,status_pag)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO pessoa (Id_pessoa,nome_completo,nome_mae,nome_pai,graduacao_atual,curriculun,foto3x4,cpf,data_outorga,telefone,peso,sexo,idade,status_pag,cat_div)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             stmt.setInt(1, 0);
             stmt.setString(2, p.getNomeCompleto());
@@ -151,6 +170,7 @@ public class DAO {
             stmt.setString(12, p.getSexo());
             stmt.setInt(13, p.getIdade());
             stmt.setInt(14, 0);
+            stmt.setString(15, p.getCatDiv());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");

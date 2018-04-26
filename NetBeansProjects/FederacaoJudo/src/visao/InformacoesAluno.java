@@ -6,6 +6,7 @@
 package visao;
 
 import controle.DAO;
+import javax.swing.JOptionPane;
 import modelo.VerificacoesInsercao;
 
 /**
@@ -169,6 +170,11 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/error.png"))); // NOI18N
         jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/success.png"))); // NOI18N
         confirmar.setText("Confirmar");
@@ -396,6 +402,15 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_salvarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (JOptionPane.showConfirmDialog(null,"Deseja Realmente Excluir Este Cadastro?")==JOptionPane.OK_OPTION){
+            DAO dao = new DAO();
+            dao.ExcluirAluno(getId());
+        }else{
+            JOptionPane.showMessageDialog(null, "Operação Cancelada!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

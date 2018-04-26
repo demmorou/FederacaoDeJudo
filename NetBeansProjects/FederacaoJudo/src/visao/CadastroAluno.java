@@ -564,6 +564,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
             p.setNomePai(nome_pai.getText());
         }
         
+        p.setCatDiv("-------");
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
         p.setGraduacaoAtual(graduacao.getText());

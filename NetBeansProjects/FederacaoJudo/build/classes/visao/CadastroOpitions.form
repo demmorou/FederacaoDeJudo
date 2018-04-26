@@ -118,6 +118,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Professor"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastro_professorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cadastro_academia">
           <Properties>
@@ -131,6 +134,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Aluno"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cadastro_alunoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

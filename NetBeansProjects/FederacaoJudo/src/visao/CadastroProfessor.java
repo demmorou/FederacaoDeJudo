@@ -629,11 +629,6 @@ public final class CadastroProfessor extends javax.swing.JFrame {
     public void salvarCadastro() {
 
         Pessoa p = new Pessoa();
-        Date data = null;
-        Date dataBanco;
-        ResultSet rs = null;
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
 
         DAO dao = new DAO();
 
@@ -645,6 +640,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         }else{
             p.setNomePai(nome_pai.getText());
         }
+        p.setCatDiv("-----");
         p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
         p.setIdade(Integer.parseInt(idade.getText()));
         p.setSexo(getSexo());
