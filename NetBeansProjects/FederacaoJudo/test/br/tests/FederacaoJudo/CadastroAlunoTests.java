@@ -21,38 +21,12 @@ public class CadastroAlunoTests {
 	}
         
         @Test
-	public void testNomeAlunoValido(){
-            assertTrue("Deveria cadastrar!", a.nomeCompleto("Deusimar Damião de Sousa"));
-            
+        public void cadastroAlunoValido(){
+            assertTrue("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "Laurinda Diniz", "", "", "", "", "", "", "", "", "", "", ""));
         }
         
         @Test
-        public void testNomeAlunoInvalido(){
-            assertFalse("Nao deveria passar!", a.nomeCompleto("Deusimar"));
-        }
-        
-        @Test
-        public void testNomeMaeValido(){
-            assertTrue("Deveria passar!", a.nomeMae("Laurinda Diniz"));
-        }
-        
-        @Test
-        public void testNomeMaeInvalido(){
-            assertFalse("Nao deveria passar!", a.nomeMae("Laurinda"));
-        }
-        
-        @Test
-        public void testCPFValido(){
-            assertTrue("Deveria passar!", a.CPF("60985117303"));
-        }
-        
-        @Test
-        public void testCPFInvalido(){
-            assertFalse("Não Deveria passar!", a.CPF("12345678900"));
-        }
-        
-        @Test
-        public void testCPFGrande(){
-            assertFalse("Não Deveria passar!", a.CPF("60985117303333"));
+        public void cadastroAlunoInvalido(){
+            assertFalse("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "", "", "", "", "", "", "", "", "", "", "", ""));
         }
 }

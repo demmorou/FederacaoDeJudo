@@ -142,7 +142,7 @@ public class DAO {
         
     }
     
-    public void createPessoa(Pessoa p){
+    public boolean createPessoa(Pessoa p){
     
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -167,13 +167,14 @@ public class DAO {
             stmt.setString(15, p.getCatDiv());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Salvar "+ ex);
+            return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
+        
+        return true;
         
     }
     

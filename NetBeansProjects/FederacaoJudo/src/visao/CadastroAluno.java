@@ -455,9 +455,14 @@ public final class CadastroAluno extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         
-        CadastrarAluno ca = new CadastrarAluno();
+        //CadastrarAluno ca = new CadastrarAluno();
         
-        ca.nomeCompleto(nome_completo.getText());
+//        ca.DadosCadastroAluno(nome_completo.getText(), nome_mae.getText(), 
+//                                    telefone_aluno.getText(), data_ourtoga.getText(),
+//                                    idade.getText(), competicoes.getText(),
+//                                    nome_pai.getText(), path_imagem.getText(),
+//                                    cpf.getText(), nome_ac.getText(),
+//                                    peso.getText(), graduacao.getText(), getSexo());
         
         if (nome_completo.getText().equals("") || nome_mae.getText().equals("")
                 || telefone_aluno.getText().equals("") || data_ourtoga.getText().equals("")
