@@ -17,11 +17,38 @@ public class CadastrarAluno {
                                         String peso, String graduacao, String sexo
                                         ){
         
-        if(nome.equals("") && nome.length() < 12){
+        if(nome.equals("") || nome.length() < 12){
             return false;
-        }else if(nome_mae.equals("") && nome_mae.length() < 12){
+        }else if(nome_mae.equals("") || nome_mae.length() < 12){
             return false;
+        }else if(cpf.equals("") || !Validar.isCPF(cpf) || cpf.length() != 11){
+            return false;
+        }else if(!peso.equals("")  && !peso.contains("^[a-Z]")){
+                    if(Float.valueOf(peso.replace(",", ".")) < 10){
+                        return false;
+                    }else{
+                        //peso recebe valor
+                    }
+        }else if(peso.equals("")  || peso.contains("^[a-Z]")){
+            return false;
+        }else if(data_ourtoga.equals("")){
+            return false;
+        }else if(idade.equals("")){
+            return false;
+        }else if(competicoes.equals("")){
+            return false;
+        }else if(path.equals("")){
+            return false;
+        }else if(nome_academia.equals("")){
+            return false;
+        }else if(graduacao.equals("")){
+            return false;
+        }else if(sexo.equals("")){
+            return false;
+        }else if(!nome_pai.equals("")){
+               
         }
+        
         
 //        p.setNomeCompleto(nome);
 //        p.setNomeMae(nome_mae);
@@ -32,29 +59,5 @@ public class CadastrarAluno {
         
         return true;
     }
-    
-    public boolean nomeMae(String nome){
-    
-        if(!nome.equals("") && nome.length() > 12){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    public boolean CPF(String cpf){
-        
-        if(!cpf.equals("") && cpf.length() == 11 && Validar.isCPF(cpf)){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    public void criarAluno(){
-        
-        new DAO().createPessoa(p);
-    }
-    
         
 }

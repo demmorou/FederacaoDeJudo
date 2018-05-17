@@ -22,11 +22,21 @@ public class CadastroAlunoTests {
         
         @Test
         public void cadastroAlunoValido(){
-            assertTrue("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "Laurinda Diniz", "", "", "", "", "", "", "", "", "", "", ""));
+            assertTrue("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "Laurinda Diniz", 
+                    "9402-2722", "10/12/2017", 
+                    "21", "nenhuma", "Damiao José", 
+                    "path_imagem", "60985117303", 
+                    "Academia Sol", "10.1", 
+                    "nenhuma", "M"));
         }
         
         @Test
         public void cadastroAlunoInvalido(){
-            assertFalse("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "", "", "", "", "", "", "", "", "", "", "", ""));
+            assertFalse("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "", 
+                    "9402-2722", "10/12/2017", 
+                    "21", "nenhuma", "Damiao José", 
+                    "path_imagem", "609851173033", 
+                    "Academia Sol", "75.5", 
+                    "nenhuma", "M"));
         }
 }
