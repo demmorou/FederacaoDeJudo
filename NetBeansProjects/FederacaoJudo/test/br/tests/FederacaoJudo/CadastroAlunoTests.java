@@ -1,6 +1,6 @@
 package br.tests.FederacaoJudo;
 
-import modelo.Cadastro;
+import modelo.CadastrarAluno;
 import org.junit.After;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CadastroAlunoTests {
-    Cadastro a;
+    CadastrarAluno a;
    
         @Before
 	public void setup() {
-		a = new Cadastro();
+		a = new CadastrarAluno();
 	}
 
 	@After
@@ -21,13 +21,38 @@ public class CadastroAlunoTests {
 	}
         
         @Test
-	public void testCadastroAlunoValido(){
-            assertTrue("Deveria cadastrar!", a.CadAluno("07115789312", "Deusimar Damião de Sousa", "Laurinda Diniz", (float) 10.1));
+	public void testNomeAlunoValido(){
+            assertTrue("Deveria cadastrar!", a.nomeCompleto("Deusimar Damião de Sousa"));
             
         }
         
         @Test
-        public void testCadastroAlunoInvalido(){
-            assertFalse("Nao deveria passar!", a.CadAluno("60985117300", "Deusimar", "Laurinda", (float) 1.0));
+        public void testNomeAlunoInvalido(){
+            assertFalse("Nao deveria passar!", a.nomeCompleto("Deusimar"));
+        }
+        
+        @Test
+        public void testNomeMaeValido(){
+            assertTrue("Deveria passar!", a.nomeMae("Laurinda Diniz"));
+        }
+        
+        @Test
+        public void testNomeMaeInvalido(){
+            assertFalse("Nao deveria passar!", a.nomeMae("Laurinda"));
+        }
+        
+        @Test
+        public void testCPFValido(){
+            assertTrue("Deveria passar!", a.CPF("60985117303"));
+        }
+        
+        @Test
+        public void testCPFInvalido(){
+            assertFalse("Não Deveria passar!", a.CPF("12345678900"));
+        }
+        
+        @Test
+        public void testCPFGrande(){
+            assertFalse("Não Deveria passar!", a.CPF("60985117303333"));
         }
 }

@@ -15,6 +15,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.Academia;
 import modelo.Aluno;
+import modelo.CadastrarAluno;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Validar;
@@ -453,7 +454,11 @@ public final class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_nome_maeActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-
+        
+        CadastrarAluno ca = new CadastrarAluno();
+        
+        ca.nomeCompleto(nome_completo.getText());
+        
         if (nome_completo.getText().equals("") || nome_mae.getText().equals("")
                 || telefone_aluno.getText().equals("") || data_ourtoga.getText().equals("")
                 || path_imagem.getText().equals("") || cpf.equals("")
