@@ -21,15 +21,13 @@ public class TestsCadastro {
 	}
         
         @Test
-	public void CPFValido(){
-            
-            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303"));
+	public void testCadastroAlunoValido(){
+            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303", "Deusimar Damião de Sousa", "Laurinda Diniz"));
             
         }
         
         @Test
-        public void CPFInvalido(){
-            assertFalse("Nao deveria passar! CPF Invalido", a.CadAluno("60985117300"));
-            assertFalse("Nao deveria cadastrar! CPF Grande", a.CadAluno("609851173033"));
+        public void testCadastroAlunoInvalido(){
+            assertFalse("Nao deveria passar!", a.CadAluno("60985117300", "Deusimar", "Laurinda"));
         }
 }
