@@ -30,13 +30,7 @@ import visao.MenuBuscar;
  * @author deusimar
  */
 public class DAO {
-    public String data(){
-        
-        java.util.Date agora = new java.util.Date();
-        SimpleDateFormat formata = new SimpleDateFormat();
-        
-        return formata.format(agora);
-    }
+
     public void createUser(User a){
         
         Connection con = ConnectionFactory.getConnection();

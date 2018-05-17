@@ -1,16 +1,18 @@
 package br.tests.FederacaoJudo;
 
-import modelo.Aluno;
+import modelo.Cadastro;
 import org.junit.After;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestsCadastro {
-    Aluno a;
+    Cadastro a;
    
         @Before
 	public void setup() {
-		a = new Aluno();
+		a = new Cadastro();
 	}
 
 	@After
@@ -19,8 +21,15 @@ public class TestsCadastro {
 	}
         
         @Test
-	public void testJogadaValidaVezJogador(){
+	public void CPFValido(){
             
+            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303"));
             
+        }
+        
+        @Test
+        public void CPFInvalido(){
+            assertFalse("Nao deveria passar! CPF Invalido", a.CadAluno("60985117300"));
+            assertFalse("Nao deveria cadastrar! CPF Grande", a.CadAluno("609851173033"));
         }
 }
