@@ -22,12 +22,12 @@ public class TestsCadastro {
         
         @Test
 	public void testCadastroAlunoValido(){
-            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303", "Deusimar Damião de Sousa", "Laurinda Diniz"));
+            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303", "Deusimar Damião de Sousa", "Laurinda Diniz", (float) 5.0));
             
         }
         
         @Test
         public void testCadastroAlunoInvalido(){
-            assertFalse("Nao deveria passar!", a.CadAluno("60985117300", "Deusimar", "Laurinda"));
+            assertFalse("Nao deveria passar!", a.CadAluno("60985117300", "Deusimar", "Laurinda", (float) 1.0));
         }
 }
