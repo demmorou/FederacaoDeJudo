@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/src/visao/CadastroAluno.java</file>
-            <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/src/controle/DAO.java</file>
+            <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/test/br/tests/FederacaoJudo/SuiteTest.java</file>
             <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/src/modelo/Cadastro.java</file>
-            <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/src/modelo/Academia.java</file>
+            <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/test/br/tests/FederacaoJudo/TestsCadastro.java</file>
             <file>file:/home/deusimar/NetBeansProjects/FederacaoDeJudo/NetBeansProjects/FederacaoJudo/src/controle/ConnectionFactory.java</file>
         </group>
     </open-files>

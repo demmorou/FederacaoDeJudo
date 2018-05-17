@@ -11,7 +11,7 @@ public class Cadastro {
         if(!cpf.equals("") && Validar.isCPF(cpf) == true && cpf.length() == 11 && 
            !nome_completo.equals("") && nome_completo.length() > 12 &&
            !mae.equals("") && mae.length() > 12 &&
-            peso > 0.0){
+            peso >= 10){
             return true;
         }else{
             return false;

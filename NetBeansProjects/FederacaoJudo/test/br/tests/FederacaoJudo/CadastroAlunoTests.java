@@ -7,7 +7,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestsCadastro {
+public class CadastroAlunoTests {
     Cadastro a;
    
         @Before
@@ -22,7 +22,7 @@ public class TestsCadastro {
         
         @Test
 	public void testCadastroAlunoValido(){
-            assertTrue("Nao deveria cadastrar!", a.CadAluno("60985117303", "Deusimar Damião de Sousa", "Laurinda Diniz", (float) 5.0));
+            assertTrue("Deveria cadastrar!", a.CadAluno("07115789312", "Deusimar Damião de Sousa", "Laurinda Diniz", (float) 10.1));
             
         }
         
