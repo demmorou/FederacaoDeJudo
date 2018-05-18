@@ -1,7 +1,6 @@
 package visao;
 
 import controle.ConnectionFactory;
-import controle.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,12 +12,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import modelo.Academia;
-import modelo.Aluno;
 import modelo.CadastrarAluno;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
-import modelo.Validar;
 
 public final class CadastroAluno extends javax.swing.JFrame {
 

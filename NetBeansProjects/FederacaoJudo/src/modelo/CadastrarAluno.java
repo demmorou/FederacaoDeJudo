@@ -75,21 +75,6 @@ public class CadastrarAluno {
             return false;
         }
         
-        p.setNomeCompleto(p.getNomeCompleto());
-        p.setNomeMae(p.getNomeMae());
-        p.setCatDiv("nao definido");
-        p.setCpf(p.getCpf());
-        p.setCurriculun(p.getCurriculun());
-        p.setDataOutorga(p.getDataOutorga());
-        p.setFoto3x4(p.getFoto3x4());
-        p.setGraduacaoAtual(p.getGraduacaoAtual());
-        p.setIdade(p.getIdade());
-        p.setNomePai(p.getNomePai());
-        p.setPeso(p.getPeso());
-        p.setSexo(p.getSexo());
-        p.setStatusPag(0);
-        p.setTelefone(p.getTelefone());
-        
         if(!new DAO().createPessoa(p)){
             return false;
         }else{

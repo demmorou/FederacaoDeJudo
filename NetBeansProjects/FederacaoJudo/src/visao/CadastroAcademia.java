@@ -5,13 +5,9 @@
  */
 package visao;
 
-import controle.ConnectionFactory;
-import controle.DAO;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import modelo.Academia;
+import modelo.CadastrarAcademia;
 
 /**
  *
@@ -259,47 +255,35 @@ public class CadastroAcademia extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
-
-        if (estado.getText().equals("") || cep.getText().equals("")
-                || cidade.getText().equals("") || bairro.getText().equals("")
-                || rua.getText().equals("") || numero.getText().equals("") || nome_academia.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!", "Aviso", JOptionPane.WARNING_MESSAGE);
-
-        } else {
-
-            ResultSet rs = null;
-            Connection con = ConnectionFactory.getConnection();
-            PreparedStatement stmt = null;
-            Academia a = new Academia();
-
-            DAO d = new DAO();
-
-            a.setEstado(estado.getText());
-            a.setCep(cep.getText());
-            a.setCidade(cidade.getText());
-            a.setBairro(bairro.getText());
-            a.setRua(rua.getText());
-            a.setNumero(Integer.parseInt(numero.getText()));
-            a.setNomeAcademia(nome_academia.getText());
-
-            d.createAcademia(a);
-
-            estado.setText("");
-            cep.setText("");
-            cidade.setText("");
-            bairro.setText("");
-            rua.setText("");
-            numero.setText("");
-            nome_academia.setText("");
-            
-            if(getIndex().equals("professor")){
-                dispose();
-            }else if(getIndex().equals("aluno")){
-                dispose();
-            }
-
+        
+        Academia a = new Academia();
+        
+        a.setBairro(bairro.getText());
+        a.setCep(cep.getText());
+        a.setCidade(cidade.getText());
+        a.setNomeAcademia(nome_academia.getText());
+        a.setNumero(Integer.parseInt(numero.getText()));
+        a.setRua(rua.getText());
+        
+        if(new CadastrarAcademia().DadosCadastroAcademia(a))
+            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+        else
+            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
+        
+        estado.setText("");
+        cep.setText("");
+        cidade.setText("");
+        bairro.setText("");
+        rua.setText("");
+        numero.setText("");
+        nome_academia.setText("");
+        
+        if(getIndex().equals("professor")){
+            dispose();
+        }else if(getIndex().equals("aluno")){
+            dispose();
         }
+
     }//GEN-LAST:event_salvarActionPerformed
 
     private void nome_academiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_academiaActionPerformed

@@ -54,7 +54,7 @@ public class DAO {
     
     }
     
-    public void createAcademia (Academia a){
+    public boolean createAcademia (Academia a){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
@@ -70,13 +70,14 @@ public class DAO {
             stmt.setString(8, a.getCep());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Dados da Academia Salvos Com Sucesso");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar Dados da Academia"+ ex);
+            return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
+        
+        return true;
     }
     
     public boolean createAluno(Aluno a){
