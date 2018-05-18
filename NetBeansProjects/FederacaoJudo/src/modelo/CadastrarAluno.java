@@ -19,34 +19,68 @@ public class CadastrarAluno {
         
         if(nome.equals("") || nome.length() < 12){
             return false;
-        }else if(nome_mae.equals("") || nome_mae.length() < 12){
+        }
+        
+        if(nome_mae.equals("") || nome_mae.length() < 12){
             return false;
-        }else if(cpf.equals("") || !Validar.isCPF(cpf) || cpf.length() != 11){
+        }
+        
+        if(cpf.equals("") || !Validar.isCPF(cpf) || cpf.length() != 11){
             return false;
-        }else if(!peso.equals("")  && !peso.contains("^[a-Z]")){
-                    if(Float.valueOf(peso.replace(",", ".")) < 10){
+        }
+        
+        if(!peso.equals("")  && !peso.contains("^[a-Z]")){
+                    if(Float.valueOf(peso.replace(",", ".")) < 10.0){
                         return false;
-                    }else{
-                        //peso recebe valor
                     }
-        }else if(peso.equals("")  || peso.contains("^[a-Z]")){
+        }
+        
+        if(peso.equals("")  || peso.contains("^[a-Z]")){
             return false;
-        }else if(data_ourtoga.equals("")){
+        }
+        
+        if(data_ourtoga.equals("")){
             return false;
-        }else if(idade.equals("")){
+        }
+        
+        if(idade.equals("")){
             return false;
-        }else if(competicoes.equals("")){
+        }
+        
+        if(competicoes.equals("")){
             return false;
-        }else if(path.equals("")){
+        }
+        
+        if(path.equals("")){
             return false;
-        }else if(nome_academia.equals("")){
+        }
+        
+        if(nome_academia.equals("")){
+            return false;   
+        }
+        
+        if(graduacao.equals("")){
             return false;
-        }else if(graduacao.equals("")){
+        }
+        
+        if(sexo.equals("")){
             return false;
-        }else if(sexo.equals("")){
+        }
+        
+        if(!nome_pai.equals("")){
+               if(new VerificarString().verificaString(nome_pai) && nome_pai.length() > 12){
+                   
+               }else{
+                   return false;
+               }
+        }
+        
+        if(nome_pai.equals("")){
             return false;
-        }else if(!nome_pai.equals("")){
-               
+        }
+        
+        if(telefone.equals("")){
+            return false;
         }
         
         
