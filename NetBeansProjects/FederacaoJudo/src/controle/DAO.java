@@ -118,7 +118,7 @@ public class DAO {
         }
     }
     
-    public void createProfessor(Professor p){
+    public boolean createProfessor(Professor p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
@@ -132,14 +132,13 @@ public class DAO {
             stmt.setInt(6, p.getIdacademiaFK().getIdacademia());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Dados do Professor Salvos Com Sucesso");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
-        
+        return true;
     }
     
     public boolean createPessoa(Pessoa p){

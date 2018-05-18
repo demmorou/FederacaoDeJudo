@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.Academia;
+import modelo.CadastrarProfessor;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Professor;
@@ -43,10 +44,10 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         nome_pai = new javax.swing.JTextField();
         buscar_foto = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        telefone = new javax.swing.JTextField();
+        telefone_professor = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#####-####");
-            telefone = new javax.swing.JFormattedTextField(data);
+            telefone_professor = new javax.swing.JFormattedTextField(data);
         }
         catch (Exception e){
         }
@@ -67,22 +68,22 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         }
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        data_de_outorga = new javax.swing.JTextField();
+        data_ourtoga = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
-            data_de_outorga = new javax.swing.JFormattedTextField(data);
+            data_ourtoga = new javax.swing.JFormattedTextField(data);
         }
         catch (Exception e){
         }
         kkk = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        foto_3x4 = new javax.swing.JTextField();
+        path_imagem = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cref = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        nome_maee = new javax.swing.JTextField();
+        nome_mae = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         nome_completo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -96,7 +97,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         m = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        graduacao_atual = new javax.swing.JTextField();
+        graduacao = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -272,15 +273,15 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                     .addComponent(kkk)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone_professor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(data_de_outorga, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(data_ourtoga, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(m)
                     .addComponent(f)
-                    .addComponent(nome_maee, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                    .addComponent(nome_mae, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                     .addComponent(nome_completo)
                     .addComponent(nome_pai))
                 .addGap(97, 97, 97)
@@ -290,11 +291,11 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(cref, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(graduacao_atual, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(graduacao, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(foto_3x4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buscar_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -341,7 +342,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(kkk)
                                 .addGap(6, 6, 6)
-                                .addComponent(nome_maee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nome_mae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel4)
                                 .addGap(11, 11, 11)
@@ -349,7 +350,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabel5)
                                 .addGap(12, 12, 12)
-                                .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(telefone_professor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel6)
                                 .addGap(6, 6, 6)
@@ -357,7 +358,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7)
                                 .addGap(6, 6, 6)
-                                .addComponent(data_de_outorga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(data_ourtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel14)
                                 .addGap(6, 6, 6)
@@ -403,12 +404,12 @@ public final class CadastroProfessor extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jLabel10)
                         .addGap(11, 11, 11)
-                        .addComponent(graduacao_atual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(graduacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
                         .addComponent(jLabel3)
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(foto_3x4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(path_imagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buscar_foto))
                         .addGap(6, 6, 6)
                         .addComponent(jLabel12)
@@ -445,39 +446,43 @@ public final class CadastroProfessor extends javax.swing.JFrame {
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
         
-        if (nome_completo.getText().equals("") || kkk.getText().equals("") 
-                || telefone.getText().equals("") ||data_de_outorga.getText().equals("")
-                || foto_3x4.getText().equals("") ||cpf.equals("") 
-                || cref.getText().equals("") || locais_trabalho.getText().equals("")
-                ||idade.getText().equals("")||competicoes.getText().equals("")
-                || nome_ac.getText().equals("") || (prof.isSelected() == false && prof_res.isSelected() == false)
-                || getId_academia() == 0 || (f.isSelected() == false && m.isSelected() == false)){
+        CadastrarProfessor cp = new CadastrarProfessor();
+        Pessoa p = new Pessoa();
+        Professor pr = new Professor();
+        
+        p.setNomeCompleto(nome_completo.getText());
+        p.setNomeMae(nome_mae.getText());
+        p.setNomePai(nome_pai.getText());
+        p.setCatDiv("nao defined");
+        p.setCpf(cpf.getText());
+        p.setCurriculun(competicoes.getText());
+        p.setDataOutorga(data_ourtoga.getText());
+        p.setFoto3x4(path_imagem.getText());
+        p.setGraduacaoAtual(graduacao.getText());
+  
+        if(!idade.getText().equals("  "))
+            p.setIdade(Integer.parseInt(idade.getText()));
+        else
+            p.setIdade(0);
+        
+        if(!peso.getText().equals(""))
+            p.setPeso(Float.parseFloat(peso.getText()));
+        else
+            p.setPeso((float)0.0);
+        
+        p.setSexo(getSexo());
+        p.setStatusPag(0);
+        p.setTelefone(telefone_professor.getText());
+        
+        pr.setLocaisDeTrabalho(locais_trabalho.getText());
+        pr.setCref(Integer.parseInt(cref.getText()));
+        //pr.setVinculoComAcademia(vinculo);
+        
+        if (cp.DadosCadastroProfessor(p, pr, nome_ac.getText())) 
+            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+        else
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
-        }else if (Validar.isCPF(cpf.getText()) == false){
-            JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
-            cpf.setText("");
-        }else{
-            
-            Pessoa p = new Pessoa();
-            Academia ac = new Academia();
-            DAO dao = new DAO();
-            Professor pr = new Professor();
-            
-            salvarCadastro();
-            
-            pr.setCref(Integer.parseInt(cref.getText()));
-            pr.setLocaisDeTrabalho(locais_trabalho.getText());
-            pr.setVinculoComAcademia(getVinculo());
-            
-            p.setIdpessoa(getIDPEssoa());
-            pr.setIdpessoaFK(p);
-            
-            ac.setIdacademia(getId_academia());
-            pr.setIdacademiaFK(ac);
-            
-            dao.createProfessor(pr);
-            
-        }
+        
     }//GEN-LAST:event_SalvarActionPerformed
 
     private void buscar_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_fotoActionPerformed
@@ -487,7 +492,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         arquivo.setAcceptAllFileFilterUsed(false);
         
         if (arquivo.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            foto_3x4.setText(arquivo.getSelectedFile().getAbsolutePath());
+            path_imagem.setText(arquivo.getSelectedFile().getAbsolutePath());
         }
         
     }//GEN-LAST:event_buscar_fotoActionPerformed
@@ -633,7 +638,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         DAO dao = new DAO();
 
         p.setNomeCompleto(nome_completo.getText());
-        p.setNomeMae(nome_maee.getText());
+        p.setNomeMae(nome_mae.getText());
         
         if(nome_pai.getText().equals("")){
             p.setNomePai("---");
@@ -646,10 +651,10 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         p.setSexo(getSexo());
         p.setCpf(cpf.getText());
         p.setCurriculun(competicoes.getText());
-        p.setGraduacaoAtual(graduacao_atual.getText());
-        p.setTelefone(telefone.getText());
-        p.setDataOutorga(data_de_outorga.getText());
-        p.setFoto3x4(foto_3x4.getText());
+        p.setGraduacaoAtual(graduacao.getText());
+        p.setTelefone(telefone_professor.getText());
+        p.setDataOutorga(data_ourtoga.getText());
+        p.setFoto3x4(path_imagem.getText());
 
         dao.createPessoa(p);
     }
@@ -693,10 +698,9 @@ public final class CadastroProfessor extends javax.swing.JFrame {
     private javax.swing.JTextPane competicoes;
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField cref;
-    private javax.swing.JTextField data_de_outorga;
+    private javax.swing.JTextField data_ourtoga;
     private javax.swing.JCheckBox f;
-    private javax.swing.JTextField foto_3x4;
-    private javax.swing.JTextField graduacao_atual;
+    private javax.swing.JTextField graduacao;
     private javax.swing.JTextField idade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -725,14 +729,15 @@ public final class CadastroProfessor extends javax.swing.JFrame {
     private javax.swing.JCheckBox m;
     private javax.swing.JLabel nome_ac;
     private javax.swing.JTextField nome_completo;
-    private javax.swing.JTextField nome_maee;
+    private javax.swing.JTextField nome_mae;
     private javax.swing.JTextField nome_pai;
+    private javax.swing.JTextField path_imagem;
     private javax.swing.JTextField peso;
     private javax.swing.JCheckBox prof;
     private javax.swing.JCheckBox prof_res;
     private javax.swing.JButton refresh;
     private javax.swing.JTable table;
-    private javax.swing.JTextField telefone;
+    private javax.swing.JTextField telefone_professor;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 

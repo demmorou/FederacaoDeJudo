@@ -50,15 +50,15 @@
                   <Component id="kkk" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefone" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="telefone_professor" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="cpf" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="data_de_outorga" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
+                  <Component id="data_ourtoga" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                   <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="m" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="f" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="nome_maee" alignment="0" pref="228" max="32767" attributes="0"/>
+                  <Component id="nome_mae" alignment="0" pref="228" max="32767" attributes="0"/>
                   <Component id="nome_completo" alignment="0" max="32767" attributes="0"/>
                   <Component id="nome_pai" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -69,11 +69,11 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <Component id="cref" min="-2" pref="120" max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  <Component id="graduacao_atual" min="-2" pref="239" max="-2" attributes="0"/>
+                  <Component id="graduacao" min="-2" pref="239" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="foto_3x4" min="-2" pref="147" max="-2" attributes="0"/>
+                          <Component id="path_imagem" min="-2" pref="147" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Component id="kkk" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="nome_maee" min="-2" max="-2" attributes="0"/>
+                              <Component id="nome_mae" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="telefone" min="-2" max="-2" attributes="0"/>
+                              <Component id="telefone_professor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -146,7 +146,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="data_de_outorga" min="-2" max="-2" attributes="0"/>
+                              <Component id="data_ourtoga" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -201,12 +201,12 @@
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                      <Component id="graduacao_atual" min="-2" max="-2" attributes="0"/>
+                      <Component id="graduacao" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="foto_3x4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="path_imagem" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buscar_foto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -255,9 +255,9 @@
         <Property name="text" type="java.lang.String" value="Telefone*"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="telefone">
+    <Component class="javax.swing.JTextField" name="telefone_professor">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{  &#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;(##)#####-####&quot;);  &#xa;   telefone = new javax.swing.JFormattedTextField(data);  &#xa;}  &#xa;   catch (Exception e){  &#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{  &#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;(##)#####-####&quot;);  &#xa;   telefone_professor = new javax.swing.JFormattedTextField(data);  &#xa;}  &#xa;   catch (Exception e){  &#xa;}"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -285,9 +285,9 @@
         <Property name="text" type="java.lang.String" value="Nome Completo*"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="data_de_outorga">
+    <Component class="javax.swing.JTextField" name="data_ourtoga">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{  &#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);  &#xa;   data_de_outorga = new javax.swing.JFormattedTextField(data);  &#xa;}  &#xa;   catch (Exception e){  &#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{  &#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);  &#xa;   data_ourtoga = new javax.swing.JFormattedTextField(data);  &#xa;}  &#xa;   catch (Exception e){  &#xa;}"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="kkk">
@@ -300,7 +300,7 @@
         <Property name="text" type="java.lang.String" value="Nome do Pai "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="foto_3x4">
+    <Component class="javax.swing.JTextField" name="path_imagem">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
@@ -337,7 +337,7 @@
         <Property name="text" type="java.lang.String" value="Sexo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nome_maee">
+    <Component class="javax.swing.JTextField" name="nome_mae">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
@@ -415,7 +415,7 @@
         <Property name="text" type="java.lang.String" value="CREF*"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="graduacao_atual">
+    <Component class="javax.swing.JTextField" name="graduacao">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
