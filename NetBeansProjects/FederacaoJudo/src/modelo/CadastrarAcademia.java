@@ -22,12 +22,16 @@ public class CadastrarAcademia {
         if(a.getEstado().equals(""))
             return false;
         
-        if(a.getNumero() <= 0 )
+        if(a.getNumero() <= 0)
             return false;
         
         if(a.getRua().equals(""))
             return false;
         
-        return new DAO().createAcademia(a);
+        if(a.getCidade().equals(""))
+            return false;
+        
+        //return new DAO().createAcademia(a);
+        return true;
     }
 }
