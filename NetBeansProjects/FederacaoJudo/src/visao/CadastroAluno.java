@@ -455,46 +455,21 @@ public final class CadastroAluno extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         
-        //CadastrarAluno ca = new CadastrarAluno();
-        
-//        ca.DadosCadastroAluno(nome_completo.getText(), nome_mae.getText(), 
-//                                    telefone_aluno.getText(), data_ourtoga.getText(),
-//                                    idade.getText(), competicoes.getText(),
-//                                    nome_pai.getText(), path_imagem.getText(),
-//                                    cpf.getText(), nome_ac.getText(),
-//                                    peso.getText(), graduacao.getText(), getSexo());
-        
-        if (nome_completo.getText().equals("") || nome_mae.getText().equals("")
-                || telefone_aluno.getText().equals("") || data_ourtoga.getText().equals("")
-                || path_imagem.getText().equals("") || cpf.equals("")
-                || idade.getText().equals("") || competicoes.getText().equals("")
-                || nome_ac.getText().equals("")
-                || (feminino.isSelected() == false && masculino.isSelected() == false)
-                || getId() == 0 || idade.getText().equals("")
-                || peso.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!", "Aviso", JOptionPane.WARNING_MESSAGE);
-        } else if (Validar.isCPF(cpf.getText()) == false) {
-            JOptionPane.showMessageDialog(null, "Erro, CPF invalido Tente novamente!!!", "Aviso", JOptionPane.WARNING_MESSAGE);
-            cpf.setText("");
-        } else {
+        CadastrarAluno ca = new CadastrarAluno();
 
-            Aluno a = new Aluno();
-            Pessoa p = new Pessoa();
-            Academia ac = new Academia();
-            DAO dao = new DAO();
-
-            salvarCadastro();
-
-            p.setIdpessoa(getIDPEssoa());
-            a.setIdpessoaFK(p);
-
-            ac.setIdacademia(getId());
-            a.setIdacademiaFK(ac);
-
-            dao.createAluno(a);
-
+        if (ca.DadosCadastroAluno(nome_completo.getText(), nome_mae.getText(),
+            telefone_aluno.getText(), data_ourtoga.getText(),
+            idade.getText(), competicoes.getText(),
+            nome_pai.getText(), path_imagem.getText(),
+            cpf.getText(), nome_ac.getText(),
+            peso.getText(), graduacao.getText(), getSexo())) {
+                
+                JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+        }else{
+                JOptionPane.showMessageDialog(null, "Erro ao Salvar os Dados\nVerifique se você preencheu os dados corretamente!");
         }
-
+            
+        
     }//GEN-LAST:event_salvarActionPerformed
 
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
@@ -584,7 +559,6 @@ public final class CadastroAluno extends javax.swing.JFrame {
         p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
         p.setIdade(Integer.parseInt(idade.getText()));
         p.setCatDiv(Validar.categoria_masculina(Float.valueOf(peso.getText().replace(",", ".")), Integer.parseInt(idade.getText())));
-        
         p.setSexo(getSexo());
         
         dao.createPessoa(p);

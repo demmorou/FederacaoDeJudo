@@ -79,7 +79,7 @@ public class DAO {
         }
     }
     
-    public void createAluno(Aluno a){
+    public boolean createAluno(Aluno a){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
@@ -89,14 +89,13 @@ public class DAO {
             stmt.setInt(3, a.getIdacademiaFK().getIdacademia());
             
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar"+ ex);
+            return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);
         }
-        
+        return true;
     }
     
     public void ExcluirAluno(int id){
