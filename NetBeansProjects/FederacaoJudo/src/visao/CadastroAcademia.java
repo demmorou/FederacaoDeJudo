@@ -270,14 +270,6 @@ public class CadastroAcademia extends javax.swing.JFrame {
         else
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         
-        estado.setText("");
-        cep.setText("");
-        cidade.setText("");
-        bairro.setText("");
-        rua.setText("");
-        numero.setText("");
-        nome_academia.setText("");
-        
         if(getIndex().equals("professor")){
             dispose();
         }else if(getIndex().equals("aluno")){

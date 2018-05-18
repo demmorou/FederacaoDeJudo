@@ -46,6 +46,16 @@ public class Validar {
         return(false);
     }
   }
+    
+    public static boolean isCep(String cep){
+        String padrao = "\\d{5}-\\d{3}";
+
+        if (cep.matches(padrao)){
+            return true;
+        }else {
+            return false;
+        }
+    }
     public static String categoria_masculina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){

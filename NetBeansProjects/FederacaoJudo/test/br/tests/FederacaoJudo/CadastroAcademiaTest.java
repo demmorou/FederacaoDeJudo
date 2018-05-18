@@ -57,4 +57,109 @@ public class CadastroAcademiaTest {
             assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
             
         }
+        
+        @Test
+        public void testNomeAcademiaInvalido(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do 1Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testRuaAcademiaInvalida(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. 1Senador Helvídio 1Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testNumeroAcademiaInvalido(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(-1);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCidadeAcademiaInvalida(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos1");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCepAcademiaInvalido(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-75a");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testBairroAcademiaInvalido(){
+            
+            ac.setBairro("Junc0");
+            ac.setEstado("Piauí");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testEstadoAcademiaInvalido(){
+            
+            ac.setBairro("Junco");
+            ac.setEstado("Piau1");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
 }
