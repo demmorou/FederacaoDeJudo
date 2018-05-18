@@ -456,13 +456,9 @@ public final class CadastroAluno extends javax.swing.JFrame {
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         
         CadastrarAluno ca = new CadastrarAluno();
-
-        if (ca.DadosCadastroAluno(nome_completo.getText(), nome_mae.getText(),
-            telefone_aluno.getText(), data_ourtoga.getText(),
-            idade.getText(), competicoes.getText(),
-            nome_pai.getText(), path_imagem.getText(),
-            cpf.getText(), nome_ac.getText(),
-            peso.getText(), graduacao.getText(), getSexo())) {
+        Pessoa p = new Pessoa();
+        
+        if (ca.DadosCadastroAluno(p)) {
                 
                 JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
         }else{

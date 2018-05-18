@@ -13,76 +13,61 @@ public class CadastrarAluno {
     Aluno a = new Aluno();
     Academia ac = new Academia();
     
-    public boolean DadosCadastroAluno(String nome, String nome_mae, String telefone,
-                                        String data_ourtoga, String idade,
-                                        String competicoes, String nome_pai,
-                                        String path, String cpf, String nome_academia,
-                                        String peso, String graduacao, String sexo
-                                        ){
+    public boolean DadosCadastroAluno(Pessoa p){
         
-        if(nome.equals("") || nome.length() < 12 || !new VerificarString().verificaString(nome)){
+        if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 12 || !new VerificarString().verificaString(p.getNomeCompleto())){
             return false;
         }
         
-        if(nome_mae.equals("") || nome_mae.length() < 12 || !new VerificarString().verificaString(nome_mae)){
+        if(p.getNomeMae().equals("") || p.getNomeMae().length() < 12 || !new VerificarString().verificaString(p.getNomeMae())){
             return false;
         }
         
-        if(cpf.equals("") || !Validar.isCPF(cpf) || cpf.length() != 11){
+        if(p.getCpf().equals("") || !Validar.isCPF(p.getCpf()) || p.getCpf().length() != 11){
             return false;
         }
         
-        if(!peso.equals("")  && !peso.contains("^[a-Z]")){
-                    if(Float.valueOf(peso.replace(",", ".")) < 10.0){
-                        return false;
-                    }
-        }
-        
-        if(peso.equals("")  || peso.contains("^[a-Z]")){
+        if(p.getPeso() < 10.0 || p.getPeso() > 500.0){
             return false;
         }
         
-        if(data_ourtoga.equals("")){
+        if(p.getDataOutorga().equals("")){
             return false;
         }
         
-        if(idade.equals("")){
+        if(p.getIdade() < 10 || p.getIdade() > 100){
             return false;
         }
         
-        if(competicoes.equals("")){
+        if(p.getCurriculun().equals("")){
             return false;
         }
         
-        if(path.equals("")){
+        if(p.getFoto3x4().equals("")){
             return false;
         }
         
-        if(nome_academia.equals("")){
-            return false;   
-        }
-        
-        if(graduacao.equals("")){
+        if(p.getGraduacaoAtual().equals("")){
             return false;
         }
         
-        if(sexo.equals("")){
+        if(p.getSexo().equals("")){
             return false;
         }
         
-        if(!nome_pai.equals("")){
-               if(new VerificarString().verificaString(nome_pai) && nome_pai.length() > 12){
+        if(!p.getNomePai().equals("")){
+               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() > 12){
                    
                }else{
                    return false;
                }
         }
         
-        if(nome_pai.equals("")){
+        if(p.getNomePai().equals("")){
             return false;
         }
         
-        if(telefone.equals("")){
+        if(p.getTelefone().equals("")){
             return false;
         }
         
