@@ -32,11 +32,12 @@ public class CadastroAlunoTests {
         
         @Test
         public void cadastroAlunoInvalido(){
-            assertFalse("Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "Laurinda Diniz", 
+            assertFalse("Nao Deveria passar", a.DadosCadastroAluno("Deusimar Damião", "Laurinda Diniz", 
                     "9402-2722", "10/12/2017", 
                     "21", "nenhuma", "Damiao José de Sousa", 
                     "path_imagem", "609851173033", 
                     "Academia Sol", "75.5", 
                     "nenhuma", "M"));
         }
+        
 }

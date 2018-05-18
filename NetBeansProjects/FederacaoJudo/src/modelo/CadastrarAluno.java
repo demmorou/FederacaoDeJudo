@@ -20,11 +20,11 @@ public class CadastrarAluno {
                                         String peso, String graduacao, String sexo
                                         ){
         
-        if(nome.equals("") || nome.length() < 12 || new VerificarString().verificaString(nome_pai)){
+        if(nome.equals("") || nome.length() < 12 || !new VerificarString().verificaString(nome)){
             return false;
         }
         
-        if(nome_mae.equals("") || nome_mae.length() < 12 || new VerificarString().verificaString(nome_pai)){
+        if(nome_mae.equals("") || nome_mae.length() < 12 || !new VerificarString().verificaString(nome_mae)){
             return false;
         }
         
@@ -86,38 +86,38 @@ public class CadastrarAluno {
             return false;
         }
         
-        p.setNomeCompleto(nome);
-        p.setNomeMae(nome_mae);
-        p.setCatDiv("nao definido");
-        p.setCpf(cpf);
-        p.setCurriculun(competicoes);
-        p.setDataOutorga(data_ourtoga);
-        p.setFoto3x4(path);
-        p.setGraduacaoAtual(graduacao);
-        p.setIdade(Integer.parseInt(idade));
-        p.setNomePai(nome_pai);
-        p.setPeso(Float.parseFloat(peso));
-        p.setSexo(sexo);
-        p.setStatusPag(0);
-        p.setTelefone(telefone);
+//        p.setNomeCompleto(nome);
+//        p.setNomeMae(nome_mae);
+//        p.setCatDiv("nao definido");
+//        p.setCpf(cpf);
+//        p.setCurriculun(competicoes);
+//        p.setDataOutorga(data_ourtoga);
+//        p.setFoto3x4(path);
+//        p.setGraduacaoAtual(graduacao);
+//        p.setIdade(Integer.parseInt(idade));
+//        p.setNomePai(nome_pai);
+//        p.setPeso(Float.parseFloat(peso));
+//        p.setSexo(sexo);
+//        p.setStatusPag(0);
+//        p.setTelefone(telefone);
         
-        if(!new DAO().createPessoa(p)){
-            return false;
-        }else{
+//        if(!new DAO().createPessoa(p)){
+//            return false;
+//        }else{
+//            
+//            int ID_P = new GetId().getIDPEssoa(cpf);
+//            int ID_A = new GetId().getIDAcademia(nome_academia);
+//            
+//            p.setIdpessoa(ID_P);
+//            a.setIdpessoaFK(p);
+//            
+//            ac.setIdacademia(ID_A);
+//            a.setIdacademiaFK(ac);
+//            
+            //return new DAO().createAluno(a);
             
-            int ID_P = new GetId().getIDPEssoa(cpf);
-            int ID_A = new GetId().getIDAcademia(nome_academia);
-            
-            p.setIdpessoa(ID_P);
-            a.setIdpessoaFK(p);
-            
-            ac.setIdacademia(ID_A);
-            a.setIdacademiaFK(ac);
-            
-            return new DAO().createAluno(a);
-            
-        }
-        
+        //}
+        return true;
     }
         
 }
