@@ -26,14 +26,31 @@ public class CadastroAlunoTests {
         @Test
         public void cadastroAlunoValido(){
             
-            assertTrue("Deveria passar", a.DadosCadastroAluno(p));
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)994022722");
+            p.setCpf("60985117303");
+            
+            assertTrue("Deveria passar", a.DadosCadastroAluno(p, "Academia Sol"));
             
         }
         
         @Test
         public void cadastroAlunoInvalido(){
             
-            assertFalse("Nao Deveria passar", a.DadosCadastroAluno(p));
+            p.setNomeCompleto("");
+            
+            assertFalse("Nao Deveria passar", a.DadosCadastroAluno(p, "Academia Sol"));
             
         }
         

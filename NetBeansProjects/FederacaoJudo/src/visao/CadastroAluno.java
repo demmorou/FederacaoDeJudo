@@ -35,6 +35,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
     public void setTela(String tela) {
         this.tela = tela;
     }
+    private String nome_academia = null;
     private int id = 0;
     private String sexo = null;
     private String tela = null;
@@ -458,12 +459,35 @@ public final class CadastroAluno extends javax.swing.JFrame {
         CadastrarAluno ca = new CadastrarAluno();
         Pessoa p = new Pessoa();
         
-        if (ca.DadosCadastroAluno(p)) {
-                
-                JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
-        }else{
-                JOptionPane.showMessageDialog(null, "Erro ao Salvar os Dados\nVerifique se você preencheu os dados corretamente!");
-        }
+        p.setNomeCompleto(nome_completo.getText());
+        p.setNomeMae(nome_mae.getText());
+        p.setNomePai(nome_pai.getText());
+        p.setCatDiv("nao defined");
+        p.setCpf(cpf.getText());
+        p.setCurriculun(competicoes.getText());
+        p.setDataOutorga(data_ourtoga.getText());
+        p.setFoto3x4(path_imagem.getText());
+        p.setGraduacaoAtual(graduacao.getText());
+        
+        if(!idade.getText().equals("  "))
+            p.setIdade(Integer.parseInt(idade.getText()));
+        else
+            p.setIdade(0);
+        
+        if(!peso.getText().equals(""))
+            p.setPeso(Float.parseFloat(peso.getText()));
+        else
+            p.setPeso((float)0.0);
+        
+        p.setSexo(getSexo());
+        p.setStatusPag(0);
+        p.setTelefone(telefone_aluno.getText());
+        
+        if (ca.DadosCadastroAluno(p, nome_ac.getText())) 
+            JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+        else
+            JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
+        
             
         
     }//GEN-LAST:event_salvarActionPerformed
@@ -498,9 +522,8 @@ public final class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        if (table.getSelectedRow() != -1) {
+        if (table.getSelectedRow() != -1){
             nome_ac.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
-            setId(getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString()));
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
     }//GEN-LAST:event_tableMouseClicked
@@ -528,79 +551,6 @@ public final class CadastroAluno extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_voltarActionPerformed
-
-
-    public void salvarCadastro() {
-
-        Pessoa p = new Pessoa();
-
-        DAO dao = new DAO();
-        Validar v = new Validar();
-        
-        p.setNomeCompleto(nome_completo.getText());
-        p.setNomeMae(nome_mae.getText());
-        if(nome_pai.getText().equals("")){
-            p.setNomePai("---");
-        }else{
-            p.setNomePai(nome_pai.getText());
-        }
-        
-        p.setCatDiv("-------");
-        p.setCpf(cpf.getText());
-        p.setCurriculun(competicoes.getText());
-        p.setGraduacaoAtual(graduacao.getText());
-        p.setTelefone(telefone_aluno.getText());
-        p.setDataOutorga(data_ourtoga.getText());
-        p.setFoto3x4(path_imagem.getText());
-        p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
-        p.setIdade(Integer.parseInt(idade.getText()));
-        p.setCatDiv(Validar.categoria_masculina(Float.valueOf(peso.getText().replace(",", ".")), Integer.parseInt(idade.getText())));
-        p.setSexo(getSexo());
-        
-        dao.createPessoa(p);
-    }
-
-    public int getIDPEssoa() {
-
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        ArrayList<Integer> cod = new ArrayList();
-        try {
-            stmt = con.prepareStatement("SELECT * FROM pessoa");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                cod.add(rs.getInt("Id_pessoa"));
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: " + ex);
-        }
-
-        return cod.get(cod.size() - 1);
-    }
-
-    public int getIDAcademia(String name_academia) {
-
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int ida = -1;
-        try {
-            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia WHERE nome_academia = '"+name_academia+"'");
-            rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                if(rs.getString("nome_academia").equals(name_academia)){
-                    ida = rs.getInt("Id_academia");
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
-        }
-
-        return ida;
-    }
 
     public void PreencherTabela() {
         ResultSet rs = null;
@@ -752,5 +702,19 @@ public final class CadastroAluno extends javax.swing.JFrame {
      */
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    /**
+     * @return the nome_academia
+     */
+    public String getNome_academia() {
+        return nome_academia;
+    }
+
+    /**
+     * @param nome_academia the nome_academia to set
+     */
+    public void setNome_academia(String nome_academia) {
+        this.nome_academia = nome_academia;
     }
 }

@@ -13,7 +13,7 @@ public class CadastrarAluno {
     Aluno a = new Aluno();
     Academia ac = new Academia();
     
-    public boolean DadosCadastroAluno(Pessoa p){
+    public boolean DadosCadastroAluno(Pessoa p, String nome_academia){
         
         if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 12 || !new VerificarString().verificaString(p.getNomeCompleto())){
             return false;
@@ -71,38 +71,40 @@ public class CadastrarAluno {
             return false;
         }
         
-//        p.setNomeCompleto(nome);
-//        p.setNomeMae(nome_mae);
-//        p.setCatDiv("nao definido");
-//        p.setCpf(cpf);
-//        p.setCurriculun(competicoes);
-//        p.setDataOutorga(data_ourtoga);
-//        p.setFoto3x4(path);
-//        p.setGraduacaoAtual(graduacao);
-//        p.setIdade(Integer.parseInt(idade));
-//        p.setNomePai(nome_pai);
-//        p.setPeso(Float.parseFloat(peso));
-//        p.setSexo(sexo);
-//        p.setStatusPag(0);
-//        p.setTelefone(telefone);
+        if(nome_academia.equals("")){
+            return false;
+        }
         
-//        if(!new DAO().createPessoa(p)){
-//            return false;
-//        }else{
-//            
-//            int ID_P = new GetId().getIDPEssoa(cpf);
-//            int ID_A = new GetId().getIDAcademia(nome_academia);
-//            
-//            p.setIdpessoa(ID_P);
-//            a.setIdpessoaFK(p);
-//            
-//            ac.setIdacademia(ID_A);
-//            a.setIdacademiaFK(ac);
-//            
-            //return new DAO().createAluno(a);
+        p.setNomeCompleto(p.getNomeCompleto());
+        p.setNomeMae(p.getNomeMae());
+        p.setCatDiv("nao definido");
+        p.setCpf(p.getCpf());
+        p.setCurriculun(p.getCurriculun());
+        p.setDataOutorga(p.getDataOutorga());
+        p.setFoto3x4(p.getFoto3x4());
+        p.setGraduacaoAtual(p.getGraduacaoAtual());
+        p.setIdade(p.getIdade());
+        p.setNomePai(p.getNomePai());
+        p.setPeso(p.getPeso());
+        p.setSexo(p.getSexo());
+        p.setStatusPag(0);
+        p.setTelefone(p.getTelefone());
+        
+        if(!new DAO().createPessoa(p)){
+            return false;
+        }else{
             
-        //}
-        return true;
+            int ID_P = new GetId().getIDPEssoa(p.getCpf());
+            int ID_A = new GetId().getIDAcademia(nome_academia);
+            
+            p.setIdpessoa(ID_P);
+            a.setIdpessoaFK(p);
+            
+            ac.setIdacademia(ID_A);
+            a.setIdacademiaFK(ac);
+            
+            return new DAO().createAluno(a);
+            
+        }
     }
-        
 }
