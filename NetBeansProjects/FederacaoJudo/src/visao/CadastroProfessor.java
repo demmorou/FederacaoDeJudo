@@ -19,7 +19,7 @@ import modelo.CadastrarProfessor;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
 import modelo.Professor;
-import modelo.Validar;
+
 public final class CadastroProfessor extends javax.swing.JFrame {
     private boolean index = false;
     private int id_academia = 0;
@@ -475,7 +475,12 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         p.setTelefone(telefone_professor.getText());
         
         pr.setLocaisDeTrabalho(locais_trabalho.getText());
-        pr.setCref(Integer.parseInt(cref.getText()));
+        
+        if(!cref.getText().equals(""))
+            pr.setCref(Integer.parseInt(cref.getText()));
+        else
+            pr.setCref(0);
+        
         //pr.setVinculoComAcademia(vinculo);
         
         if (cp.DadosCadastroProfessor(p, pr, nome_ac.getText())) 
@@ -499,7 +504,6 @@ public final class CadastroProfessor extends javax.swing.JFrame {
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
-            setId_academia(getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString()));
             nome_ac.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "A Academia Selecionada Foi: " + table.getValueAt(table.getSelectedRow(), 0).toString());
         }
@@ -588,76 +592,7 @@ public final class CadastroProfessor extends javax.swing.JFrame {
         }
 
     }
-    
-    public int getIDAcademia(String nome_academiaa) {
-
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int ida = -1;
-        System.out.println(nome_academiaa);
-        try {
-            stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia WHERE nome_academia = '"+nome_academiaa+"'");
-            rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                if(rs.getString("nome_academia").equals(nome_academiaa)){
-                    ida = rs.getInt("Id_academia");
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: "+ ex);
-        }
-        System.out.println(ida);
-        return ida;
-    }
-    public int getIDPEssoa() {
-
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        ArrayList<Integer> cod = new ArrayList();
-        try {
-            stmt = con.prepareStatement("SELECT * FROM pessoa");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                cod.add(rs.getInt("Id_pessoa"));
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar ID: " + ex);
-        }
-
-        return cod.get(cod.size() - 1);
-    }
-    
-    public void salvarCadastro() {
-
-        Pessoa p = new Pessoa();
-
-        DAO dao = new DAO();
-
-        p.setNomeCompleto(nome_completo.getText());
-        p.setNomeMae(nome_mae.getText());
         
-        if(nome_pai.getText().equals("")){
-            p.setNomePai("---");
-        }else{
-            p.setNomePai(nome_pai.getText());
-        }
-        p.setCatDiv("-----");
-        p.setPeso(Float.valueOf(peso.getText().replace(",", ".")));
-        p.setIdade(Integer.parseInt(idade.getText()));
-        p.setSexo(getSexo());
-        p.setCpf(cpf.getText());
-        p.setCurriculun(competicoes.getText());
-        p.setGraduacaoAtual(graduacao.getText());
-        p.setTelefone(telefone_professor.getText());
-        p.setDataOutorga(data_ourtoga.getText());
-        p.setFoto3x4(path_imagem.getText());
-
-        dao.createPessoa(p);
-    }
     public static void main(String args[]) {
 
         try {

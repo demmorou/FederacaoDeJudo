@@ -1,4 +1,6 @@
 package modelo;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
 public class Validar {
     public static boolean isCPF(String CPF) {
@@ -56,6 +58,7 @@ public class Validar {
             return false;
         }
     }
+    
     public static String categoria_masculina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){

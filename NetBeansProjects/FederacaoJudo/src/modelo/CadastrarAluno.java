@@ -31,11 +31,15 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getDataOutorga().equals("")){
+        if(p.getDataOutorga().equals("") || p.getDataOutorga().length() != 10){
             return false;
         }
         
         if(p.getIdade() < 10 || p.getIdade() > 100){
+            return false;
+        }
+        
+        if(p.getCatDiv().equals("")){
             return false;
         }
         
@@ -67,7 +71,7 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getTelefone().equals("")){
+        if(p.getTelefone().equals("") || p.getTelefone().length() != 14){
             return false;
         }
         
@@ -75,21 +79,24 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(!new DAO().createPessoa(p)){
+        if(p.getStatusPag() < 0 || p.getStatusPag() > 1)
             return false;
-        }else{
-            
-            int ID_P = new GetId().getIDPEssoa(p.getCpf());
-            int ID_A = new GetId().getIDAcademia(nome_academia);
-            
-            p.setIdpessoa(ID_P);
-            a.setIdpessoaFK(p);
-            
-            ac.setIdacademia(ID_A);
-            a.setIdacademiaFK(ac);
-            
-            return new DAO().createAluno(a);
-            
-        }
+        
+//        if(!new DAO().createPessoa(p)){
+//            return false;
+//        }else{
+//            
+//            int ID_P = new GetId().getIDPEssoa(p.getCpf());
+//            int ID_A = new GetId().getIDAcademia(nome_academia);
+//            
+//            p.setIdpessoa(ID_P);
+//            a.setIdpessoaFK(p);
+//            
+//            ac.setIdacademia(ID_A);
+//            a.setIdacademiaFK(ac);
+//            
+//            return new DAO().createAluno(a);
+            return true;
+//        }
     }
 }

@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-  CadastroAlunoTests.class
+  CadastroAlunoTests.class,
+  CadastroAcademiaTest.class
 })
 public class SuiteTest {
 

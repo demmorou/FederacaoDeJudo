@@ -47,12 +47,12 @@ public class CadastroAcademiaTest {
         public void testCadastroAcademiaInvalido(){
             
             ac.setBairro("");
-            ac.setEstado("Piauí");
-            ac.setCep("64607-755");
-            ac.setCidade("Picos");
-            ac.setNomeAcademia("Academia Do Vale");
+            ac.setEstado("");
+            ac.setCep("");
+            ac.setCidade("");
+            ac.setNomeAcademia("");
             ac.setNumero(4045);
-            ac.setRua("Av. Senador Helvídio Nunes");
+            ac.setRua("");
             
             assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
             
