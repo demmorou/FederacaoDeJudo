@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  * @author deusimar
  */
-public class CadastroAcademiaTest {
+public class CadastrarAcademiaTest {
     
         CadastrarAcademia a; 
         Academia ac;

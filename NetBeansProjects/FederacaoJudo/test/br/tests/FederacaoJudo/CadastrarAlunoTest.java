@@ -8,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CadastroAlunoTests {
+public class CadastrarAlunoTest {
     CadastrarAluno a;
     Pessoa p;
    
@@ -21,6 +21,7 @@ public class CadastroAlunoTests {
 	@After
 	public void teardown() {
 		a = null;
+                p = null;
 	}
         
         @Test

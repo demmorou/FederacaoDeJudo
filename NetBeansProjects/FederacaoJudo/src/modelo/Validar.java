@@ -59,6 +59,15 @@ public class Validar {
         }
     }
     
+    public static int isQuant(int num) {
+        int cont = 0;
+        while (num != 0) {
+            num = num / 10;
+            cont++;
+        }
+        return cont;
+    }
+    
     public static String categoria_masculina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){
