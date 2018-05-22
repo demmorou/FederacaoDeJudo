@@ -484,8 +484,6 @@ public final class CadastroAluno extends javax.swing.JFrame {
         else
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         
-            
-        
     }//GEN-LAST:event_salvarActionPerformed
 
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
