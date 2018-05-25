@@ -20,9 +20,9 @@ public class ConnectionFactory {
     ResultSet rs = null;
     private static Statement stmt = null;
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://192.168.2.107:3306/db_judo";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_judo";
     private static final String USER = "root";
-    private static final String SENHA = "12345";
+    private static final String SENHA = "020497";
     
     public static Connection getConnection(){
         

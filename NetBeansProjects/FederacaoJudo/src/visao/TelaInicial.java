@@ -6,6 +6,7 @@
 package visao;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -217,7 +218,9 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(null, "Deseja Realmente Sair?") == 0){
+            System.exit(0);
+        }
     }//GEN-LAST:event_sairActionPerformed
 
     private void professorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_professorActionPerformed
