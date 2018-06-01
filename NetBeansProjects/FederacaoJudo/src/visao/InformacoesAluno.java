@@ -6,6 +6,7 @@
 package visao;
 
 import controle.DAO;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import modelo.VerificacoesInsercao;
 
@@ -81,7 +82,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         cat = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
         confirmar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -168,11 +169,11 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         status.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/error.png"))); // NOI18N
-        jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/error.png"))); // NOI18N
+        delete.setText("Excluir");
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
 
@@ -256,7 +257,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(salvar)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton1)
+                            .addComponent(delete)
                             .addGap(18, 18, 18)
                             .addComponent(alterar))))
                 .addContainerGap(65, Short.MAX_VALUE))
@@ -337,7 +338,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
                             .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1)
+                        .addComponent(delete)
                         .addComponent(sair)
                         .addComponent(salvar)
                         .addComponent(alterar)))
@@ -389,7 +390,17 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        new DAO().AlterarStatus(getId());
+        setId(3);
+        if (new DAO().AlterarStatus(getId())){
+            JOptionPane.showMessageDialog(null, "Feito Com Sucesso!");
+            
+            status.setText("CONFIRMADO");
+            Color cor = Color.decode("#72222e");
+            status.setForeground(cor);
+            confirmar.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro na Operação");
+        }
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
@@ -403,14 +414,16 @@ public class InformacoesAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salvarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         if (JOptionPane.showConfirmDialog(null,"Deseja Realmente Excluir Este Cadastro?")==JOptionPane.OK_OPTION){
-            DAO dao = new DAO();
-            dao.ExcluirAluno(getId());
+            if(new DAO().ExcluirAluno(getId()))
+                JOptionPane.showMessageDialog(null, "Operação Realizada Com Sucesso!");
+            else
+                JOptionPane.showMessageDialog(null, "Erro na Operação!");
         }else{
             JOptionPane.showMessageDialog(null, "Operação Cancelada!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -468,8 +481,8 @@ public class InformacoesAluno extends javax.swing.JFrame {
     public javax.swing.JTextField campoTelefone;
     public javax.swing.JLabel cat;
     public javax.swing.JButton confirmar;
+    private javax.swing.JButton delete;
     public javax.swing.JTextField idade;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

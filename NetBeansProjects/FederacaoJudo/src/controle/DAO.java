@@ -88,7 +88,7 @@ public class DAO {
         return true;
     }
     
-    public void ExcluirAluno(int id){
+    public boolean ExcluirAluno(int id){
     
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null, st = null;
@@ -100,11 +100,10 @@ public class DAO {
             st = con.prepareStatement("delete from pessoa where Id_pessoa = "+id+"");
             st.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Operação Realizada Com Sucesso!");
-            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro Na Exclusão! Tente Novamente!\nERROR "+ex);
+            return false;
         }
+        return true;
     }
     
     public boolean createProfessor(Professor p){
@@ -186,7 +185,7 @@ public class DAO {
         return rs;
     }
     
-    public void AlterarStatus(int id){
+    public boolean AlterarStatus(int id){
     
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -197,9 +196,9 @@ public class DAO {
             
             JOptionPane.showMessageDialog(null, "Feito Com Sucesso!");
         } catch (SQLException ex) {
-            Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        
+        return true;
     }
     
     public void AlterarDadosAluno(int id){
