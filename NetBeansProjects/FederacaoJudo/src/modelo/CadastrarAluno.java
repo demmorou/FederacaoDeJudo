@@ -82,21 +82,21 @@ public class CadastrarAluno {
         if(p.getStatusPag() < 0 || p.getStatusPag() > 1)
             return false;
         
-//        if(!new DAO().createPessoa(p)){
-//            return false;
-//        }else{
-//            
-//            int ID_P = new GetId().getIDPEssoa(p.getCpf());
-//            int ID_A = new GetId().getIDAcademia(nome_academia);
-//            
-//            p.setIdpessoa(ID_P);
-//            a.setIdpessoaFK(p);
-//            
-//            ac.setIdacademia(ID_A);
-//            a.setIdacademiaFK(ac);
-//            
-//            return new DAO().createAluno(a);
-            return true;
-//        }
+        if(!new DAO().createPessoa(p)){
+            return false;
+        }else{
+            
+            int ID_P = new GetId().getIDPEssoa(p.getCpf());
+            int ID_A = new GetId().getIDAcademia(nome_academia);
+            
+            p.setIdpessoa(ID_P);
+            a.setIdpessoaFK(p);
+            
+            ac.setIdacademia(ID_A);
+            a.setIdacademiaFK(ac);
+            
+            return new DAO().createAluno(a);
+            
+        }
     }
 }

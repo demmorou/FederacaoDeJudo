@@ -194,7 +194,6 @@ public class DAO {
             stmt = con.prepareStatement("update pessoa set status_pag = "+1+" where Id_pessoa = "+id+"");
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Feito Com Sucesso!");
         } catch (SQLException ex) {
             return false;
         }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package visao;
 
 import controle.DAO;
@@ -390,7 +385,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        setId(3);
+
         if (new DAO().AlterarStatus(getId())){
             JOptionPane.showMessageDialog(null, "Feito Com Sucesso!");
             
