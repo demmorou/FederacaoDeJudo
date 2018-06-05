@@ -192,6 +192,7 @@ public class DAO {
         
         try {
             stmt = con.prepareStatement("update pessoa set status_pag = "+1+" where Id_pessoa = "+id+"");
+            
             stmt.executeUpdate();
             
         } catch (SQLException ex) {

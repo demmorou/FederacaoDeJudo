@@ -1,8 +1,11 @@
 package visao;
 
 import controle.DAO;
+import controle.Update;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import modelo.CadastrarAluno;
+import modelo.Pessoa;
 import modelo.VerificacoesInsercao;
 
 /**
@@ -18,6 +21,8 @@ public class InformacoesAluno extends javax.swing.JFrame {
      */
     public InformacoesAluno(){
         initComponents();
+        salvar.setEnabled(false);
+        
         campoCPF.setEditable(false);
         campoCompeticoes.setEditable(false);
         campoGraduacao.setEditable(false);
@@ -355,7 +360,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
-        
+        salvar.setEnabled(true);
         campoCPF.setEditable(false);
         campoCompeticoes.setEditable(true);
         campoGraduacao.setEditable(true);
@@ -400,13 +405,34 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
 
-        VerificacoesInsercao vi = new VerificacoesInsercao();
-
-        if (vi.AltercaoAluno(campoCPF.getText(), campoCompeticoes.getText(), campoGraduacao.getText(), campoMae.getText(), campoNome.getText(), campoOurtoga.getText(), campoTelefone.getText(), idade.getText(), peso.getText())) {
-            System.out.println("oi");
-        } else {
-
-        }
+        CadastrarAluno ca = new CadastrarAluno();
+        Pessoa p = new Pessoa();
+        
+        p.setNomeCompleto(campoNome.getText());
+        p.setNomeMae(campoMae.getText());
+        p.setNomePai(campoPai.getText());
+        p.setCurriculun(campoCompeticoes.getText());
+        p.setDataOutorga(campoOurtoga.getText());
+        p.setIdpessoa(getId());
+        p.setGraduacaoAtual(campoGraduacao.getText());
+        p.setCatDiv("nao defined");
+        
+        if(!idade.getText().equals("  "))
+            p.setIdade(Integer.parseInt(idade.getText()));
+        else
+            p.setIdade(0);
+        
+        if(!peso.getText().equals(""))
+            p.setPeso(Float.parseFloat(peso.getText()));
+        else
+            p.setPeso((float)0.0);
+        
+        p.setTelefone(campoTelefone.getText());
+        
+        if (new Update().updateAluno(p)) 
+            JOptionPane.showMessageDialog(null, "Dados Alterados Com Sucesso!");
+        else
+            JOptionPane.showMessageDialog(null, "Por favor, Verifique se Você Preencheu os dados corretamente!","Aviso",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_salvarActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed

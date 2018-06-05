@@ -60,7 +60,7 @@ public class CadastrarAluno {
         }
         
         if(!p.getNomePai().equals("")){
-               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() > 12){
+               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() >= 3){
                    
                }else{
                    return false;
