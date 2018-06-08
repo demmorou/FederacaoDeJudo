@@ -1,5 +1,6 @@
 package modelo;
 
+import Gerar_Boleto.GerarBoleto;
 import controle.DAO;
 import controle.GetId;
 
@@ -94,7 +95,7 @@ public class CadastrarAluno {
             
             ac.setIdacademia(ID_A);
             a.setIdacademiaFK(ac);
-            
+           
             return new DAO().createAluno(a);
             
         }

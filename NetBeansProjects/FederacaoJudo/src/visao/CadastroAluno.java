@@ -1,5 +1,6 @@
 package visao;
 
+import Gerar_Boleto.GerarBoleto;
 import controle.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.CadastrarAluno;
 import modelo.ModeloTabela;
 import modelo.Pessoa;
+import modelo.VerificarString;
 
 public final class CadastroAluno extends javax.swing.JFrame {
 
@@ -479,8 +481,13 @@ public final class CadastroAluno extends javax.swing.JFrame {
         p.setStatusPag(0);
         p.setTelefone(telefone_aluno.getText());
         
-        if (ca.DadosCadastroAluno(p, nome_ac.getText())) 
+        if (ca.DadosCadastroAluno(p, nome_ac.getText())){ 
             JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");
+            
+            GerarBoleto gerarBoleto = new GerarBoleto();
+            gerarBoleto.Boleto(p.getNomeCompleto(), new VerificarString().pontosCpf(p.getCpf()), (float) 25.00);
+            
+        }
         else
             JOptionPane.showMessageDialog(null, "Por favor, Preencha os campos obrigatórios!","Aviso",JOptionPane.WARNING_MESSAGE);
         

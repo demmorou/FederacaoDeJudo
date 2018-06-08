@@ -304,14 +304,16 @@ public class MenuBuscar extends javax.swing.JFrame {
                     
                     if(cat == 0){
                         ia.status.setText("PENDENTE");
-                        Color cor = Color.decode ( "#72222e");
+                        Color cor = Color.decode ("#72222e");
                         ia.status.setForeground(cor);
                         ia.confirmar.setVisible(true);
+                        ia.gerar.setVisible(true);
                     }else{
                         ia.status.setText("CONFIRMADO");
                         Color cor = Color.decode ( "#1a572d");
                         ia.status.setForeground(cor);
                         ia.confirmar.setVisible(false);
+                        ia.gerar.setVisible(false);
                     }
                     
                     cont++;

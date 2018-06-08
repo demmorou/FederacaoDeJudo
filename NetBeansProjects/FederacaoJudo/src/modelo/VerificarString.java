@@ -19,4 +19,14 @@ public class VerificarString {
             }
         return d;
     }
+    
+    public String pontosCpf(String cpf){
+    
+        StringBuilder stringBuilder = new StringBuilder(cpf);
+        stringBuilder.insert(3, '.');
+        stringBuilder.insert(7, '.');
+        stringBuilder.insert(11, '-');
+        
+        return cpf;
+    }
 }

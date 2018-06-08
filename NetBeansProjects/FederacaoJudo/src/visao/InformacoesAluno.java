@@ -1,5 +1,6 @@
 package visao;
 
+import Gerar_Boleto.GerarBoleto;
 import controle.DAO;
 import controle.Update;
 import java.awt.Color;
@@ -7,6 +8,7 @@ import javax.swing.JOptionPane;
 import modelo.CadastrarAluno;
 import modelo.Pessoa;
 import modelo.UpdateAluno;
+import modelo.VerificarString;
 
 /**
  *
@@ -87,6 +89,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         academia = new javax.swing.JLabel();
+        gerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -191,6 +194,14 @@ public class InformacoesAluno extends javax.swing.JFrame {
         academia.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 15)); // NOI18N
         academia.setForeground(new java.awt.Color(29, 95, 133));
 
+        gerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/boleto.png"))); // NOI18N
+        gerar.setText("2ª Via do Boleto");
+        gerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -202,12 +213,11 @@ public class InformacoesAluno extends javax.swing.JFrame {
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel9)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(confirmar, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -253,6 +263,10 @@ public class InformacoesAluno extends javax.swing.JFrame {
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cat, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(confirmar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(gerar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sair)
                             .addGap(18, 18, 18)
                             .addComponent(salvar)
@@ -332,7 +346,9 @@ public class InformacoesAluno extends javax.swing.JFrame {
                             .addComponent(campoOurtoga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(academia, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(78, 78, 78)
-                        .addComponent(confirmar)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(confirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(gerar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,6 +462,11 @@ public class InformacoesAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteActionPerformed
 
+    private void gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarActionPerformed
+        GerarBoleto gerarBoleto = new GerarBoleto();
+        gerarBoleto.Boleto(campoNome.getText(), new VerificarString().pontosCpf(campoCPF.getText()), (float) 25.00);
+    }//GEN-LAST:event_gerarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -503,6 +524,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
     public javax.swing.JLabel cat;
     public javax.swing.JButton confirmar;
     private javax.swing.JButton delete;
+    public javax.swing.JButton gerar;
     public javax.swing.JTextField idade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

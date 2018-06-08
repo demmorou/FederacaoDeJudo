@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
+import modelo.Pessoa;
 
 import org.jrimum.bopepo.BancosSuportados;
 import org.jrimum.bopepo.Boleto;
@@ -25,38 +26,37 @@ import org.jrimum.domkee.financeiro.banco.febraban.Titulo.EnumAceite;
 
 public class GerarBoleto {
     
-   public static void main(String[] args) {
+   public void Boleto(String nome, String cpf, float valor) {
     
     Cedente cedente = new Cedente("PROJETO FEDERAÇÃO DE JUDÔ", "00.000.208/0001-00");
 
                 /*
                  * INFORMANDO DADOS SOBRE O SACADO.
                  */
-                Sacado sacado = new Sacado("JavaDeveloper Pronto Para Férias", "222.222.222-22");
+                Sacado sacado = new Sacado(nome, cpf);
 
                 // Informando o endereço do sacado.
                 Endereco enderecoSac = new Endereco();
-                enderecoSac.setUF(UnidadeFederativa.RN);
-                enderecoSac.setLocalidade("Natal");
-                enderecoSac.setCep(new CEP("59064-120"));
-                enderecoSac.setBairro("Grande Centro");
-                enderecoSac.setLogradouro("Rua poeta dos programas");
-                enderecoSac.setNumero("1");
+                enderecoSac.setLocalidade("");
+                enderecoSac.setCep(new CEP(""));
+                enderecoSac.setBairro("");
+                enderecoSac.setLogradouro("");
+                enderecoSac.setNumero("");
                 sacado.addEndereco(enderecoSac);
 
                 /*
                  * INFORMANDO DADOS SOBRE O SACADOR AVALISTA.
                  */
-                SacadorAvalista sacadorAvalista = new SacadorAvalista("JRimum Enterprise", "00.000.000/0001-91");
+                SacadorAvalista sacadorAvalista = new SacadorAvalista("PROJETO FEDERAÇÃO DE JUDÔ", "00.000.208/0001-00");
 
                 // Informando o endereço do sacador avalista.
                 Endereco enderecoSacAval = new Endereco();
-                enderecoSacAval.setUF(UnidadeFederativa.DF);
-                enderecoSacAval.setLocalidade("Brasília");
-                enderecoSacAval.setCep(new CEP("59000-000"));
-                enderecoSacAval.setBairro("Grande Centro");
-                enderecoSacAval.setLogradouro("Rua Eternamente Principal");
-                enderecoSacAval.setNumero("001");
+                enderecoSacAval.setUF(UnidadeFederativa.PI);
+                enderecoSacAval.setLocalidade("Picos");
+                enderecoSacAval.setCep(new CEP("64607-755"));
+                enderecoSacAval.setBairro("Junco");
+                enderecoSacAval.setLogradouro("Rua Cicero Duarte");
+                enderecoSacAval.setNumero("905");
                 sacadorAvalista.addEndereco(enderecoSacAval);
 
                 /*
@@ -73,34 +73,34 @@ public class GerarBoleto {
                 titulo.setNumeroDoDocumento("123456");
                 titulo.setNossoNumero("99345678912");
                 titulo.setDigitoDoNossoNumero("5");
-                titulo.setValor(BigDecimal.valueOf(0.23));
+                titulo.setValor(BigDecimal.valueOf(25.00));
                 titulo.setDataDoDocumento(new Date());
                 titulo.setDataDoVencimento(new Date());
                 titulo.setTipoDeDocumento(TipoDeTitulo.DM_DUPLICATA_MERCANTIL);
                 titulo.setAceite(EnumAceite.A);
-                titulo.setDesconto(new BigDecimal(0.05));
+                titulo.setDesconto(new BigDecimal(0.00));
                 titulo.setDeducao(BigDecimal.ZERO);
                 titulo.setMora(BigDecimal.ZERO);
                 titulo.setAcrecimo(BigDecimal.ZERO);
-                titulo.setValorCobrado(BigDecimal.valueOf(1000));
+                titulo.setValorCobrado(BigDecimal.valueOf(valor));
 
                 /*
                  * INFORMANDO OS DADOS SOBRE O BOLETO.
                  */
                 Boleto boleto = new Boleto(titulo);
                 
-                boleto.setLocalPagamento("Pagável preferencialmente na Rede X ou em " +
+                boleto.setLocalPagamento("Pagável preferencialmente na Rede Bradesco ou em " +
                                 "qualquer Banco até o Vencimento.");
                 boleto.setInstrucaoAoSacado("Senhor sacado, sabemos sim que o valor " +
                                 "cobrado não é o esperado, aproveite o DESCONTÃO!");
-                boleto.setInstrucao1("PARA PAGAMENTO 1 até Hoje não cobrar nada!");
-                boleto.setInstrucao2("PARA PAGAMENTO 2 até Amanhã Não cobre!");
-                boleto.setInstrucao3("PARA PAGAMENTO 3 até Depois de amanhã, OK, não cobre.");
-                boleto.setInstrucao4("PARA PAGAMENTO 4 até 04/xx/xxxx de 4 dias atrás COBRAR O VALOR DE: R$ 01,00");
-                boleto.setInstrucao5("PARA PAGAMENTO 5 até 05/xx/xxxx COBRAR O VALOR DE: R$ 02,00");
-                boleto.setInstrucao6("PARA PAGAMENTO 6 até 06/xx/xxxx COBRAR O VALOR DE: R$ 03,00");
-                boleto.setInstrucao7("PARA PAGAMENTO 7 até xx/xx/xxxx COBRAR O VALOR QUE VOCÊ QUISER!");
-                boleto.setInstrucao8("APÓS o Vencimento, Pagável Somente na Rede X.");
+                boleto.setInstrucao1("");
+                boleto.setInstrucao2("");
+                boleto.setInstrucao3("");
+                boleto.setInstrucao4("");
+                boleto.setInstrucao5("");
+                boleto.setInstrucao6("");
+                boleto.setInstrucao7("");
+                boleto.setInstrucao8("APÓS o Vencimento, Pagável Somente na Rede Bradesco.");
 
                 /*
                  * GERANDO O BOLETO BANCÁRIO.
@@ -113,7 +113,7 @@ public class GerarBoleto {
                 // pasta do projeto. Outros exemplos:
                 // WINDOWS: boletoViewer.getAsPDF("C:/Temp/MeuBoleto.pdf");
                 // LINUX: boletoViewer.getAsPDF("/home/temp/MeuBoleto.pdf");
-                File arquivoPdf = boletoViewer.getPdfAsFile("tiago.pdf");
+                File arquivoPdf = boletoViewer.getPdfAsFile("deusimar.pdf");
 
                 // Mostrando o boleto gerado na tela.
                 mostreBoletoNaTela(arquivoPdf);
@@ -134,5 +134,9 @@ public class GerarBoleto {
                         e.printStackTrace();
                 }
     
+    }
+
+    public void Boleto(String novo, float f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
