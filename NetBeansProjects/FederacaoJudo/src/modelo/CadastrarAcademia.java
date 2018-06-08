@@ -31,7 +31,7 @@ public class CadastrarAcademia {
         if(a.getCidade().equals("") || !new VerificarString().verificaString(a.getCidade()))
             return false;
         
-        //return new DAO().createAcademia(a);
-        return true;
+        return new DAO().createAcademia(a);
+        
     }
 }

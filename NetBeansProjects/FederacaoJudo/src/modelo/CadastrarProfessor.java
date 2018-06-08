@@ -83,22 +83,21 @@ public class CadastrarProfessor {
         if(!pr.getVinculoComAcademia().equals("professor") && !pr.getVinculoComAcademia().equals("professor responsavel"))
             return false;
         
-//          if(!new DAO().createPessoa(p)){
-//              return false;
-//          }else{
-//              
-//              int ID_P = new GetId().getIDPEssoa(p.getCpf());
-//              int ID_A = new GetId().getIDAcademia(nome_academia);
-//              
-//              p.setIdpessoa(ID_P);
-//              pr.setIdpessoaFK(p);
-//            
-//              ac.setIdacademia(ID_A);
-//              pr.setIdacademiaFK(ac);
-//             
-//              return new DAO().createProfessor(pr);
-//            
-//          }
-            return true;
+          if(!new DAO().createPessoa(p)){
+              return false;
+          }else{
+              
+              int ID_P = new GetId().getIDPEssoa(p.getCpf());
+              int ID_A = new GetId().getIDAcademia(nome_academia);
+              
+              p.setIdpessoa(ID_P);
+              pr.setIdpessoaFK(p);
+            
+              ac.setIdacademia(ID_A);
+              pr.setIdacademiaFK(ac);
+             
+              return new DAO().createProfessor(pr);
+            
+          }
     }
 }
