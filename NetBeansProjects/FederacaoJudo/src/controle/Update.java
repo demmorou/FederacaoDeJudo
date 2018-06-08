@@ -35,7 +35,7 @@ public class Update {
             
             stmt.executeUpdate();
                     
-        } catch (SQLException ex) {
+        } catch (SQLException ex){
             System.out.println(ex);
             return false;
         }

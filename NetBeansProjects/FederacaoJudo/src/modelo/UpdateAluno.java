@@ -43,6 +43,8 @@ public class UpdateAluno {
             return false;
         }
         
+        if(p.getIdpessoa() < 1)
+            return false;
         
 //        if(!p.getNomePai().equals("")){
 //               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() >= 3){
@@ -59,7 +61,6 @@ public class UpdateAluno {
         if(p.getTelefone().equals("") || p.getTelefone().length() != 14){
             return false;
         }
-        
         
         return new Update().updateAluno(p);
     }
