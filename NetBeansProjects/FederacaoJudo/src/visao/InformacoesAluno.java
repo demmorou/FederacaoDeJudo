@@ -6,7 +6,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import modelo.CadastrarAluno;
 import modelo.Pessoa;
-import modelo.VerificacoesInsercao;
+import modelo.UpdateAluno;
 
 /**
  *
@@ -415,9 +415,9 @@ public class InformacoesAluno extends javax.swing.JFrame {
         p.setDataOutorga(campoOurtoga.getText());
         p.setIdpessoa(getId());
         p.setGraduacaoAtual(campoGraduacao.getText());
-        p.setCatDiv("nao defined");
+        p.setCatDiv("nao definido");
         
-        if(!idade.getText().equals("  "))
+        if(!idade.getText().equals(""))
             p.setIdade(Integer.parseInt(idade.getText()));
         else
             p.setIdade(0);
@@ -429,7 +429,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
         
         p.setTelefone(campoTelefone.getText());
         
-        if (new Update().updateAluno(p)) 
+        if (new UpdateAluno().DadosCadastroAluno(p))
             JOptionPane.showMessageDialog(null, "Dados Alterados Com Sucesso!");
         else
             JOptionPane.showMessageDialog(null, "Por favor, Verifique se Você Preencheu os dados corretamente!","Aviso",JOptionPane.WARNING_MESSAGE);

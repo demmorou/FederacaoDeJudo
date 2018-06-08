@@ -19,7 +19,7 @@ public class Update {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE pessoa SET nome_completo = ?, nome_mae = ?, nome_pai = ?, graduacao_atual = ?, curriculun = ?, data_outorga = ?, telefone = ?, peso = ?, cat_div = ? WHERE Id_pessoa = ?");
+            stmt = con.prepareStatement("UPDATE pessoa SET nome_completo = ?, nome_mae = ?, nome_pai = ?, graduacao_atual = ?, curriculun = ?, data_outorga = ?, telefone = ?, peso = ?, idade = ?, cat_div = ? WHERE Id_pessoa = ?");
             
             stmt.setString(1, p.getNomeCompleto());
             stmt.setString(2, p.getNomeMae());
@@ -29,8 +29,9 @@ public class Update {
             stmt.setString(6, p.getDataOutorga());
             stmt.setString(7, p.getTelefone());
             stmt.setFloat(8, p.getPeso());
-            stmt.setString(9, p.getCatDiv());
-            stmt.setInt(10, p.getIdpessoa());
+            stmt.setInt(9, p.getIdade());
+            stmt.setString(10, p.getCatDiv());
+            stmt.setInt(11, p.getIdpessoa());
             
             stmt.executeUpdate();
                     
