@@ -3,6 +3,12 @@ package modelo;
 import controle.DAO;
 import controle.GetId;
 import controle.Update;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,6 +52,14 @@ public class UpdateAluno {
         if(p.getIdpessoa() < 1)
             return false;
         
+        try {
+            if(!new Update().verificaID(p.getIdpessoa())){
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
 //        if(!p.getNomePai().equals("")){
 //               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() >= 3){
 //                   
@@ -63,5 +77,22 @@ public class UpdateAluno {
         }
         
         return new Update().updateAluno(p);
+    }
+    
+    public boolean data(String s) {
+        
+       
+        
+       if(s.length() == 10){
+           
+           
+           
+       }
+       
+       return true;
+    }
+    
+    public static void main(String[] args){
+        System.out.println(new UpdateAluno().data("21/12/2012"));
     }
 }

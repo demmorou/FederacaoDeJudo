@@ -233,12 +233,12 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void campeonatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campeonatosActionPerformed
         // TODO add your handling code here:
-                dispose();
                 GerenciamentoCampeonato b = new GerenciamentoCampeonato();
                 b.setTitle("Tela Inicial");
                 b.setVisible(true);
                 b.setLocationRelativeTo(null);
                 b.setSize(1059, 608);
+                b.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_campeonatosActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed

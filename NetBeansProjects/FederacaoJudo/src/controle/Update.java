@@ -2,9 +2,8 @@ package controle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelo.Pessoa;
 
 /**
@@ -13,6 +12,22 @@ import modelo.Pessoa;
  */
 public class Update {
     
+    public boolean verificaID(int id) throws SQLException{
+    
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean b = false;
+        
+        stmt = con.prepareStatement("SELECT Id_pessoa FROM pessoa where Id_pessoa = "+id);
+        rs = stmt.executeQuery();
+        
+        while(rs.next()){
+            b = true;
+        }
+        
+        return b;
+    }
     public boolean updateAluno(Pessoa p){
     
         Connection con = ConnectionFactory.getConnection();

@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import modelo.ModeloTabela;
@@ -322,6 +323,7 @@ public class MenuBuscar extends javax.swing.JFrame {
                     ia.setTitle("Aluno");
                     ia.setVisible(true);
                     ia.setLocationRelativeTo(null);
+                    ia.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(MenuBuscar.class.getName()).log(Level.SEVERE, null, ex);
