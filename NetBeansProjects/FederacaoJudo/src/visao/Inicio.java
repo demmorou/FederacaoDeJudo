@@ -105,7 +105,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(70, 70, 70)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1175, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();
