@@ -2,8 +2,8 @@ package visao;
 
 import Gerar_Boleto.GerarBoleto;
 import controle.DAO;
-import controle.Update;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import modelo.CadastrarAluno;
 import modelo.Pessoa;
@@ -390,7 +390,9 @@ public class InformacoesAluno extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_alterarActionPerformed
-
+       
+   
+    
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -499,6 +501,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 InformacoesAluno ia;
                 ia = new InformacoesAluno();
@@ -506,7 +509,7 @@ public class InformacoesAluno extends javax.swing.JFrame {
                 ia.setVisible(true);
                 ia.setLocationRelativeTo(null);
 
-            }
+        }
         });
     }
 

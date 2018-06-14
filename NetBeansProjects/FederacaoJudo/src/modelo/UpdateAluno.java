@@ -21,11 +21,11 @@ public class UpdateAluno {
     
     public boolean DadosCadastroAluno(Pessoa p){
         
-        if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 12 || !new VerificarString().verificaString(p.getNomeCompleto())){
+        if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 12 || !new VerificarString().verificaString(p.getNomeCompleto()) || !p.getNomeCompleto().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
-        if(p.getNomeMae().equals("") || p.getNomeMae().length() < 12 || !new VerificarString().verificaString(p.getNomeMae())){
+        if(p.getNomeMae().equals("") || p.getNomeMae().length() < 12 || !new VerificarString().verificaString(p.getNomeMae()) || !p.getNomeMae().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
