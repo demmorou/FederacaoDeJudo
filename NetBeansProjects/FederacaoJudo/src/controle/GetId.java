@@ -40,7 +40,7 @@ public class GetId {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        int i = 1;
+        int i = 0;
         
         try {
             stmt = con.prepareStatement("SELECT Id_academia, nome_academia FROM academia WHERE nome_academia = '"+name_academia+"'");

@@ -264,6 +264,7 @@ public class CadastroAcademia extends javax.swing.JFrame {
         a.setNomeAcademia(nome_academia.getText());
         a.setNumero(Integer.parseInt(numero.getText()));
         a.setRua(rua.getText());
+        a.setEstado(estado.getText());
         
         if(new CadastrarAcademia().DadosCadastroAcademia(a))
             JOptionPane.showMessageDialog(null, "Cadastrado Com Sucesso!");

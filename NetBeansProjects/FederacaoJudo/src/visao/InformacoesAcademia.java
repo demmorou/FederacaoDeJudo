@@ -5,17 +5,28 @@
  */
 package visao;
 
+import controle.DAO;
+import controle.Delete;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author oziel
  */
 public class InformacoesAcademia extends javax.swing.JFrame {
-
+    private int id;
     /**
      * Creates new form InformaçõesAluno
      */
     public InformacoesAcademia() {
         initComponents();
+        campoBairro.setEditable(false);
+        campoCEP.setEditable(false);
+        campoCidade.setEditable(false);
+        campoEstado.setEditable(false);
+        campoNome.setEditable(false);
+        campoNumero.setEditable(false);
+        campoRua.setEditable(false);
         salvar.setEnabled(false);
     }
 
@@ -208,6 +219,14 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         
+        if (JOptionPane.showConfirmDialog(null,"Deseja Realmente Excluir Esta Academia?")==JOptionPane.OK_OPTION){
+            if(new Delete().deleteAcademia(getId()))
+                JOptionPane.showMessageDialog(null, "Operação Realizada Com Sucesso!");
+            else
+                JOptionPane.showMessageDialog(null, "Erro na Operação!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Operação Cancelada!");
+        }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
@@ -222,7 +241,13 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
         salvar.setEnabled(true);
-        
+        campoBairro.setEditable(true);
+        campoCEP.setEditable(true);
+        campoCidade.setEditable(true);
+        campoEstado.setEditable(true);
+        campoNome.setEditable(true);
+        campoNumero.setEditable(true);
+        campoRua.setEditable(true);
 
     }//GEN-LAST:event_alterarActionPerformed
 
@@ -287,13 +312,13 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterar;
-    private javax.swing.JTextField campoBairro;
-    private javax.swing.JTextField campoCEP;
-    private javax.swing.JTextField campoCidade;
-    private javax.swing.JTextField campoEstado;
-    private javax.swing.JTextField campoNome;
-    private javax.swing.JTextField campoNumero;
-    private javax.swing.JTextField campoRua;
+    public javax.swing.JTextField campoBairro;
+    public javax.swing.JTextField campoCEP;
+    public javax.swing.JTextField campoCidade;
+    public javax.swing.JTextField campoEstado;
+    public javax.swing.JTextField campoNome;
+    public javax.swing.JTextField campoNumero;
+    public javax.swing.JTextField campoRua;
     private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -306,4 +331,18 @@ public class InformacoesAcademia extends javax.swing.JFrame {
     private javax.swing.JButton sair;
     private javax.swing.JButton salvar;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 }

@@ -9,6 +9,7 @@ package visao;
 import controle.Buscar;
 import controle.ConnectionFactory;
 import controle.DAO;
+import controle.GetId;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -242,48 +243,48 @@ public class BuscarAcademia extends javax.swing.JFrame {
     }//GEN-LAST:event_voltar_botaoActionPerformed
 
     private void buscar_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_nomeActionPerformed
-        BuscarNomePessoa("nome_academia", nome_academia.getText());
+        preencherTabela("nome_academia", nome_academia.getText());
     }//GEN-LAST:event_buscar_nomeActionPerformed
 
     private void buscar_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_cidadeActionPerformed
-        BuscarNomePessoa("cidade", cidade.getText());
+        preencherTabela("cidade", cidade.getText());
     }//GEN-LAST:event_buscar_cidadeActionPerformed
 
     private void buscar_cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_cepActionPerformed
-        BuscarNomePessoa("cep", cep.getText());
+        preencherTabela("cep", cep.getText());
     }//GEN-LAST:event_buscar_cepActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
         if (table.getSelectedRow() != -1) {
 
             InformacoesAcademia ia = new InformacoesAcademia();
-            DAO dao = new DAO();
             
-            ResultSet rs = dao.BuscarNomePessoaAluno(table.getValueAt(table.getSelectedRow(), 0).toString());
-            int cont = 0;
+            int id = new GetId().getIDAcademia(table.getValueAt(table.getSelectedRow(), 0).toString());
             
-            try {
-                
-                while (rs.next()) {
-                    
-                }
-                if (cont != 0) {
-                    ia.setTitle("Academia");
-                    ia.setVisible(true);
-                    ia.setLocationRelativeTo(null);
-                    ia.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex);
+            if(id > 0){
+                ia.campoNome.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+                ia.campoCidade.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+                ia.campoRua.setText(table.getValueAt(table.getSelectedRow(), 2).toString());
+                ia.campoNumero.setText(table.getValueAt(table.getSelectedRow(), 3).toString());
+                ia.campoBairro.setText(table.getValueAt(table.getSelectedRow(), 4).toString());
+                ia.campoEstado.setText(table.getValueAt(table.getSelectedRow(), 5).toString());
+                ia.campoCEP.setText(table.getValueAt(table.getSelectedRow(), 6).toString());
+                ia.setId(id);
+                ia.setTitle("Academia");
+                ia.setLocationRelativeTo(null);
+                ia.setVisible(true);
+                ia.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Desculpe, Ocorreu um erro!");
             }
-
+            
         }
     }//GEN-LAST:event_tableMouseClicked
     
-    public void BuscarNomePessoa(String busca, String valor){
+    public void preencherTabela(String busca, String valor){
         
         ArrayList dados = new ArrayList();
-        String[] Colunas = new String[]{"Nome", "Cidade", "Rua", "Numero", "Bairro", "CEP"};
+        String[] Colunas = new String[]{"Nome", "Cidade", "Rua", "Numero", "Bairro", "Estado", "CEP"};
         ResultSet rs = null;
         int cont = 0;
         Buscar b = new Buscar();
@@ -293,7 +294,7 @@ public class BuscarAcademia extends javax.swing.JFrame {
             rs = b.buscarAcademia(busca, valor);
             
             while(rs.next()){
-                dados.add(new Object[]{rs.getString("nome_academia"), rs.getString("cidade"), rs.getString("rua"), rs.getInt("numero"), rs.getString("bairro"), rs.getString("cep")});
+                dados.add(new Object[]{rs.getString("nome_academia"), rs.getString("cidade"), rs.getString("rua"), rs.getInt("numero"), rs.getString("bairro"), rs.getString("estado"), rs.getString("cep")});
                 cont++;
             }
         } catch (SQLException ex) {
@@ -310,21 +311,24 @@ public class BuscarAcademia extends javax.swing.JFrame {
 
                 table.getColumnModel().getColumn(0).setPreferredWidth(200);
                 table.getColumnModel().getColumn(0).setResizable(false);
-
-                table.getColumnModel().getColumn(1).setPreferredWidth(200);
+                
+                table.getColumnModel().getColumn(1).setPreferredWidth(100);
                 table.getColumnModel().getColumn(1).setResizable(false);
 
                 table.getColumnModel().getColumn(2).setPreferredWidth(155);
                 table.getColumnModel().getColumn(2).setResizable(false);
 
-                table.getColumnModel().getColumn(3).setPreferredWidth(150);
+                table.getColumnModel().getColumn(3).setPreferredWidth(100);
                 table.getColumnModel().getColumn(3).setResizable(false);
 
-                table.getColumnModel().getColumn(4).setPreferredWidth(150);
+                table.getColumnModel().getColumn(4).setPreferredWidth(130);
                 table.getColumnModel().getColumn(4).setResizable(false);
                 
-                table.getColumnModel().getColumn(4).setPreferredWidth(120);
-                table.getColumnModel().getColumn(4).setResizable(false);
+                table.getColumnModel().getColumn(5).setPreferredWidth(90);
+                table.getColumnModel().getColumn(5).setResizable(false);
+                
+                table.getColumnModel().getColumn(6).setPreferredWidth(120);
+                table.getColumnModel().getColumn(6).setResizable(false);
 
                 table.getTableHeader().setReorderingAllowed(false);
                 table.setAutoResizeMode(table.AUTO_RESIZE_OFF);
