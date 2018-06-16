@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.Academia;
 import modelo.Pessoa;
 
 /**
@@ -51,6 +54,32 @@ public class Update {
             stmt.executeUpdate();
                     
         } catch (SQLException ex){
+            System.out.println(ex);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public boolean updateAcademia(Academia a){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("UPDATE academia SET estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, nome_academia = ?, cep = ? WHERE Id_academia = ?");
+            stmt.setString(1, a.getEstado());
+            stmt.setString(2, a.getCidade());
+            stmt.setString(3, a.getBairro());
+            stmt.setString(4, a.getRua());
+            stmt.setInt(5, a.getNumero());
+            stmt.setString(6, a.getNomeAcademia());
+            stmt.setString(7, a.getCep());
+            stmt.setInt(8, a.getIdacademia());
+            
+            stmt.executeUpdate();
+            
+        } catch (SQLException ex) {
             System.out.println(ex);
             return false;
         }

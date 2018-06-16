@@ -8,6 +8,8 @@ package visao;
 import controle.DAO;
 import controle.Delete;
 import javax.swing.JOptionPane;
+import modelo.Academia;
+import modelo.UpdateAcademia;
 
 /**
  *
@@ -253,6 +255,22 @@ public class InformacoesAcademia extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
 
+        Academia ac = new Academia();
+        
+        ac.setBairro(campoBairro.getText());
+        ac.setCep(campoCEP.getText());
+        ac.setCidade(campoCidade.getText());
+        ac.setEstado(campoEstado.getText());
+        ac.setIdacademia(getId());
+        ac.setNomeAcademia(campoNome.getText());
+        ac.setNumero(Integer.parseInt(campoNumero.getText()));
+        ac.setRua(campoRua.getText());
+        ac.setIdacademia(getId());
+        
+        if (new UpdateAcademia().dadosUpdateAcademia(ac))
+            JOptionPane.showMessageDialog(null, "Dados Alterados Com Sucesso!");
+        else
+            JOptionPane.showMessageDialog(null, "Por favor, Verifique se Você Preencheu os dados corretamente!","Aviso",JOptionPane.WARNING_MESSAGE);
         
     }//GEN-LAST:event_salvarActionPerformed
 

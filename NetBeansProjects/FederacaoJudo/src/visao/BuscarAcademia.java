@@ -234,12 +234,12 @@ public class BuscarAcademia extends javax.swing.JFrame {
 
     private void voltar_botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_botaoActionPerformed
         // TODO add your handling code here:
-                dispose();
-                TelaInicial b = new TelaInicial();
-                b.setTitle("Tela Inicial");
-                b.setVisible(true);
-                b.setLocationRelativeTo(null);
-                b.setSize(1059, 608);
+        dispose();
+        TelaInicial b = new TelaInicial();
+        b.setTitle("Tela Inicial");
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        b.setSize(1079, 658);
     }//GEN-LAST:event_voltar_botaoActionPerformed
 
     private void buscar_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_nomeActionPerformed
@@ -269,7 +269,9 @@ public class BuscarAcademia extends javax.swing.JFrame {
                 ia.campoBairro.setText(table.getValueAt(table.getSelectedRow(), 4).toString());
                 ia.campoEstado.setText(table.getValueAt(table.getSelectedRow(), 5).toString());
                 ia.campoCEP.setText(table.getValueAt(table.getSelectedRow(), 6).toString());
+                
                 ia.setId(id);
+                
                 ia.setTitle("Academia");
                 ia.setLocationRelativeTo(null);
                 ia.setVisible(true);
