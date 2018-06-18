@@ -36,11 +36,7 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getIdade() < 10 || p.getIdade() > 100){
-            return false;
-        }
-        
-        if(p.getCatDiv().equals("") || !p.getCatDiv().matches("[a-zA-Z\\s]+")){
+        if(p.getIdade() < 13 || p.getIdade() > 100){
             return false;
         }
         
@@ -82,6 +78,11 @@ public class CadastrarAluno {
         if(p.getStatusPag() < 0 || p.getStatusPag() > 1)
             return false;
         
+        if(p.getSexo().equals("M") || p.getSexo().equals("Masculino")){
+            p.setCatDiv(new Validar().categoria_masculina(p.getPeso(), p.getIdade()));
+        }else{
+            p.setCatDiv(new Validar().categoria_feminina(p.getPeso(), p.getIdade()));
+        }
         if(!new DAO().createPessoa(p)){
             return false;
         }else{

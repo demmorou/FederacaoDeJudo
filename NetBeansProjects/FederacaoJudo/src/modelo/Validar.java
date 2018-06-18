@@ -1,6 +1,4 @@
 package modelo;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
 public class Validar {
     public static boolean isCPF(String CPF) {
@@ -68,7 +66,7 @@ public class Validar {
         return cont;
     }
     
-    public static String categoria_masculina(float peso, int idade){
+    public String categoria_masculina(float peso, int idade){
         
         if ((peso <=36) && ((idade >= 13) && (idade <15))){
             return "S. Ligeiro/Sub 15";
@@ -125,54 +123,54 @@ public class Validar {
             // Categoria Pesado...Sub 18... peso + de 90 kg, idades entre 15-18 anos
             
             //Condições sub 21 <3 
-        }else if ((peso < 55) && ((idade >= 18) && (idade <20))){
+        }else if ((peso < 55) && ((idade >= 18) && (idade <=20))){
             return "S. Ligeiro/Sub 21";
             // Categoria S.Ligeiro...Sub 21... peso até 55 kg, idades entre 18-20 anos
-        } else if (((peso > 55) && (peso <=60)) && ((idade >= 18) && (idade <20))){
+        } else if (((peso > 55) && (peso <=60)) && ((idade >= 18) && (idade <=20))){
             return "Ligeiro/Sub 21";
             // Categoria Ligeiro...Sub 21... peso + de 55 ate 60 kg, idades entre 18-20 anos
-        }else if (((peso > 60) && (peso <=66)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 60) && (peso <=66)) && ((idade >= 18) && (idade <=20))){
             return "M. Leve/Sub 21";
             // Categoria M. Leve...Sub 21... peso + de 60 ate 66 kg, idades entre 18-20 anos
-        }else if (((peso > 66) && (peso <=73)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 66) && (peso <=73)) && ((idade >= 18) && (idade <=20))){
             return "Leve/Sub 21";
             // Categoria Leve...Sub 21... peso + de 66 ate 73 kg, idades entre 18-20 anos
-        }else if (((peso > 73) && (peso <=81)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 73) && (peso <=81)) && ((idade >= 18) && (idade <=20))){
             return "M. Medio/Sub 21";
             // Categoria M. Medio...Sub 21... peso + de 73 ate 81 kg, idades entre 18-20 anos
-        }else if (((peso > 81) && (peso <=90)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 81) && (peso <=90)) && ((idade >= 18) && (idade <=20))){
             return "Medio/Sub 21";
             // Categoria Medio...Sub 21... peso + de 81 ate 90 kg, idades entre 18-20 anos
-        }else if (((peso > 90) && (peso <=100)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 90) && (peso <=100)) && ((idade >= 18) && (idade <=20))){
             return "M. Pesado/Sub 21";
             // Categoria M. Pesado...Sub 21... peso + de 90 ate 100 kg, idades entre 18-20 anos
-        }else if ((peso > 100) && ((idade >= 18) && (idade <20))){
+        }else if ((peso > 100) && ((idade >= 18) && (idade <=20))){
             return "Pesado/Sub 21";
             // Categoria Pesado...Sub 21... peso + de 100 kg, idades entre 18-20 anos
             
             //Condições Senior
-        }else if ((peso < 55) && (idade > 21)){
+        }else if ((peso < 55) && (idade >= 21)){
             return "S. Ligeiro/Senior";
             // Categoria S.Ligeiro...Senior... peso até 55 kg, idades acima de 21 anos
-        } else if (((peso > 55) && (peso <=60)) && (idade > 21)){
+        } else if (((peso > 55) && (peso <=60)) && (idade >= 21)){
             return "Ligeiro/Senior";
             // Categoria Ligeiro...Senior... peso + de 55 ate 60 kg, idades acima de 21 anos
-        }else if (((peso > 60) && (peso <=66)) && (idade > 21)){
+        }else if (((peso > 60) && (peso <=66)) && (idade >= 21)){
             return "M. Leve/Senior";
             // Categoria M. Leve...Senior... peso + de 60 ate 66 kg, idades acima de 21 anos
-        }else if (((peso > 66) && (peso <=73)) && (idade > 21)){
+        }else if (((peso > 66) && (peso <=73)) && (idade >= 21)){
             return "Leve/Senior";
             // Categoria Leve...Senior... peso + de 66 ate 73 kg, idades acima de 21 anos
-        }else if (((peso > 73) && (peso <=81)) && (idade > 21)){
+        }else if (((peso > 73) && (peso <=81)) && (idade >= 21)){
             return "M. Medio/Senior";
             // Categoria M. Medio...Senior... peso + de 73 ate 81 kg, idades acima de 21 anos
-        }else if (((peso > 81) && (peso <=90)) && (idade > 21)){
+        }else if (((peso > 81) && (peso <=90)) && (idade >= 21)){
             return "Medio/Senior";
             // Categoria Medio...Senior... peso + de 81 ate 90 kg, idades acima de 21 anos
-        }else if (((peso > 90) && (peso <=100)) && (idade > 21)){
+        }else if (((peso > 90) && (peso <=100)) && (idade >= 21)){
             return "M. Pesado/Senior";
             // Categoria M. Pesado...Senior... peso + de 90 ate 100 kg, idades acima de 21 anos
-        }else if ((peso > 100) && (idade > 21)){
+        }else if ((peso > 100) && (idade >= 21)){
             return "Pesado/Senior";
             // Categoria Pesado...Senior... peso + de 100 kg, idades acima de 21 anos
         }
@@ -180,9 +178,9 @@ public class Validar {
         return "";
     }
     
-    public static String categoria_feminina(float peso, int idade){
+    public String categoria_feminina(float peso, int idade){
         
-        if ((peso <=36) && ((idade >= 13) && (idade <15))){
+        if (peso <=36 && (idade >= 13 && idade <15)){
             return "S. Ligeiro/Sub 15";
             // Categoria S.Ligeiro...Sub 15... peso até 36 kg, idades entre 13-14 anos
         }else if (((peso > 36) && (peso <=40)) && ((idade >= 13) && (idade <15))){
@@ -234,57 +232,58 @@ public class Validar {
             // Categoria Pesado...Sub 18... peso + de 70 kg, idades entre 15-18 anos
             
             //Condições sub 21 <3 
-        }else if ((peso < 44) && ((idade >= 18) && (idade <20))){
+        }else if ((peso < 44) && ((idade >= 18) && (idade <=20))){
             return "S. Ligeiro/Sub 21";
             // Categoria S.Ligeiro...Sub 21... peso até 44 kg, idades entre 18-20 anos
-        } else if (((peso > 44) && (peso <=48)) && ((idade >= 18) && (idade <20))){
+        } else if (((peso > 44) && (peso <=48)) && ((idade >= 18) && (idade <=20))){
             return "Ligeiro/Sub 21";
             // Categoria Ligeiro...Sub 21... peso + de 44 ate 48 kg, idades entre 18-20 anos
-        }else if (((peso > 48) && (peso <=52)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 48) && (peso <=52)) && ((idade >= 18) && (idade <=20))){
             return "M. Leve/Sub 21";
             // Categoria M. Leve...Sub 21... peso + de 48 ate 52 kg, idades entre 18-20 anos
-        }else if (((peso > 52) && (peso <=57)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 52) && (peso <=57)) && ((idade >= 18) && (idade <=20))){
             return "Leve/Sub 21";
             // Categoria Leve...Sub 21... peso + de 52 ate 57 kg, idades entre 18-20 anos
-        }else if (((peso > 57) && (peso <=63)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 57) && (peso <=63)) && ((idade >= 18) && (idade <=20))){
             return "M. Medio/Sub 21";
             // Categoria M. Medio...Sub 21... peso + de 57 ate 63 kg, idades entre 18-20 anos
-        }else if (((peso > 63) && (peso <=70)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 63) && (peso <=70)) && ((idade >= 18) && (idade <=20))){
             return "Medio/Sub 21";
             // Categoria Medio...Sub 21... peso + de 63 ate 70 kg, idades entre 18-20 anos
-        }else if (((peso > 70) && (peso <=78)) && ((idade >= 18) && (idade <20))){
+        }else if (((peso > 70) && (peso <=78)) && ((idade >= 18) && (idade <=20))){
             return "M. Pesado/Sub 21";
             // Categoria M. Pesado...Sub 21... peso + de 70 ate 78 kg, idades entre 18-20 anos
-        }else if ((peso > 78) && ((idade >= 18) && (idade <20))){
+        }else if ((peso > 78) && ((idade >= 18) && (idade <=20))){
             return "Pesado/Sub 21";
             // Categoria Pesado...Sub 21... peso + de 78 kg, idades entre 18-20 anos
             
             //Condições Senior
-        }else if ((peso < 44) && (idade > 21)){
+        }else if ((peso < 44) && (idade >= 21)){
             return "S. Ligeiro/Sub Senior";
             // Categoria S.Ligeiro...Senior... peso até 44 kg, idades acima de 21 anos
-        } else if (((peso > 44) && (peso <=48)) && (idade > 21)){
+        } else if (((peso > 44) && (peso <=48)) && (idade >= 21)){
             return "Ligeiro/Sub Senior";
             // Categoria Ligeiro...Senior... peso + de 44 ate 48 kg, idades acima de 21 anos
-        }else if (((peso > 48) && (peso <=52)) && (idade > 21)){
+        }else if (((peso > 48) && (peso <=52)) && (idade >= 21)){
             return "M. Leve/Sub Senior";
             // Categoria M. Leve...Senior... peso + de 48 ate 52 kg, idades acima de 21 anos
-        }else if (((peso > 52) && (peso <=57)) && (idade > 21)){
+        }else if (((peso > 52) && (peso <=57)) && (idade >= 21)){
             return "Leve/Sub Senior";
             // Categoria Leve...Senior... peso + de 52 ate 57 kg, idades acima de 21 anos
-        }else if (((peso > 57) && (peso <=63)) && (idade > 21)){
+        }else if (((peso > 57) && (peso <=63)) && (idade >= 21)){
             return "M. Medio/Sub Senior";
             // Categoria M. Medio...Senior... peso + de 57 ate 63 kg, idades acima de 21 anos
-        }else if (((peso > 63) && (peso <=70)) && (idade > 21)){
+        }else if (((peso > 63) && (peso <=70)) && (idade >= 21)){
             return "Medio/Sub Senior";
             // Categoria Medio...Senior... peso + de 63 ate 70 kg, idades acima de 21 anos
-        }else if (((peso > 70) && (peso <=78)) && (idade > 21)){
+        }else if (((peso > 70) && (peso <=78)) && (idade >= 21)){
             return "M. Pesado/Sub Senior";
             // Categoria M. Pesado...Senior... peso + de 70 ate 78 kg, idades acima de 21 anos
-        }else if ((peso > 78) && (idade > 21)){
+        }else if ((peso > 78) && (idade >= 21)){
             return "Pesado/Sub Senior";
             // Categoria Pesado...Senior... peso + de 78 kg, idades acima de 21 anos
         }
+        
         return "";
     }
 }

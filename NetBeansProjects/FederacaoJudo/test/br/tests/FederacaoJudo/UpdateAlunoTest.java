@@ -34,6 +34,7 @@ public class UpdateAlunoTest {
             
             p.setNomeCompleto("Deusimar Damiao de Sousa Monteiro");
             p.setNomeMae("Laurinda Diniz");
+            p.setSexo("Masculino");
             p.setNomePai("Damiao Jose de Sousa");
             p.setCatDiv("nao definido");
             p.setCurriculun("nenhum curriculun");
@@ -42,7 +43,7 @@ public class UpdateAlunoTest {
             p.setIdade(21);
             p.setPeso((float) 78.3);
             p.setTelefone("(89)99402-2722");
-            p.setIdpessoa(11); // Id_pessoa deve existir
+            p.setIdpessoa(22); // Id_pessoa deve existir
             
             assertTrue("Deveria passar", a.DadosCadastroAluno(p));
             

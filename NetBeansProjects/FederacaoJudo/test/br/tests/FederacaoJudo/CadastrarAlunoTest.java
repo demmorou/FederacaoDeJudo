@@ -31,7 +31,6 @@ public class CadastrarAlunoTest {
             p.setNomeCompleto("Deusimar Damiao de Sousa");
             p.setNomeMae("Laurinda Diniz");
             p.setNomePai("Damiao Jose de Sousa");
-            p.setCatDiv("nao definido");
             p.setCurriculun("nenhum curriculun");
             p.setDataOutorga("10/12/2014");
             p.setFoto3x4("sem foto");

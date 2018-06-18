@@ -22,28 +22,34 @@ public class UpdateAluno {
             return false;
         }
         
-        if(p.getPeso() < 10.0 || p.getPeso() > 500.0){
+        if(p.getPeso() < 15.0 || p.getPeso() > 500.0){
             return false;
         }
         
-        if(p.getDataOutorga().equals("") || p.getDataOutorga().length() != 10){
+        if(p.getDataOutorga().equals("") || p.getDataOutorga().length() != 10 || !new VerificarString().data(p.getDataOutorga())){
             return false;
         }
         
-        if(p.getIdade() < 10 || p.getIdade() > 100){
+        if(p.getIdade() < 13 || p.getIdade() > 100){
             return false;
         }
         
-        if(p.getCurriculun().equals("")){
+        if(p.getCurriculun().equals("") || p.getCurriculun().length() < 2 || p.getCurriculun().length() > 80){
             return false;
         }
         
-        if(p.getGraduacaoAtual().equals("")){
+        if(p.getGraduacaoAtual().equals("") || !p.getGraduacaoAtual().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
         if(p.getIdpessoa() < 1)
             return false;
+        
+        if(p.getSexo().equals("M") || p.getSexo().equals("Masculino")){
+            p.setCatDiv(new Validar().categoria_masculina(p.getPeso(), p.getIdade()));
+        }else{
+            p.setCatDiv(new Validar().categoria_feminina(p.getPeso(), p.getIdade()));
+        }
         
         try {
             if(!new Update().verificaID(p.getIdpessoa())){
@@ -72,20 +78,4 @@ public class UpdateAluno {
         return new Update().updateAluno(p);
     }
     
-    public boolean data(String s) {
-        
-       
-        
-       if(s.length() == 10){
-           
-           
-           
-       }
-       
-       return true;
-    }
-    
-    public static void main(String[] args){
-        System.out.println(new UpdateAluno().data("21/12/2012"));
-    }
 }
