@@ -42,7 +42,7 @@ public class UpdateAlunoTest {
             p.setIdade(21);
             p.setPeso((float) 78.3);
             p.setTelefone("(89)99402-2722");
-            p.setIdpessoa(22); // Id_pessoa deve existir
+            p.setIdpessoa(11); // Id_pessoa deve existir
             
             assertTrue("Deveria passar", a.DadosCadastroAluno(p));
             
@@ -287,6 +287,44 @@ public class UpdateAlunoTest {
             p.setIdade(21);
             p.setPeso((float) 78.3);
             p.setTelefone("2722");
+            p.setIdpessoa(10);
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeInvalido(){
+            
+            p.setNomeCompleto("Deusimar/ Damiao de Sousa Monteiro");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10);
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeCurto(){
+            
+            p.setNomeCompleto("Deusimar");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
             p.setIdpessoa(10);
             
             assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
