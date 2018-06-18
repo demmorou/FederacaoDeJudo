@@ -312,28 +312,6 @@ public class CadastrarAlunoTest {
         }
         
         @Test
-        public void testDivisaoAlunoEmBranco(){
-            
-            p.setNomeCompleto("Deusimar Damiao de Sousa");
-            p.setNomeMae("Laurinda Diniz");
-            p.setNomePai("Damiao Jose de Sousa");
-            p.setCatDiv("");
-            p.setCurriculun("nenhum curriculun");
-            p.setDataOutorga("10/12/2014");
-            p.setFoto3x4("sem foto");
-            p.setGraduacaoAtual("estudando");
-            p.setIdade(21);
-            p.setPeso((float) 78.3);
-            p.setSexo("M");
-            p.setStatusPag(0);
-            p.setTelefone("(89)99402-2722");
-            p.setCpf("60985117303");
-            
-            assertFalse("Nao Deveria passar", a.DadosCadastroAluno(p, "Academia Sol"));
-            
-        }
-        
-        @Test
         public void testCurriculunExecedeTamanho(){
             
             p.setNomeCompleto("Deusimar Damiao de Sousa");

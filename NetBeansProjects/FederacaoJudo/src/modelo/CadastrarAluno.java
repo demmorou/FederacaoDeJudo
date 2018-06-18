@@ -83,6 +83,7 @@ public class CadastrarAluno {
         }else{
             p.setCatDiv(new Validar().categoria_feminina(p.getPeso(), p.getIdade()));
         }
+        
         if(!new DAO().createPessoa(p)){
             return false;
         }else{
