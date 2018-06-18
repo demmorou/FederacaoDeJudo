@@ -101,7 +101,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         idade = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##");
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
             idade = new javax.swing.JFormattedTextField(data);
         }
         catch (Exception e){
@@ -249,7 +249,7 @@ public final class CadastroAluno extends javax.swing.JFrame {
 
         jLabel19.setText("Academia: ");
 
-        jLabel20.setText("Idade*");
+        jLabel20.setText("Data de Nascimento*");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -467,8 +467,8 @@ public final class CadastroAluno extends javax.swing.JFrame {
         p.setFoto3x4(path_imagem.getText());
         p.setGraduacaoAtual(graduacao.getText());
         
-        if(!idade.getText().equals("  "))
-            p.setIdade(Integer.parseInt(idade.getText()));
+        if(idade.getText().length() == 10 && new VerificarString().data(idade.getText()))
+            p.setIdade(new VerificarString().calcularIdade(idade.getText()));
         else
             p.setIdade(0);
         
