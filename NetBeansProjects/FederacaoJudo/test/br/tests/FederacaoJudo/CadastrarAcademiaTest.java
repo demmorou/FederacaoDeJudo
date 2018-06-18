@@ -337,10 +337,84 @@ public class CadastrarAcademiaTest {
             ac.setEstado("Piauí");
             ac.setNomeAcademia("Academia Sol");
             ac.setNumero(4045);
-            ac.setRua("Av. Senador Helvídio Nunes**");
+            ac.setRua("Av. Senador Helvdio Nunes**");
             
             assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
             
         }
         
+        @Test
+        public void testCadastroAcademiaRuaGrande(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piaui");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av Senador Helvidio Nunes Major Carlos De Oliveira Centro");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaBairroGrande(){
+            
+            ac.setBairro("Junco Centro Serranopolis Nossa Senhora das Merces");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piaui");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av Senador Helvidio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaCidadeGrande(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos Jaicos Geminiano Patos Fortaleza Terezina Natal");
+            ac.setEstado("Piaui");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av Senador Helvidio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaEstadoGrande(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piaui Ceara Sao Paulo Rio Grande Do Sul Parana Amazonas");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av Senador Helvidio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaNomeGrande(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piaui");
+            ac.setNomeAcademia("Academia de Judo Do Sol Nascente Do Piaui");
+            ac.setNumero(4045);
+            ac.setRua("Av Senador Helvidio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
 }
