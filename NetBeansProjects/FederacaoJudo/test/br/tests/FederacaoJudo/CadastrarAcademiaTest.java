@@ -34,10 +34,10 @@ public class CadastrarAcademiaTest {
             ac.setBairro("Junco");
             ac.setCep("64607-755");
             ac.setCidade("Picos");
-            ac.setEstado("Piauí");
+            ac.setEstado("Piaui");
             ac.setNomeAcademia("Academia Sol");
             ac.setNumero(4045);
-            ac.setRua("Av. Senador Helvídio Nunes");
+            ac.setRua("Av Senador Helvidio Nunes");
             
             assertTrue("Deveria Passar", a.DadosCadastroAcademia(ac));
             
@@ -162,4 +162,185 @@ public class CadastrarAcademiaTest {
             assertFalse("Nao Deveria Passar", a.DadosCadastroAcademia(ac));
             
         }
+        
+        @Test
+        public void testCadastroAcademiaBairroVazio(){
+            
+            ac.setBairro("");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaCepVazio(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaCidadeVazio(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaEstadoVazio(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaNomeVazio(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaNumeroGrande(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(1000000);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaRuaVazio(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaNomeComCaracEspecial(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol+");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaBairroComCaracEspecial(){
+            
+            ac.setBairro("Junco#");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaCidadeComCaracEspecial(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos**");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaEstadoComCaracEspecial(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí**");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
+        @Test
+        public void testCadastroAcademiaRuaComCaracEspecial(){
+            
+            ac.setBairro("Junco");
+            ac.setCep("64607-755");
+            ac.setCidade("Picos");
+            ac.setEstado("Piauí");
+            ac.setNomeAcademia("Academia Sol");
+            ac.setNumero(4045);
+            ac.setRua("Av. Senador Helvídio Nunes**");
+            
+            assertFalse("Deveria Passar", a.DadosCadastroAcademia(ac));
+            
+        }
+        
 }
