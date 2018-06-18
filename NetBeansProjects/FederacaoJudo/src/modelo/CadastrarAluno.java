@@ -16,11 +16,11 @@ public class CadastrarAluno {
     
     public boolean DadosCadastroAluno(Pessoa p, String nome_academia){
         
-        if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 12 || !new VerificarString().verificaString(p.getNomeCompleto())){
+        if(p.getNomeCompleto().equals("") || p.getNomeCompleto().length() < 2 || p.getNomeCompleto().length() > 80 || !new VerificarString().verificaString(p.getNomeCompleto()) || !p.getNomeCompleto().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
-        if(p.getNomeMae().equals("") || p.getNomeMae().length() < 12 || !new VerificarString().verificaString(p.getNomeMae())){
+        if(p.getNomeMae().equals("") || p.getNomeMae().length() < 2 || p.getNomeMae().length() > 80 || !new VerificarString().verificaString(p.getNomeMae()) || !p.getNomeMae().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
@@ -28,11 +28,11 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getPeso() < 10.0 || p.getPeso() > 500.0){
+        if(p.getPeso() < 15.0 || p.getPeso() > 500.0){
             return false;
         }
         
-        if(p.getDataOutorga().equals("") || p.getDataOutorga().length() != 10){
+        if(p.getDataOutorga().equals("") || p.getDataOutorga().length() != 10 || !new VerificarString().data(p.getDataOutorga())){
             return false;
         }
         
@@ -40,11 +40,11 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getCatDiv().equals("")){
+        if(p.getCatDiv().equals("") || !p.getCatDiv().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
-        if(p.getCurriculun().equals("")){
+        if(p.getCurriculun().equals("") || p.getCurriculun().length() < 2 || p.getCurriculun().length() > 80){
             return false;
         }
         
@@ -52,31 +52,30 @@ public class CadastrarAluno {
             return false;
         }
         
-        if(p.getGraduacaoAtual().equals("")){
+        if(p.getGraduacaoAtual().equals("") || !p.getGraduacaoAtual().matches("[a-zA-Z\\s]+")){
             return false;
         }
         
-        if(p.getSexo().equals("")){
+        if(p.getSexo().equals("") || !p.getSexo().matches("[a-zA-Z\\s]+") || (p.getSexo().length() != 1 && p.getSexo().length() != 9)){
             return false;
         }
         
         if(!p.getNomePai().equals("")){
-               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() >= 3){
+               if(new VerificarString().verificaString(p.getNomePai()) && p.getNomePai().length() >= 2 && p.getNomePai().matches("[a-zA-Z\\s]+") && p.getNomePai().length() <= 80){
+                   
+               }else if (p.getNomePai().equals("---")){
                    
                }else{
                    return false;
                }
         }
         
-        if(p.getNomePai().equals("")){
-            return false;
-        }
         
         if(p.getTelefone().equals("") || p.getTelefone().length() != 14){
             return false;
         }
         
-        if(nome_academia.equals("")){
+        if(nome_academia.equals("") || !nome_academia.matches("[a-zA-Z\\s]+")){
             return false;
         }
         
