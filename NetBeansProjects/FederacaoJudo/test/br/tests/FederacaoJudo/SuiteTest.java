@@ -11,7 +11,9 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
   CadastrarAlunoTest.class,
   CadastrarAcademiaTest.class,
-  CadastrarProfessorTest.class
+  CadastrarProfessorTest.class,
+  UpdateAcademiaTest.class,
+  UpdateAlunoTest.class
 })
 public class SuiteTest {
 

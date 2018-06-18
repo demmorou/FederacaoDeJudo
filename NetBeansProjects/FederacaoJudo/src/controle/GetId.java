@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +27,7 @@ public class GetId {
                 i = rs.getInt("Id_pessoa");
             }
         } catch (SQLException ex) {
+            System.out.println(ex);
             return -1;
         }
 

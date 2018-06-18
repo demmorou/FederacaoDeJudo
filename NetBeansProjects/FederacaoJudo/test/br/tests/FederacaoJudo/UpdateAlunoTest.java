@@ -42,7 +42,7 @@ public class UpdateAlunoTest {
             p.setIdade(21);
             p.setPeso((float) 78.3);
             p.setTelefone("(89)99402-2722");
-            p.setIdpessoa(10); // Id_pessoa deve existir
+            p.setIdpessoa(22); // Id_pessoa deve existir
             
             assertTrue("Deveria passar", a.DadosCadastroAluno(p));
             
@@ -87,7 +87,45 @@ public class UpdateAlunoTest {
         }
         
         @Test
-        public void testUpdateAlunoNomeInvalido(){
+        public void testUpdateAlunoNomeComNumero(){
+            
+            p.setNomeCompleto("Deusimar1 Damiao de Sousa Monteiro");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10);
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeEmBranco(){
+            
+            p.setNomeCompleto("");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10);
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeCaractereEspecial(){
             
             p.setNomeCompleto("Deusimar/ Damiao de Sousa Monteiro");
             p.setNomeMae("Laurinda Diniz");
@@ -104,7 +142,6 @@ public class UpdateAlunoTest {
             assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
             
         }
-        
         
         public void testUpdateAlunoNomePaiInvalido(){
             
@@ -124,11 +161,67 @@ public class UpdateAlunoTest {
             
         }
         
+        public void testUpdateAlunoNomePaiComNumero(){
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa Monteiro");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao2 Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10); 
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
         @Test
         public void testUpdateAlunoNomeMaeInvalido(){
             
             p.setNomeCompleto("Deusimar Damiao de Sousa Monteiro");
             p.setNomeMae("Laurinda+ Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10); 
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeMaeComNumero(){
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa Monteiro");
+            p.setNomeMae("Laurinda1 Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setTelefone("(89)99402-2722");
+            p.setIdpessoa(10); 
+            
+            assertFalse("Não Deveria passar", a.DadosCadastroAluno(p));
+            
+        }
+        
+        @Test
+        public void testUpdateAlunoNomeMaeEmBranco(){
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa Monteiro");
+            p.setNomeMae("Laurinda1 Diniz");
             p.setNomePai("Damiao Jose de Sousa");
             p.setCatDiv("nao definido");
             p.setCurriculun("nenhum curriculun");

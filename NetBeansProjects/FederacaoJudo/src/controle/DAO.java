@@ -81,6 +81,7 @@ public class DAO {
             stmt.executeUpdate();
             
         } catch (SQLException ex) {
+            System.out.println(ex);
             return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);
@@ -156,6 +157,7 @@ public class DAO {
             stmt.executeUpdate();
             
         } catch (SQLException ex) {
+            System.out.println(ex);
             return false;
         }finally{
             ConnectionFactory.closeConection(con, stmt);

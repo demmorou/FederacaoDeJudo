@@ -35,7 +35,7 @@ public class CadastrarAcademiaTest {
             ac.setCep("64607-755");
             ac.setCidade("Picos");
             ac.setEstado("Piauí");
-            ac.setNomeAcademia("Academia Do Vale");
+            ac.setNomeAcademia("Academia Sol");
             ac.setNumero(4045);
             ac.setRua("Av. Senador Helvídio Nunes");
             
