@@ -66,7 +66,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testCadastroProfessorInvalido(){
+        public void testCadastroProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -92,7 +92,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testNomeProfessorInvalido(){
+        public void testNomeProfessorComNumero(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -113,12 +113,117 @@ public class CadastrarProfessorTest {
             p.setTelefone("(89)99402-2722");
             p.setCpf("60985117303");
             
+            assertFalse("Nao Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testNomeProfessorEmBranco(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Nao Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testNomeProfessorCaractereEspecial(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao #");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Nao Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testNomeProfessorExcedeCaractere(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar  Damiao de Sousa Alencar Fontes Macedo de Carvalho de Sousa Alencar Fontes Macedo de Carvalho");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Nao Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        
+        @Test
+        public void testNomeMaeProfessorEmBranco(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
             assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
             
         }
         
         @Test
-        public void testNomeMaeProfessorInvalido(){
+        public void testNomeMaeProfessorComNumero(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -144,7 +249,59 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testNomePaiProfessorInvalido(){
+        public void testNomeMaeProfessorCaractereEspecial(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz#");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testNomeMaeProfessorExcedeCaractere(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz Sousa Macedo Carvalho Fontes de Alencar Macedo Carvalho Fontes de Alencar");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testNomePaiProfessorComNumero(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -170,7 +327,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testDivisaoProfessorInvalido(){
+        public void testNomePaiProfessorCaractereEspecial(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -178,8 +335,8 @@ public class CadastrarProfessorTest {
             
             p.setNomeCompleto("Deusimar Damiao de Sousa");
             p.setNomeMae("Laurinda Diniz");
-            p.setNomePai("Damiao Jose de Sousa");
-            p.setCatDiv("");
+            p.setNomePai("Damiao Jose de# Sousa");
+            p.setCatDiv("nao definido");
             p.setCurriculun("nenhum curriculun");
             p.setDataOutorga("10/12/2014");
             p.setFoto3x4("sem foto");
@@ -196,7 +353,33 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testCurriculunProfessorInvalido(){
+        public void testNomePaiProfessorExcedeCaractere(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de# Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nenhum curriculun");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testCurriculunProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -222,7 +405,33 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testDataOurtogaProfessorInvalido(){
+        public void testCurriculunProfessorExcedeTamanho(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("estudou em todos os estados brasileiros. estudou na china, nos estados unidos da america, no canada, na argentina, no uruguai");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testDataOurtogaProfessorInvalida(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -248,7 +457,33 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testFotoProfessorInvalido(){
+        public void testDataOurtogaProfessorEmBranco(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("estudando");
+            p.setIdade(21);
+            p.setPeso((float) 78.3);
+            p.setSexo("M");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testFotoProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -274,7 +509,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testGraducaoProfessorInvalido(){
+        public void testGraducaoProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -352,7 +587,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testSexoProfessorInvalido(){
+        public void testSexoProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -369,6 +604,58 @@ public class CadastrarProfessorTest {
             p.setIdade(21);
             p.setPeso((float) 0.3);
             p.setSexo("");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testSexoProfessorComNumero(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("sem graduacao");
+            p.setIdade(21);
+            p.setPeso((float) 0.3);
+            p.setSexo("Masculin0");
+            p.setStatusPag(0);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testSexoProfessorCaractereEspecial(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("sem graduacao");
+            p.setIdade(21);
+            p.setPeso((float) 0.3);
+            p.setSexo("Masculin#");
             p.setStatusPag(0);
             p.setTelefone("(89)99402-2722");
             p.setCpf("60985117303");
@@ -456,7 +743,7 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testCrefProfessorInvalido(){
+        public void testCrefProfessorMaior(){
             
             pr.setCref(12345);
             pr.setLocaisDeTrabalho("nunca trabalhou");
@@ -482,7 +769,33 @@ public class CadastrarProfessorTest {
         }
         
         @Test
-        public void testLocaisTrabalhoProfessorInvalido(){
+        public void testCrefProfessorMenor(){
+            
+            pr.setCref(123);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("sem graduacao");
+            p.setIdade(21);
+            p.setPeso((float) 10.3);
+            p.setSexo("M");
+            p.setStatusPag(1);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testLocaisTrabalhoProfessorEmBranco(){
             
             pr.setCref(1234);
             pr.setLocaisDeTrabalho("");
@@ -498,6 +811,32 @@ public class CadastrarProfessorTest {
             p.setGraduacaoAtual("sem graduacao");
             p.setIdade(21);
             p.setPeso((float) 10.3);
+            p.setSexo("M");
+            p.setStatusPag(1);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
+        
+        @Test
+        public void testLocaisTrabalhoProfessorExcedeTamanho(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("trabalhou em todos os estados brasileiros. trabalhou na china, nos estados unidos da america, no canada, na argentina, no uruguai");
+            pr.setVinculoComAcademia("professor");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("sem graduacao");
+            p.setIdade(21);
+            p.setPeso((float) 70.3);
             p.setSexo("M");
             p.setStatusPag(1);
             p.setTelefone("(89)99402-2722");
@@ -533,6 +872,30 @@ public class CadastrarProfessorTest {
             
         }
         
-        
+        @Test
+        public void testTipoVinculoProfessorEmBranco(){
+            
+            pr.setCref(1234);
+            pr.setLocaisDeTrabalho("nunca trabalhou");
+            pr.setVinculoComAcademia("");
+            
+            p.setNomeCompleto("Deusimar Damiao de Sousa");
+            p.setNomeMae("Laurinda Diniz");
+            p.setNomePai("Damiao Jose de Sousa");
+            p.setCatDiv("nao definido");
+            p.setCurriculun("nao definido");
+            p.setDataOutorga("10/12/2014");
+            p.setFoto3x4("sem foto");
+            p.setGraduacaoAtual("sem graduacao");
+            p.setIdade(21);
+            p.setPeso((float) 10.3);
+            p.setSexo("M");
+            p.setStatusPag(1);
+            p.setTelefone("(89)99402-2722");
+            p.setCpf("60985117303");
+            
+            assertFalse("Deveria passar", a.DadosCadastroProfessor(p, pr, "Academia Sol"));
+            
+        }
         
 }
